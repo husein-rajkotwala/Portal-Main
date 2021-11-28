@@ -1,0 +1,255 @@
+﻿<Project ToolsVersion="16.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BD02E39-1609-4CC7-92FE-BD8EC463AA7C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CCQ_Portal</RootNamespace>
+    <AssemblyName>CCQ-Portal</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetOfficeVersion>19.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>14.1</MinimumOfficeToolsVersion>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCWeather.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCWeather.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx.cs">
+      <DependentUpon>UCLanguageSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx.designer.cs">
+      <DependentUpon>UCLanguageSwitcher.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCPrayerTime.ascx.cs">
+      <DependentUpon>UCPrayerTime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCPrayerTime.ascx.designer.cs">
+      <DependentUpon>UCPrayerTime.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCTopMenu.ascx.cs">
+      <DependentUpon>UCTopMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCTopMenu.ascx.designer.cs">
+      <DependentUpon>UCTopMenu.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCWeather.ascx.cs">
+      <DependentUpon>UCWeather.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCWeather.ascx.designer.cs">
+      <DependentUpon>UCWeather.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HTTPModules\HTTPSwitcherModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webparts\Home\CCQStandards\App_LocalResources\CCQStandardsUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCQStandardsUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQStandards\CCQStandards.cs" />
+    <Compile Include="Webparts\Home\CCQStandards\CCQStandardsUserControl.ascx.cs">
+      <DependentUpon>CCQStandardsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQStandards\CCQStandardsUserControl.ascx.designer.cs">
+      <DependentUpon>CCQStandardsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageSliderUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\ImageSlider\ImageSlider.cs" />
+    <Compile Include="Webparts\Home\ImageSlider\ImageSliderUserControl.ascx.cs">
+      <DependentUpon>ImageSliderUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\ImageSlider\ImageSliderUserControl.ascx.designer.cs">
+      <DependentUpon>ImageSliderUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\MediaCenter\Events\Events.cs" />
+    <Compile Include="Webparts\MediaCenter\Events\EventsUserControl.ascx.cs">
+      <DependentUpon>EventsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\MediaCenter\Events\EventsUserControl.ascx.designer.cs">
+      <DependentUpon>EventsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3bb81ae0-9389-4110-b5c3-3a7c4f7e0f6d}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{69ccf07f-848b-41af-8c4c-e017ea181794}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{420b7e6b-a67f-461e-82c3-f9f9c6d592ba}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Scripts\Jquery\jquery-3.5.1.min.map" />
+    <None Include="Scripts\Jquery\jquery-3.5.1.slim.min.map" />
+    <None Include="Webparts\Home\CCQStandards\CCQStandards.webpart" />
+    <None Include="Webparts\Home\CCQStandards\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1cf21e0f-12d4-4187-9fe6-f47f83e216e5}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\ImageSlider\ImageSlider.webpart" />
+    <None Include="Webparts\Home\ImageSlider\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{09d68065-b5df-40f4-a4ac-b8c536b1c8b8}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\MediaCenter\Events\Events.webpart" />
+    <None Include="Webparts\MediaCenter\Events\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3bcb474f-0cf4-4ce5-bede-d2dffb79b451}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCPrayerTime.ascx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCTopMenu.ascx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCWeather.ascx" />
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Content\themes\base\accordion.css" />
+    <Content Include="Scripts\Content\themes\base\all.css" />
+    <Content Include="Scripts\Content\themes\base\autocomplete.css" />
+    <Content Include="Scripts\Content\themes\base\base.css" />
+    <Content Include="Scripts\Content\themes\base\button.css" />
+    <Content Include="Scripts\Content\themes\base\core.css" />
+    <Content Include="Scripts\Content\themes\base\datepicker.css" />
+    <Content Include="Scripts\Content\themes\base\dialog.css" />
+    <Content Include="Scripts\Content\themes\base\draggable.css" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\jquery-ui.css" />
+    <Content Include="Scripts\Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Scripts\Content\themes\base\menu.css" />
+    <Content Include="Scripts\Content\themes\base\progressbar.css" />
+    <Content Include="Scripts\Content\themes\base\resizable.css" />
+    <Content Include="Scripts\Content\themes\base\selectable.css" />
+    <Content Include="Scripts\Content\themes\base\selectmenu.css" />
+    <Content Include="Scripts\Content\themes\base\slider.css" />
+    <Content Include="Scripts\Content\themes\base\sortable.css" />
+    <Content Include="Scripts\Content\themes\base\spinner.css" />
+    <Content Include="Scripts\Content\themes\base\tabs.css" />
+    <Content Include="Scripts\Content\themes\base\theme.css" />
+    <Content Include="Scripts\Content\themes\base\tooltip.css" />
+    <Content Include="Scripts\Helpers\Common.js" />
+    <Content Include="Scripts\Helpers\JavaScriptHelpers.js" />
+    <Content Include="Scripts\Helpers\RestAPIHelpers.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\Jquery\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\Jquery\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\Shared\JsConfigs.js" />
+    <Content Include="Webparts\Home\CCQStandards\CCQStandardsUserControl.ascx" />
+    <Content Include="Webparts\Home\CCQStandards\Elements.xml" />
+    <Content Include="Webparts\Home\ImageSlider\Elements.xml" />
+    <Content Include="Webparts\Home\ImageSlider\ImageSliderUserControl.ascx" />
+    <Content Include="Webparts\MediaCenter\Events\Elements.xml" />
+    <Content Include="Webparts\MediaCenter\Events\EventsUserControl.ascx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCWeather.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UCWeather.ascx.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCWeather.ascx.ar-SA.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Webparts\Home\CCQStandards\App_LocalResources\CCQStandardsUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\Home\CCQStandards\App_LocalResources\CCQStandardsUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCQStandardsUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImageSliderUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webparts\MediaCenter\Events\App_LocalResources\EventsUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\MediaCenter\Events\App_LocalResources\EventsUserControl.ascx.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

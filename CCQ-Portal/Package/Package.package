@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="420b7e6b-a67f-461e-82c3-f9f9c6d592ba" solutionId="420b7e6b-a67f-461e-82c3-f9f9c6d592ba" resetWebServer="false" sharePointProductVersion="19.0" name="CCQ_Portal" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="69ccf07f-848b-41af-8c4c-e017ea181794" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="3bb81ae0-9389-4110-b5c3-3a7c4f7e0f6d" />
+  </projectItems>
+</package>

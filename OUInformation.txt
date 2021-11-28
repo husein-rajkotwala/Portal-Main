@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color:#00008B!important;padding-left:500px">
+<div class="container-fluid">
+
+ <div class="collapse navbar-collapse" id="main_nav">
+  <ul class="navbar-nav" id="ulMainNav"><li><a class="dropdown-item" href="#">Organization</a></li><li><a class="dropdown-item" href="#">Resources</a></li><li><a class="dropdown-item" href="#">Services</a></li><li><a class="dropdown-item" href="#">Forum/Community</a></li><li><a class="dropdown-item" href="#">Media Gallery</a></li></ul>
+</div>
+<!-- navbar-collapse.// -->
+</div>
+<!-- container-fluid.// -->
+</nav>
+
+
+CN=201404781,OU=2014,OU=Students Azure,OU=Current,OU=Students,DC=tccq,DC=edu,DC=qa
+CN=nithin.Prem,OU=Application & Solutions,OU=Information Technology Dept,OU=President,OU=CCQ Departments,DC=tccq,DC=edu,DC=qa
+CN=Robert.Ford,OU=Libral Arts Division,OU=VP for Academic & Student Affairs,OU=President,OU=CCQ Departments,DC=tccq,DC=edu,DC=qa-Academic Staff
+CN=Ameera.Nasser,OU=Enrollment Management Section,OU=Admission & Registration Dept,OU=Student Affairs Division,OU=VP for Academic & Student Affairs,OU=President,OU=CCQ Departments,DC=tccq,DC=edu,DC=qa--Academic Staff
+
+CN=Dana AlBayyari,OU=Human Resource Dept,OU=Chief Operations Officer,OU=President,OU=CCQ Departments,DC=tccq,DC=edu,DC=qa--Admin Staff

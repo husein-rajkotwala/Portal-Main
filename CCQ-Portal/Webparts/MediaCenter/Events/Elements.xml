@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="Events" List="113" Url="_catalogs/wp">
+    <File Path="Events\Events.webpart" Url="CCQ-Portal_Events.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Media Center" />
+    </File>
+  </Module>
+</Elements>
