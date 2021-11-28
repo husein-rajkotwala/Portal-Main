@@ -84,7 +84,7 @@ nav > div a.nav-item.nav-link:focus
     var GoalsTitle = "CCQ Goals";
     var ID = "";
     var goalTabArr = [];
-   
+    
    
     $(document).ready(function () {
         getGoals();
@@ -134,11 +134,12 @@ nav > div a.nav-item.nav-link:focus
                     var result = goalTabArr.filter(x => x.GoalType === item.GoalType.TitleEn);
                     if (result.length == 0) {
                         if (index == 0) {
-                            goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true"><img alt="Qries" src="http://portal-01t.tccq.edu.qa/Style%20Library/Images/Vision.jfif" width = 150" height="70"/></a>';
+                            //goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true"></a>';
+                            goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true" style="background-image:url('++')"></a>';
 
                         }
                         else {
-                            goalsTabHtml += '<a class="nav-item nav-link" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true">' + item.GoalType.TitleEn + '<img alt="Qries" src="http://portal-01t.tccq.edu.qa/Style%20Library/Images/Vision.jpg" width = 150" height="70"/></a>';
+                            goalsTabHtml += '<a class="nav-item nav-link" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true">' + item.GoalType.TitleEn + '</a>';
 
                             if (goalTabArr.length == 1) {
                                 navtabsHtml += '<div class="tab-pane fade show active" id="nav-' + goalTabArr[goalTabArr.length - 1].GoalType + '" role="tabpanel" aria-labelledby="nav-' + goalTabArr[goalTabArr.length - 1].GoalType + '-tab"><div class="m-4"><div class="accordion" id="myAccordion' + index + '">' + accordionHtml + '</div></div></div>';
