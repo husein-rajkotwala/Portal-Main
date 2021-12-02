@@ -91,18 +91,13 @@
     </Compile>
     <Compile Include="HTTPModules\HTTPSwitcherModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Webparts\Home\CCQStandards\App_LocalResources\CCQStandardsUserControl.ascx.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CCQStandardsUserControl.ascx.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Webparts\Home\CCQStandards\CCQStandards.cs" />
-    <Compile Include="Webparts\Home\CCQStandards\CCQStandardsUserControl.ascx.cs">
-      <DependentUpon>CCQStandardsUserControl.ascx</DependentUpon>
+    <Compile Include="Webparts\Home\CCQGoals\CCQGoals.cs" />
+    <Compile Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx.cs">
+      <DependentUpon>CCQGoalsUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webparts\Home\CCQStandards\CCQStandardsUserControl.ascx.designer.cs">
-      <DependentUpon>CCQStandardsUserControl.ascx.cs</DependentUpon>
+    <Compile Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx.designer.cs">
+      <DependentUpon>CCQGoalsUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -142,9 +137,9 @@
     </None>
     <None Include="Scripts\Jquery\jquery-3.5.1.min.map" />
     <None Include="Scripts\Jquery\jquery-3.5.1.slim.min.map" />
-    <None Include="Webparts\Home\CCQStandards\CCQStandards.webpart" />
-    <None Include="Webparts\Home\CCQStandards\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{1cf21e0f-12d4-4187-9fe6-f47f83e216e5}</SharePointProjectItemId>
+    <None Include="Webparts\Home\CCQGoals\CCQGoals.webpart" />
+    <None Include="Webparts\Home\CCQGoals\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{57e7c6e9-9e2f-4638-9b8a-72a7e5353553}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Home\ImageSlider\ImageSlider.webpart" />
     <None Include="Webparts\Home\ImageSlider\SharePointProjectItem.spdata">
@@ -215,8 +210,8 @@
     <Content Include="Scripts\Jquery\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\Jquery\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\Shared\JsConfigs.js" />
-    <Content Include="Webparts\Home\CCQStandards\CCQStandardsUserControl.ascx" />
-    <Content Include="Webparts\Home\CCQStandards\Elements.xml" />
+    <Content Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx" />
+    <Content Include="Webparts\Home\CCQGoals\Elements.xml" />
     <Content Include="Webparts\Home\ImageSlider\Elements.xml" />
     <Content Include="Webparts\Home\ImageSlider\ImageSliderUserControl.ascx" />
     <Content Include="Webparts\MediaCenter\Events\Elements.xml" />
@@ -233,11 +228,6 @@
     <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCWeather.ascx.ar-SA.resx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Webparts\Home\CCQStandards\App_LocalResources\CCQStandardsUserControl.ascx.ar-SA.resx" />
-    <EmbeddedResource Include="Webparts\Home\CCQStandards\App_LocalResources\CCQStandardsUserControl.ascx.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CCQStandardsUserControl.ascx.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CCQ_Portal.Webparts.Home.CCQStandards
+namespace CCQ_Portal.Webparts.Home.CCQGoals
 {
 
 
-    public partial class CCQStandardsUserControl
+    public partial class CCQGoalsUserControl
     {
     }
 }
