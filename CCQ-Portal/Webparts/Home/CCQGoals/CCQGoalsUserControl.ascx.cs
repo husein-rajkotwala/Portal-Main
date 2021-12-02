@@ -3,9 +3,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-namespace CCQ_Portal.Webparts.Home.CCQStandards
-{//hussain comments testing comments New // nithin
-    public partial class CCQStandardsUserControl : UserControl
+namespace CCQ_Portal.Webparts.Home.CCQGoals
+{
+    public partial class CCQGoalsUserControl : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
