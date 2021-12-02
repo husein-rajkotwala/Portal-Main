@@ -6,8 +6,6 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CCQGoalsUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.Home.CCQGoals.CCQGoalsUserControl" %>
-
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <style>
@@ -64,30 +62,29 @@ nav > div a.nav-item.nav-link:focus
     var GoalsTitle = "CCQ Goals";
     var ID = "";
     var goalTabArr = [];
-    
-   
+
+
     $(document).ready(function () {
         getGoals();
-      });
+    });
 
- function getHeaderImage(goalType)
- {
-     var imageUrl = "";
-     if (goalType == "Vision") {
+    function getHeaderImage(goalType) {
+        var imageUrl = "";
+        if (goalType == "Vision") {
 
-         imageUrl = "background-image:url('/Shared%20Documents/Vision.PNG');background-repeat: no-repeat;height: 70px;background-size: 420px 100px";
-     }
-     else if (goalType == "Mission") {
-         imageUrl = "background-image:url('/Shared%20Documents/Mission.PNG');background-repeat: no-repeat;height: 70px;background-size: 420px 100px";
+            imageUrl = "background-image:url('/Shared%20Documents/Vision.PNG');background-repeat: no-repeat;height: 70px;background-size: 420px 100px";
+        }
+        else if (goalType == "Mission") {
+            imageUrl = "background-image:url('/Shared%20Documents/Mission.PNG');background-repeat: no-repeat;height: 70px;background-size: 420px 100px";
 
-     }
-     else if (goalType == "Values") {
-         imageUrl = "background-image:url('');background-repeat: no-repeat;height:500px"
+        }
+        else if (goalType == "Values") {
+            imageUrl = "background-image:url('');background-repeat: no-repeat;height:500px"
 
-     }
+        }
 
-     return imageUrl;
-}
+        return imageUrl;
+    }
 
 
     function getGoals() {
@@ -98,7 +95,7 @@ nav > div a.nav-item.nav-link:focus
         var restWeb = new RESTApiHelper.Web(siteEventUrl);
         var myList = new restWeb.List(GoalsTitle);
         var items = new myList.Items();
-        
+
         jQuery.ajax({
             url: _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/GetByTitle('" + GoalsTitle + "')/items?$select=Title,TitleEn,TitleAr,DescriptionEn,DescriptionAr,GoalType/TitleEn,GoalType/TitleAr&$expand=GoalType&$orderby=GoalType/TabbedSortOrder,SortOrder",
             type: "GET",
@@ -108,27 +105,26 @@ nav > div a.nav-item.nav-link:focus
         });
 
         function doSuccessGoals(data) {
-            var dataResultsLength = data.d.results.length-1;
+            var dataResultsLength = data.d.results.length - 1;
             var goalsTabHtml = "";
             var navtabsHtml = "";
             var accordionHtml = "";
-           
+
 
             $.each(data.d.results, function (index, item) {
                 var imageUrl = "";
-                    if (item.GoalType.TitleEn != null && item.GoalType.TitleEn != "" && item.GoalType.TitleEn != "undefined")
-                        var goalType = item.GoalType.TitleEn;
-                    var goalTypeJSON = {
-                        "GoalType": item.GoalType.TitleEn
-                    };
+                if (item.GoalType.TitleEn != null && item.GoalType.TitleEn != "" && item.GoalType.TitleEn != "undefined")
+                    var goalType = item.GoalType.TitleEn;
+                var goalTypeJSON = {
+                    "GoalType": item.GoalType.TitleEn
+                };
                 var result = goalTabArr.filter(x => x.GoalType === item.GoalType.TitleEn);
                 if (language == "en-us") {
 
 
-                  
+
                     if (result.length == 0) {
                         if (index == 0) {
-<<<<<<< HEAD:CCQ-Portal/Webparts/Home/CCQGoals/CCQGoalsUserControl.ascx
                             imageUrl = getHeaderImage(item.GoalType.TitleEn);
                             goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true" style="' + imageUrl + '"></a>';
 
@@ -137,14 +133,6 @@ nav > div a.nav-item.nav-link:focus
                             imageUrl = getHeaderImage(item.GoalType.TitleEn);
 
                             goalsTabHtml += '<a class="nav-item nav-link" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '"  aria-selected="true" style="' + imageUrl + '"></a>';
-=======
-                            //goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true"></a>';
-                            goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true" style="background-image:url('++')"></a>';
-
-                        }
-                        else {
-                            goalsTabHtml += '<a class="nav-item nav-link" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true">' + item.GoalType.TitleEn + '</a>';
->>>>>>> a99e90fcdcdb7c93ca18a07f77daa4de92a993fc:CCQ-Portal/Webparts/Home/CCQStandards/CCQStandardsUserControl.ascx
 
                             if (goalTabArr.length == 1) {
                                 navtabsHtml += '<div class="tab-pane fade show active" id="nav-' + goalTabArr[goalTabArr.length - 1].GoalType + '" role="tabpanel" aria-labelledby="nav-' + goalTabArr[goalTabArr.length - 1].GoalType + '-tab"><div class="m-4"><div class="accordion" id="myAccordion' + index + '">' + accordionHtml + '</div></div></div>';
@@ -170,8 +158,8 @@ nav > div a.nav-item.nav-link:focus
 
                     }
                 }
-            
-                
+
+
                 else {
 
 
@@ -213,24 +201,23 @@ nav > div a.nav-item.nav-link:focus
 
             });
 
-           $(".Goals-Tab").html(goalsTabHtml);
-           $("#nav-tabContent").html(navtabsHtml);
+            $(".Goals-Tab").html(goalsTabHtml);
+            $("#nav-tabContent").html(navtabsHtml);
 
         }
-      
+
     }
 
     function doErrorGoals(err) {
         alert(JSON.stringify(err));
     }
 
-   
 
 
- 
+
+
 </script>
-
- <div  style="width:800px">
+<div  style="width:800px">
               <div class="row">
                 <div class="col-xs-12 ">
                   <nav>
