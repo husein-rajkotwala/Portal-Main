@@ -64,7 +64,7 @@ nav > div a.nav-item.nav-link:focus
     var GoalsTitle = "CCQ Goals";
     var ID = "";
     var goalTabArr = [];
-   
+    
    
     $(document).ready(function () {
         getGoals();
@@ -128,6 +128,7 @@ nav > div a.nav-item.nav-link:focus
                   
                     if (result.length == 0) {
                         if (index == 0) {
+<<<<<<< HEAD:CCQ-Portal/Webparts/Home/CCQGoals/CCQGoalsUserControl.ascx
                             imageUrl = getHeaderImage(item.GoalType.TitleEn);
                             goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true" style="' + imageUrl + '"></a>';
 
@@ -136,6 +137,14 @@ nav > div a.nav-item.nav-link:focus
                             imageUrl = getHeaderImage(item.GoalType.TitleEn);
 
                             goalsTabHtml += '<a class="nav-item nav-link" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '"  aria-selected="true" style="' + imageUrl + '"></a>';
+=======
+                            //goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true"></a>';
+                            goalsTabHtml = '<a class="nav-item nav-link active" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true" style="background-image:url('++')"></a>';
+
+                        }
+                        else {
+                            goalsTabHtml += '<a class="nav-item nav-link" id="nav-' + item.GoalType.TitleEn + '-tab" data-toggle="tab" href="#nav-' + item.GoalType.TitleEn + '" role="tab" aria-controls="nav-' + item.GoalType.TitleEn + '" aria-selected="true">' + item.GoalType.TitleEn + '</a>';
+>>>>>>> a99e90fcdcdb7c93ca18a07f77daa4de92a993fc:CCQ-Portal/Webparts/Home/CCQStandards/CCQStandardsUserControl.ascx
 
                             if (goalTabArr.length == 1) {
                                 navtabsHtml += '<div class="tab-pane fade show active" id="nav-' + goalTabArr[goalTabArr.length - 1].GoalType + '" role="tabpanel" aria-labelledby="nav-' + goalTabArr[goalTabArr.length - 1].GoalType + '-tab"><div class="m-4"><div class="accordion" id="myAccordion' + index + '">' + accordionHtml + '</div></div></div>';
