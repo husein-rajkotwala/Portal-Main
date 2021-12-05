@@ -4,7 +4,15 @@
 var userOURole = {
 
 };
+var Name =
+{
+};
+var Email = {
 
+};
+var Phone = {
+
+};
 lang = getCookie("lang");
 
 checkUserRole();
@@ -40,6 +48,16 @@ function checkUserRole() {
             if (data != null) {
                 if (data.d.UserProfileProperties["results"][44].Value != null) {
                     userOUDetails = data.d.UserProfileProperties["results"][44].Value;
+                    Name = data.d.UserProfileProperties["results"][8].Value;
+                    if (data.d.UserProfileProperties.results[57].Value != null && data.d.UserProfileProperties.results[57].Value != "")
+                    {
+                        Email = data.d.UserProfileProperties["results"][57].Value;
+
+                    }
+                    if (data.d.UserProfileProperties.results[10].Value != null && data.d.UserProfileProperties.results[10].Value != "") {
+                        Phone = data.d.UserProfileProperties["results"][10].Value;
+
+                    }
                     var userOUArray = userOUDetails.split("OU=Students");
                     if (userOUArray.length > 1) {
                         return userOURole = "Student";

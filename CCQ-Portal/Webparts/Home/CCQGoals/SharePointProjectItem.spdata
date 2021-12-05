@@ -4,6 +4,7 @@
     <ProjectItemFile Source="Elements.xml" Target="CCQGoals\" Type="ElementManifest" />
     <ProjectItemFile Source="CCQGoals.webpart" Target="CCQGoals\" Type="ElementFile" />
     <ProjectItemFile Source="CCQGoalsUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.Home\CCQGoals\" Type="TemplateFile" />
+
   </Files>
   <SafeControls>
     <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Portal.Webparts.Home.CCQGoals" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
