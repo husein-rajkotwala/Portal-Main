@@ -42,6 +42,13 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CCQDTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b9fe8b4088c4f10f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CCQDTO\bin\Debug\CCQDTO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,6 +57,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
@@ -90,6 +98,20 @@
       <DependentUpon>UCWeather.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="HTTPModules\HTTPSwitcherModule.cs" />
+    <Compile Include="Layouts\CCQPortal\Portal.aspx.cs">
+      <DependentUpon>Portal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\CCQPortal\Portal.aspx.designer.cs">
+      <DependentUpon>Portal.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\CCQPortal\PortalMethods.aspx.cs">
+      <DependentUpon>PortalMethods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\CCQPortal\PortalMethods.aspx.designer.cs">
+      <DependentUpon>PortalMethods.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Webparts\Home\CCQGoals\CCQGoals.cs" />
     <Compile Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx.cs">
@@ -135,6 +157,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3bb81ae0-9389-4110-b5c3-3a7c4f7e0f6d}</SharePointProjectItemId>
     </None>
@@ -142,6 +165,10 @@
       <FeatureId>{69ccf07f-848b-41af-8c4c-e017ea181794}</FeatureId>
     </None>
     <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7d2a3be4-81d2-4bf6-a2e2-12a98ed072ed}</SharePointProjectItemId>
+    </None>
+    <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{420b7e6b-a67f-461e-82c3-f9f9c6d592ba}</PackageId>
     </None>
@@ -175,6 +202,8 @@
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Content>
+    <Content Include="Layouts\CCQPortal\Portal.aspx" />
+    <Content Include="Layouts\CCQPortal\PortalMethods.aspx" />
     <Content Include="Scripts\Content\themes\base\accordion.css" />
     <Content Include="Scripts\Content\themes\base\all.css" />
     <Content Include="Scripts\Content\themes\base\autocomplete.css" />
@@ -236,7 +265,6 @@
     <Content Include="Webparts\MediaCenter\Events\Elements.xml" />
     <Content Include="Webparts\MediaCenter\Events\EventsUserControl.ascx" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCWeather.ascx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
