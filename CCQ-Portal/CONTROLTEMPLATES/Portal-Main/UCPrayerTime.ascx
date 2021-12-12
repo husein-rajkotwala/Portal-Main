@@ -8,7 +8,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCPrayerTime.ascx.cs" Inherits="CCQ_Portal.CONTROLTEMPLATES.Portal_Main.UCPrayerTime" %>
 
 <script>
-    var language = lang;
+   var language = lang;
+   
+
 $(document).ready(function() {
     var prayterNames = {"Fajr": "الفجر","Dhuhr": "الظهر","Asr": "العصر","Maghrib": "المغرب","Isha": "العشاء"};
 
@@ -99,22 +101,25 @@ function getCookie(cname) {
 }
 </script>
 
+ <div class="d-inline-block">
+                                    <i class="fas fas fa-mosque fa-3x">
+                                    </i>
+                                </div>
+                                <div class="d-inline-block pr-2-cust text-left-cust">
+                                    
+                                       <label class="text-uppercase title-upper1 prayer_laber">
+                                                
+                                                
+                                                
+                                                </label>
+                                    <br />
+                                  
+                                     <label class="text-uppercase title-upper2 prayer_timing" > 
+                                                
+                                                
+                                                
+                                                </label>
+                                </div>
 
-<div class="prayer">
-                                            <div class="ico d-inline-block">
-                                                <img src="/Style Library/script/ccq/img/icons/ic_prayer.svg" class="" />
-                                            </div>
-                                            <div class="prayer-info d-inline-block">
-                                                <label class="color-prime m-0 font-weight-bold prayer_timing" > 
-                                                
-                                                
-                                                
-                                                </label>
-                                                
-                                                <label class="d-block text-center prayer_laber">
-                                                
-                                                
-                                                
-                                                </label>
-                                            </div>
-                                        </div>
+
+

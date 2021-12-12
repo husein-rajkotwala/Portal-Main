@@ -7,15 +7,12 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCTopMenu.ascx.cs" Inherits="CCQ_Portal.CONTROLTEMPLATES.Portal_Main.UCTopMenu" %>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<style>
-    .dropdown-item{
-        background-color:white !important;
-    }
-</style>
+
 <script>
     var siteUrl = _spPageContextInfo.siteAbsoluteUrl;
-    var language = lang;
+   var language = lang;
+  
+
     var configurationApiUrl = "";
     $(document).ready(function () {
         getTopNavigation();
@@ -74,39 +71,16 @@
             }
 
         });
-        $("#ulMainNav").html(htmlTopNav);
+        $("#MainNav").html(htmlTopNav);
 
 
     }
     function doErrorTopNavigation(err) {
         alert(JSON.stringify(err));
     }
-    function getCookie(cname) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-</script>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color:#8f0051!important">
-<div class="container-fluid">
 
- <div class="collapse navbar-collapse" id="main_nav">
-  <ul class="navbar-nav" id="ulMainNav">
- 
-  </ul>
-</div>
-<!-- navbar-collapse.// -->
-</div>
-<!-- container-fluid.// -->
-</nav>
+</script>
+  <ul class="navbar-nav mr-auto-cust" id="MainNav">
+      </ul>
+
 

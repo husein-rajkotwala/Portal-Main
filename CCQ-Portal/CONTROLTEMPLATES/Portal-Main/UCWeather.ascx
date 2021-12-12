@@ -18,23 +18,6 @@
 <!-- end script for weather-->
 
 
-                                        <div class="weather">
-                                            <div class="d-inline-block">
-                                                <img src="/Style Library/script/ccq/img/icons/ic_weather.svg" />
-                                            </div>
-                                            <div class="weather-info d-inline-block">
-                                                <label class="color-prime m-0 font-weight-bold" id="lblCurrentTemp"> 
-                                                
-                                                
-                                                </label>
-                                               
-                                                <label class="d-block text-center" runat="server"><%=GetLocalResourceObject("Doha")%>
-                                                
-                                                
-                                                
-                                                </label>
-                                            </div>
-                                        </div>
                                 
 <script>
 
@@ -71,3 +54,22 @@
     });
 
 </script>
+   <div class="d-inline-block">
+                                    <i class="fas fa-cloud-moon fa-3x">
+                                    </i>
+                                </div>
+                                <div class="d-inline-block text-left-cust">
+                                   
+                                     <label class="text-uppercase title-upper1" id="lblCurrentTemp"> 
+                                                
+                                                
+                                                </label>
+                                    <br />
+                                   
+                                     <label class="text-uppercase title-upper2" runat="server"><%=GetLocalResourceObject("Doha")%>
+                                                
+                                                
+                                                
+                                                </label>
+                                </div>
+

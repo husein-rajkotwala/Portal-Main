@@ -7,6 +7,17 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCLanguageSwitcher.ascx.cs" Inherits="CCQ_Portal.CONTROLTEMPLATES.Portal_Main.UCLanguageSwitcher" %>
 
-<asp:LinkButton ID="lbarabic" runat="server"   Text="عربي" CssClass="icon-langar" style="width:100px" OnClick="lbarabic_Click"  CausesValidation="false"></asp:LinkButton>
 
-<asp:LinkButton ID="lbEnglish" runat="server" Text="English" CssClass="icon-langen" OnClick="lbEnglish_Click" CausesValidation="false" style="width:100px"></asp:LinkButton>
+
+
+<ul class="navbar-nav side-menu">
+                                <li class="nav-item px-md-2 bg-light-blue rounded text-center">
+                                    <a class="nav-link menu-item" href="#"><%=GetLocalResourceObject("MyCCQ")%>
+                                    </a>
+                                </li>
+                                <li class="nav-item px-md-2">
+                                 <asp:LinkButton ID="lbarabic" runat="server"   Text="عربي" class="nav-link menu-item"  OnClick="lbarabic_Click"></asp:LinkButton>
+
+<asp:LinkButton ID="lbEnglish" runat="server" Text="English" class="nav-link menu-item"  OnClick="lbEnglish_Click"></asp:LinkButton>
+                                </li>
+                            </ul>
