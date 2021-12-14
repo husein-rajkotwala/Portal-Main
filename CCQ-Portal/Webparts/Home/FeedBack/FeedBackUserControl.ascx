@@ -203,55 +203,8 @@ input[type=submit]:hover {
                 "Comments": $(<%= txtComments.ClientID %>).val(),
 
             };
-            var cat1 = {
-                "FirstName": $(<%= txtName.ClientID %>).val(),
-
-                    "LastName": $(<%= txtName.ClientID %>).val(),
-                
-
-                };
-            //$.ajax({
-            //    url: fullUrl,
-            //    method: "POST",
-            //    data: JSON.stringify(cat),
-            //    headers: {
-            //        "Accept": "application/json;odata=verbose",
-            //        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
-            //        "Content-Type": "application/json;odata=verbose"
-            //    },
-            //    success: function (data) {
-            //        hideLoader();
-            //        var successMsg = "";
-            //        $("#dvSuccess").show();
-
-
-            //    },
-            //    error: function (data) {
-            //        alert("Failed");
-
-            //    }
-            //});
-            //var param = {};
-            //param.name = "Prashanth";
-            //$.ajax({
-            //    type: "POST",
-            //    url: _spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/CQPortal/PortalMethods.aspx/CurrentlogInUserName",
-            //    data: JSON.stringify(param),
-            //    contentType: "application/json;charset=utf-8",
-            //    dataType: "json",
-            //    async: true,
-            //    cache: false,
-            //    success: function (msg) {
-            //        alert(msg);
-            //        return false;
-            //    },
-            //    error: function (msg) {
-            //        debugger;
-            //        alert(msg.responseText);
-            //        return false;
-            //    }
-            //});
-
+           
+           
 
             var methodUrl = _spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/CCQPortal/PortalMethods.aspx/AddFeedBackInfo";
             

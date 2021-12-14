@@ -152,6 +152,19 @@
     <Compile Include="Webparts\Home\ImageSlider\ImageSliderUserControl.ascx.designer.cs">
       <DependentUpon>ImageSliderUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\MediaCenter\CCQNews\App_LocalResources\CCQNewsUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCQNewsUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\MediaCenter\CCQNews\CCQNews.cs" />
+    <Compile Include="Webparts\MediaCenter\CCQNews\CCQNewsUserControl.ascx.cs">
+      <DependentUpon>CCQNewsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\MediaCenter\CCQNews\CCQNewsUserControl.ascx.designer.cs">
+      <DependentUpon>CCQNewsUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\MediaCenter\Events\Events.cs" />
     <Compile Include="Webparts\MediaCenter\Events\EventsUserControl.ascx.cs">
       <DependentUpon>EventsUserControl.ascx</DependentUpon>
@@ -193,6 +206,10 @@
     <None Include="Webparts\Home\ImageSlider\ImageSlider.webpart" />
     <None Include="Webparts\Home\ImageSlider\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{09d68065-b5df-40f4-a4ac-b8c536b1c8b8}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\MediaCenter\CCQNews\CCQNews.webpart" />
+    <None Include="Webparts\MediaCenter\CCQNews\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{55b30a3d-4ad6-46ff-b873-4006cc527e01}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\MediaCenter\Events\Events.webpart" />
     <None Include="Webparts\MediaCenter\Events\SharePointProjectItem.spdata">
@@ -267,6 +284,8 @@
     <Content Include="Webparts\Home\FeedBack\FeedBackUserControl.ascx" />
     <Content Include="Webparts\Home\ImageSlider\Elements.xml" />
     <Content Include="Webparts\Home\ImageSlider\ImageSliderUserControl.ascx" />
+    <Content Include="Webparts\MediaCenter\CCQNews\CCQNewsUserControl.ascx" />
+    <Content Include="Webparts\MediaCenter\CCQNews\Elements.xml" />
     <Content Include="Webparts\MediaCenter\Events\Elements.xml" />
     <Content Include="Webparts\MediaCenter\Events\EventsUserControl.ascx" />
   </ItemGroup>
@@ -294,6 +313,11 @@
     <EmbeddedResource Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ImageSliderUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webparts\MediaCenter\CCQNews\App_LocalResources\CCQNewsUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\MediaCenter\CCQNews\App_LocalResources\CCQNewsUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCQNewsUserControl.ascx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Webparts\MediaCenter\Events\App_LocalResources\EventsUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\MediaCenter\Events\App_LocalResources\EventsUserControl.ascx.resx" />
