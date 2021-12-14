@@ -38,7 +38,7 @@ namespace CCQ_Portal.Layouts.CCQPortal
             string strNewsMasterListName = "CCQNewsMaster";
             string strCCQNews = "CCQNews";
             objNewsMaster = GetListItems(strUrl, strNewsMasterListName, strQuery, strViewFields);
-            strQuery= "<OrderBy><FieldRef Name = 'NewsType'/></OrderBy><Where><Eq><FieldRef Name = 'isHide'/><Value Type = 'Boolean'>0</Value></Eq></Where>";
+            strQuery= "<OrderBy><FieldRef Name = 'NewsType'/><FieldRef Name = 'NewsSortOrder'/></OrderBy><Where><Eq><FieldRef Name = 'isHide'/><Value Type = 'Boolean'>0</Value></Eq></Where>";
             strViewFields = @"<FieldRef Name='NewsType' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr'/><FieldRef Name='NewsSortOrder'/><FieldRef Name='DescriptionEn'/><FieldRef Name='ImageEn'/><FieldRef Name='ImageAr'/>";
 
             objNewsDetails = GetListItems(strUrl, strCCQNews, strQuery, strViewFields);
