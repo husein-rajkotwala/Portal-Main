@@ -20,7 +20,7 @@ namespace CCQDTO
     public class NewsDetails
     {
         public string NewsTitleEn { get; set; }
-        public string NewsTileAr { get; set; }
+        public string NewsTitleAr { get; set; }
         public List<NewsType> NewsType { get; set; }
     }
     public class NewsType

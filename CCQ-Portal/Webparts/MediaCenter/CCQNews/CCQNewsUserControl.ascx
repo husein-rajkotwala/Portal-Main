@@ -17,13 +17,8 @@
 
 </div>
 <script>
-    var newsSiteUrl = _spPageContextInfo.siteAbsoluteUrl + '/MediaCenter';
-    var language = lang;
-    var newsMasterListTitle = "CCQNewsMaster";
-    var ID = "";
-    var newsMasterArr = [];
-    var newsTabArr = [];
-    var methodUrl = _spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/CCQPortal/PortalMethods.aspx/getNews";
+  
+    var newsAPIUrl = _spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/CCQPortal/PortalMethods.aspx/GetNews";
     function doSuccessNewsdetails(data) {
         var mainNewsTabHtml = "";
         var navtabsHtml = "";
@@ -69,17 +64,18 @@
                 newsDetailHtml += '<a href="#" class="card-title-link"><h5 class="card-title">' + newsDetailsTile + '</h5></a>'
                 newsDetailHtml += '<button href="#" class="btn btn-primary align-self-end">Read More</button>'
                 newsDetailHtml += '</div></div></div></div>';
-                if (index == 0) {
-                    mainNewsTabHtml = '<div class="tab-pane fade show active" id="pills-' + item.NewsTitleEn.replace(" ", "") + '" role="tabpanel" aria-labelledby="pills-' + item.NewsTitleEn.replace(" ", "") + '-tab">' + newsDetailHtml + '</div>';
+                if (indexNewsDetails == newsDetailsLength) {
+                    if (index == 0) {
+                        mainNewsTabHtml = '<div class="tab-pane fade show active" id="pills-' + item.NewsTitleEn.replace(" ", "") + '" role="tabpanel" aria-labelledby="pills-' + item.NewsTitleEn.replace(" ", "") + '-tab">' + newsDetailHtml + '</div>';
 
+
+                    }
+                    else {
+                        mainNewsTabHtml += '<div class="tab-pane fade show" id="pills-' + item.NewsTitleEn.replace(" ", "") + '" role="tabpanel" aria-labelledby="pills-' + item.NewsTitleEn.replace(" ", "") + '-tab">' + newsDetailHtml + '</div>';
+
+                    }
 
                 }
-                else {
-                    mainNewsTabHtml += '<div class="tab-pane fade show" id="pills-' + item.NewsTitleEn.replace(" ", "") + '" role="tabpanel" aria-labelledby="pills-' + item.NewsTitleEn.replace(" ", "") + '-tab">' + newsDetailHtml + '</div>';
-
-                }
-               
-
             });
         });
         $("#pills-news").html(navtabsHtml);
@@ -96,7 +92,7 @@
 
             type: "POST",
 
-            url: methodUrl,
+            url: newsAPIUrl,
             success: function (result) {
                 var output = result.d;
                 console.log(output);

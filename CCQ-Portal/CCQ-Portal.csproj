@@ -64,6 +64,9 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCLanguageSwitcher.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +128,19 @@
     </Compile>
     <Compile Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx.designer.cs">
       <DependentUpon>CCQGoalsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQServices\App_LocalResources\CCQServicesUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCQServicesUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQServices\CCQServices.cs" />
+    <Compile Include="Webparts\Home\CCQServices\CCQServicesUserControl.ascx.cs">
+      <DependentUpon>CCQServicesUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQServices\CCQServicesUserControl.ascx.designer.cs">
+      <DependentUpon>CCQServicesUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -198,6 +214,10 @@
     <None Include="Webparts\Home\CCQGoals\CCQGoals.webpart" />
     <None Include="Webparts\Home\CCQGoals\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{88c537ef-3b42-408c-8f5f-557be10026d5}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\CCQServices\CCQServices.webpart" />
+    <None Include="Webparts\Home\CCQServices\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3ade3aa5-0ab3-4a8b-8fae-e5d671a3cc61}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Home\FeedBack\FeedBack.webpart" />
     <None Include="Webparts\Home\FeedBack\SharePointProjectItem.spdata">
@@ -280,6 +300,8 @@
     <Content Include="Scripts\Shared\JsConfigs.js" />
     <Content Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx" />
     <Content Include="Webparts\Home\CCQGoals\Elements.xml" />
+    <Content Include="Webparts\Home\CCQServices\CCQServicesUserControl.ascx" />
+    <Content Include="Webparts\Home\CCQServices\Elements.xml" />
     <Content Include="Webparts\Home\FeedBack\Elements.xml" />
     <Content Include="Webparts\Home\FeedBack\FeedBackUserControl.ascx" />
     <Content Include="Webparts\Home\ImageSlider\Elements.xml" />
@@ -304,6 +326,11 @@
       <LastGenOutput>UCLanguageSwitcher.ascx.Designer.cs</LastGenOutput>
     </Content>
     <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCLanguageSwitcher.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\Home\CCQServices\App_LocalResources\CCQServicesUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\Home\CCQServices\App_LocalResources\CCQServicesUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCQServicesUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -321,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Webparts\MediaCenter\Events\App_LocalResources\EventsUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\MediaCenter\Events\App_LocalResources\EventsUserControl.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CCQ-Comman\CCQ-Comman.csproj">
+      <Project>{41046838-E0AF-4DC6-B32A-41BEAA79E2AE}</Project>
+      <Name>CCQ-Comman</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

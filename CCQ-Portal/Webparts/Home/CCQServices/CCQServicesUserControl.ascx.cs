@@ -1,16 +1,14 @@
-﻿using CCQ_Portal.Base;
-using System;
+﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-namespace CCQ_Portal.Webparts.Home.CCQGoals
+namespace CCQ_Portal.Webparts.Home.CCQServices
 {
-    public partial class CCQGoalsUserControl : BaseUserControl
+    public partial class CCQServicesUserControl : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
         }
     }
 }

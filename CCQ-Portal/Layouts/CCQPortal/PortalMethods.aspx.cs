@@ -20,10 +20,67 @@ namespace CCQ_Portal.Layouts.CCQPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           //
         }
         [WebMethod]
-        public static List<NewsDetails> getNews()
+        public static List<GoalDetails> GetGoals()
+        {
+            SPListItemCollection objGoalMaster = null;
+            SPListItemCollection objGoalDetails = null;
+            List<GoalDetails> lstGoalDetails = new List<GoalDetails>();
+
+            string strViewFields = "";
+            string strQuery = "";
+            strQuery = "<OrderBy><FieldRef Name = 'SortOrder'/></OrderBy><Where><Eq><FieldRef Name = 'isHide'/><Value Type = 'Boolean'>0</Value></Eq></Where>";
+
+            string strUrl = SPContext.Current.Site.Url;
+            strViewFields = @"<FieldRef Name='isHide' /><FieldRef Name='Title' /><FieldRef Name='TitleEn'/><FieldRef Name='TitleAr'/><FieldRef Name='HtmlEn'/><FieldRef Name='HtmlAr'/>";
+            string strGoalMasterListName = "CCQGoalsMaster";
+            string strGoalType = "CCQ Goals";
+            objGoalMaster = GetListItems(strUrl, strGoalMasterListName, strQuery, strViewFields);
+            strQuery = "<OrderBy><FieldRef Name = 'GoalType'/><FieldRef Name = 'GoalTypeSortOrder'/></OrderBy><Where><Eq><FieldRef Name = 'isHide'/><Value Type = 'Boolean'>0</Value></Eq></Where>";
+            strViewFields = @"<FieldRef Name='GoalType' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr'/><FieldRef Name='DescriptionEn' /><FieldRef Name='DescriptionAr'/>";
+
+            objGoalDetails = GetListItems(strUrl, strGoalType, strQuery, strViewFields);
+
+            foreach (SPListItem newsItem in objGoalMaster)
+            {
+
+
+                var result = objGoalDetails.Cast<SPListItem>();
+                List<GoalType> lstGoalType =
+               (from SPListItem listItem in result.Where(m => m["GoalType"].ToString().Split('#')[1] == newsItem["TitleEn"].ToString())
+                select new GoalType
+                {
+                    TitleEn = listItem["TitleEn"].ToString(),
+                    TitleAr = listItem["TitleAr"].ToString(),
+                     DescriptionEn= listItem["DescriptionEn"].ToString(),
+                    DescriptionAr = listItem["DescriptionAr"].ToString(),
+                }).ToList();
+                if (lstGoalType.Count > 0)
+                {
+                    var objJSONGoalDetails = new GoalDetails
+                    {
+
+                        TitleEn = newsItem["TitleEn"].ToString(),
+                        TitleAr = newsItem["TitleAr"].ToString(),
+                        HtmlEn= newsItem["HtmlEn"].ToString(),
+                        HtmlAr = newsItem["HtmlAr"].ToString(),
+                        GoalType = lstGoalType,
+
+
+                    };
+
+
+                    lstGoalDetails.Add(objJSONGoalDetails);
+
+                }
+              
+            }
+            return lstGoalDetails;
+        }
+
+        [WebMethod]
+        public static List<NewsDetails> GetNews()
         {
             SPListItemCollection objNewsMaster = null;
             SPListItemCollection objNewsDetails = null;
@@ -68,7 +125,7 @@ namespace CCQ_Portal.Layouts.CCQPortal
                     {
 
                         NewsTitleEn = newsItem["TitleEn"].ToString(),
-                        NewsTileAr = newsItem["TitleAr"].ToString(),
+                        NewsTitleAr = newsItem["TitleAr"].ToString(),
                         NewsType = lstNewsType,
 
 
