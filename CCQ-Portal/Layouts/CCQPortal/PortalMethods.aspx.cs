@@ -96,29 +96,40 @@ namespace CCQ_Portal.Layouts.CCQPortal
             string strCCQNews = "CCQNews";
             objNewsMaster = GetListItems(strUrl, strNewsMasterListName, strQuery, strViewFields);
             strQuery= "<OrderBy><FieldRef Name = 'NewsType'/><FieldRef Name = 'NewsSortOrder'/></OrderBy><Where><Eq><FieldRef Name = 'isHide'/><Value Type = 'Boolean'>0</Value></Eq></Where>";
-            strViewFields = @"<FieldRef Name='NewsType' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr'/><FieldRef Name='NewsSortOrder'/><FieldRef Name='DescriptionEn'/><FieldRef Name='ImageEn'/><FieldRef Name='ImageAr'/>";
+            strViewFields = @"<FieldRef Name='NewsType' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr'/><FieldRef Name='NewsSortOrder'/><FieldRef Name='DescriptionEn'/><FieldRef Name='DescriptionAr'/><FieldRef Name='ImageEn'/><FieldRef Name='ImageAr'/>";
 
             objNewsDetails = GetListItems(strUrl, strCCQNews, strQuery, strViewFields);
 
             foreach(SPListItem newsItem in objNewsMaster)
             {
               
-                
+ 
 
 
-                var result = objNewsDetails.Cast<SPListItem>();
+
+                 var result = objNewsDetails.Cast<SPListItem>();
+
+
+
                 List<NewsType> lstNewsType =
-               (from SPListItem listItem in result.Where(m => m["NewsType"].ToString().Split('#')[1] == newsItem["TitleEn"].ToString())
-                select new NewsType
-                {
-                    TitleEn =listItem["TitleEn"].ToString(),
-                    TitleAr = listItem["TitleAr"].ToString(),
-                    ImageEn= listItem["ImageEn"].ToString(),
-                    ImageAr = listItem["ImageAr"].ToString(),
+                      (from SPListItem listItem in result.Where(m => m["NewsType"].ToString().Split('#')[1] == newsItem["TitleEn"].ToString())
+                       select new NewsType
+                       {
+                           TitleEn = listItem["TitleEn"].ToString(),
+                           TitleAr = listItem["TitleAr"].ToString(),
+                           DescriptionEn = listItem["DescriptionEn"].ToString(),
+                           DescriptionAr = listItem["DescriptionAr"].ToString(),
+                           ImageEn = listItem["ImageEn"].ToString(),
+                           ImageAr = listItem["ImageAr"].ToString(),
+                           ID = int.Parse(listItem["ID"].ToString())
 
 
 
-                }).ToList();
+                       }).ToList();
+     
+
+
+
                 if (lstNewsType.Count > 0)
                 {
                     var objJSONNewsDetails = new NewsDetails
@@ -143,12 +154,12 @@ namespace CCQ_Portal.Layouts.CCQPortal
                 //});
                 //List<NewsDetails> newList = objNewsDetails.Cast<NewsDetails>().ToList();
 
-             
+
 
                 //List<string> theList = result.AsEnumerable().Select(item =>
                 //        (string)item["ImageEn"]).ToList();
 
-           //var test=     result.AsEnumerable().Select(x => Tonew(x)).ToList();
+                //var test=     result.AsEnumerable().Select(x => Tonew(x)).ToList();
                 //List<string> theList = result.AsEnumerable().ToList();
             }
             return lstNewDetails;

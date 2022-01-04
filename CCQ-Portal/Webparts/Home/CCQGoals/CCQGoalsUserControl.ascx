@@ -24,20 +24,25 @@
         var navtabsHtml = "";
         var goalDetailHtml = "";
         var goalTitle = "";
+        var goalItemHtml = "";
         $.each(data, function (index, item) {
             goalTitle = "";
 
             if (language == "en-us") {
                 goalTitle = item.TitleEn
+                goalItemHtml = item.HtmlEn;
+
             }
             else {
                 goalTitle = item.TitleAr
+                goalItemHtml = item.HtmlAr;
+
             }
             if (index == 0) {
-                navtabsHtml = '<li class="nav-item text-center" role="presentation"><a class="nav-link active" id="pills-' + item.TitleEn.replace(" ", "") + '-tab" data-toggle="pill" href="#pills-' + item.TitleEn.replace(" ", "") + '" role="tab" aria-controls="pills-' + item.TitleEn.replace(" ", "") + '" aria-selected="true">' + item.HtmlEn + '</a></li>';
+                navtabsHtml = '<li class="nav-item text-center" role="presentation"><a class="nav-link active" id="pills-' + item.TitleEn.replace(" ", "") + '-tab" data-toggle="pill" href="#pills-' + item.TitleEn.replace(" ", "") + '" role="tab" aria-controls="pills-' + item.TitleEn.replace(" ", "") + '" aria-selected="true">' + goalItemHtml + '</a></li>';
             }
             else {
-                navtabsHtml += '<li class="nav-item text-center" role="presentation"><a class="nav-link" id="pills-' + item.TitleEn.replace(" ", "") + '-tab" data-toggle="pill" href="#pills-' + item.TitleEn.replace(" ", "") + '" role="tab" aria-controls="pills-' + item.TitleEn.replace(" ", "") + '" aria-selected="true">' + item.HtmlAr + '</a></li>';
+                navtabsHtml += '<li class="nav-item text-center" role="presentation"><a class="nav-link" id="pills-' + item.TitleEn.replace(" ", "") + '-tab" data-toggle="pill" href="#pills-' + item.TitleEn.replace(" ", "") + '" role="tab" aria-controls="pills-' + item.TitleEn.replace(" ", "") + '" aria-selected="true">' + goalItemHtml + '</a></li>';
             }
             goalDetailHtml = "";
             $.each(item.GoalType, function (indexGoalDetails, itemGoalDetails) {
@@ -127,7 +132,7 @@
         });
     }
     $(document).ready(function () {
-        getApiGoals();
+       getApiGoals();
         //  getNewsMaster();
     });
 

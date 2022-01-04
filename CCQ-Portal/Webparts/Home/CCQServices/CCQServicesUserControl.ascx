@@ -24,7 +24,7 @@
     <asp:Label ID="lblUsefulServices" runat="server" ><%=GetLocalResourceObject("UsefulContacts")%></asp:Label></h5>        </a>
     </div>
     <div class="col-md-3 col-xl-6 col-sm-6 text-center py-5 bg-dark-blue">
-        <a href="#" class="text-white">
+        <a href="/_layouts/15/search.aspx/people" class="text-white">
             <i class="fas fa-users fa-4x"></i>
             <h5 class="text-uppercase pt-2"> <asp:Label ID="lblStaffDirectory" runat="server" ><%=GetLocalResourceObject("StaffDirectory")%></asp:Label></h5>
         </a>
@@ -310,7 +310,7 @@
 
 
         $('#tblUseFulContacts').DataTable({
-            "pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
+            //"pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
             data: usefulContactArr,
             columns: [
                 { data: 'Name' },
@@ -320,6 +320,8 @@
                 { data: 'Department' },
 
             ],
+            "paging": false
+
         });
         $('.dataTables_length').addClass('bs-select');
 

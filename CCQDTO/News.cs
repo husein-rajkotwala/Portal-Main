@@ -22,6 +22,7 @@ namespace CCQDTO
         public string NewsTitleEn { get; set; }
         public string NewsTitleAr { get; set; }
         public List<NewsType> NewsType { get; set; }
+       
     }
     public class NewsType
     {
@@ -37,7 +38,7 @@ namespace CCQDTO
 
         public string ImageAr { get; set; }
         public string NewsTitle { get; set; }
-
+        public int ID { get; set; }
         public int SortOrder { get; set; }
 
     }
