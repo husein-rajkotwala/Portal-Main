@@ -24,7 +24,7 @@
     <asp:Label ID="lblUsefulServices" runat="server" ><%=GetLocalResourceObject("UsefulContacts")%></asp:Label></h5>        </a>
     </div>
     <div class="col-md-3 col-xl-6 col-sm-6 text-center py-5 bg-dark-blue">
-        <a href="/_layouts/15/search.aspx/people" class="text-white">
+        <a href="/Search/Pages/peopleresults.aspx" class="text-white">
             <i class="fas fa-users fa-4x"></i>
             <h5 class="text-uppercase pt-2"> <asp:Label ID="lblStaffDirectory" runat="server" ><%=GetLocalResourceObject("StaffDirectory")%></asp:Label></h5>
         </a>

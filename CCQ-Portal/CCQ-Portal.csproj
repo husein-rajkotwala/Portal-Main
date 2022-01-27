@@ -98,6 +98,13 @@
     <Compile Include="CONTROLTEMPLATES\Portal-Main\UCTopMenu.ascx.designer.cs">
       <DependentUpon>UCTopMenu.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCUserInformation.ascx.cs">
+      <DependentUpon>UCUserInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCUserInformation.ascx.designer.cs">
+      <DependentUpon>UCUserInformation.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\UCWeather.ascx.cs">
       <DependentUpon>UCWeather.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +247,7 @@
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCPrayerTime.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCTopMenu.ascx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCUserInformation.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCWeather.ascx" />
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
