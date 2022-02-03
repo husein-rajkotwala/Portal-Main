@@ -12,7 +12,7 @@
 
 <ul class="navbar-nav side-menu">
                                 <li class="nav-item px-md-2 bg-light-blue rounded text-center">
-                                    <a class="nav-link menu-item" href="#"><%=GetLocalResourceObject("MyCCQ")%>
+                                    <a class="nav-link menu-item" href="/Pages/MyApplications.aspx"><%=GetLocalResourceObject("MyCCQ")%>
                                     </a>
                                 </li>
                                 <li class="nav-item px-md-2">

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="CCQAppsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="CCQApps\" Type="ElementManifest" />
+    <ProjectItemFile Source="CCQApps.webpart" Target="CCQApps\" Type="ElementFile" />
+    <ProjectItemFile Source="CCQAppsUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.CCQApps\CCQApps\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Portal.Webparts.CCQApps.CCQApps" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

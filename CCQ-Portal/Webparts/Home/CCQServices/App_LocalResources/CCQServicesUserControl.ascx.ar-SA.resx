@@ -162,6 +162,9 @@
   <data name="UsefulContacts" xml:space="preserve">
     <value>اتصالات مفيدة</value>
   </data>
+  <data name="UseFulLinks" xml:space="preserve">
+    <value>روابط مفيدة</value>
+  </data>
   <data name="ValidationCategory" xml:space="preserve">
     <value>الرجاء تحديد الفئة</value>
   </data>

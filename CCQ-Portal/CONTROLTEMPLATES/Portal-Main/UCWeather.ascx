@@ -14,7 +14,7 @@
 
 
 <!-- style for weather-->
-<script src="/Style Library/script/ccq/assets/Weather/js/vendors.min.js"></script>
+
 <!-- end script for weather-->
 
 
@@ -43,33 +43,26 @@
             var data = JSON.parse(response);
             var selector = "#lblCurrentTemp";
         
-            $(selector).text(Math.round(data.main.temp) + "°");
-            
+           // $(selector).text(Math.round(data.main.temp) + "°");
+            if (lang == "en-us") {
+               $(".fa-cloud-moon").append(Math.round(data.main.temp) + "°"+" Doha");
+            }
+            else {
+              $(".fa-cloud-moon").append(Math.round(data.main.temp) + "°" + " الدوحة");
+            }
         })
             .fail(function (response) {
                 console.log("error fetching weather data");
 
             });
-
+    
     });
 
-</script>
-   <div class="d-inline-block">
-                                    <i class="fas fa-cloud-moon fa-3x">
-                                    </i>
-                                </div>
-                                <div class="d-inline-block text-left-cust">
-                                   
-                                     <label class="text-uppercase title-upper1" id="lblCurrentTemp"> 
-                                                
-                                                
-                                                </label>
-                                    <br />
-                                   
-                                     <label class="text-uppercase title-upper2" runat="server"><%=GetLocalResourceObject("Doha")%>
-                                                
-                                                
-                                                
-                                                </label>
-                                </div>
 
+</script>
+
+  
+                                   <li class="nav-item px-md-2">
+                        <a class="nav-link menu-item"><i class="fas fa-cloud-moon"></i> </a></li>             
+                                                
+                                   

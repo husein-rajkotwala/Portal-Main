@@ -6,15 +6,11 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCUserInformation.ascx.cs" Inherits="CCQ_Portal.CONTROLTEMPLATES.Portal_Main.UCUserInformation" %>
-<div class="col-md-6 text-center text-md-left-cust text-lg-left-cust">
-                                <i class="far fa-user-circle fa-2x">
-                                </i>
-                                <span class="text-uppercase title-upper2 pl-2-cust" id="UserDisplayName">
-                                </span>
-                            </div>
-
+                              
+ <i class="far fa-user-circle"></i>
+                                 
 <script>
     $(document).ready(function () {
-        $("#UserDisplayName").text(_spPageContextInfo.userDisplayName);
+       $(".fa-user-circle").append(_spPageContextInfo.userDisplayName);
     });
 </script>

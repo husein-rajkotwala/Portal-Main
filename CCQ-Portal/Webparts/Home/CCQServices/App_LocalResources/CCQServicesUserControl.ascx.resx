@@ -162,6 +162,9 @@
   <data name="UsefulContacts" xml:space="preserve">
     <value>Useful Contacts</value>
   </data>
+  <data name="UseFulLinks" xml:space="preserve">
+    <value>UseFul Links</value>
+  </data>
   <data name="ValidationCategory" xml:space="preserve">
     <value>Please Select Category</value>
   </data>

@@ -62,7 +62,7 @@ namespace CCQ_Portal.CONTROLTEMPLATES.Portal_Main.App_LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My CCQ.
+        ///   Looks up a localized string similar to My Dashboard.
         /// </summary>
         internal static string MyCCQ {
             get {

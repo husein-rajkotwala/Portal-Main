@@ -197,6 +197,15 @@ namespace CCQ_Portal.Webparts.Home.CCQServices.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UseFul Links.
+        /// </summary>
+        internal static string UseFulLinks {
+            get {
+                return ResourceManager.GetString("UseFulLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please Select Category.
         /// </summary>
         internal static string ValidationCategory {
