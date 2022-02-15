@@ -10,7 +10,7 @@
 <link href="/Style%20Library/Script/ccq/assets/Events/fullcalendar.min.css" rel="stylesheet" />
 <script src="/Style%20Library/Script/ccq/assets/Events/moment.min.js"></script>
 
-<script src="http://webapp-t.ccq.edu.qa/js/fullcalendar.min.js"></script>
+<script src="/Style%20Library/Script/ccq/assets/Events/fullcalendar.min.js"></script>
 
 
 

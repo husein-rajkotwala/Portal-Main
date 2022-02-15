@@ -53,11 +53,11 @@
                 }
                 userApplicationHTML += '<div class="col-lg-3 col-sm-6 col-md-4 my-2 px-1 col-xl-2" >';
                 userApplicationHTML += '<div class="card border-0 card-shadow text-center p-3">';
-                userApplicationHTML += '<a class="" href=' + applicationUrl + '>'
+                userApplicationHTML += '<a class=""  target="_blank" href=' + applicationUrl + '>'
                 userApplicationHTML += '<img src=' + applicationImage + ' class="card-img-top">';
                 userApplicationHTML += '</a>';
                 userApplicationHTML += '<div class="card-body">';
-                userApplicationHTML += '<a href=' + applicationUrl + ' class="card-title-link"><p class="card-text">' + applicationTitle + '</p></a>';
+                userApplicationHTML += '<a href=' + applicationUrl + ' class="card-title-link" target="_blank"><p class="card-text"  target="_blank">' + applicationTitle + '</p></a>';
                 userApplicationHTML += '</div>';
                 userApplicationHTML += '</div>';
                 userApplicationHTML += '</div>';
@@ -75,7 +75,7 @@
     function getUserInformation() {
         var Title = "CCQUserSSO";
         var ID = "";
-        var Filter = "EMAILS eq '" + currentUser + "'";
+        var Filter = "SAMACCOUNTNAME eq '" + currentUser + "'";
         var Select = "";
         var orderBy = "";
         var top = "";

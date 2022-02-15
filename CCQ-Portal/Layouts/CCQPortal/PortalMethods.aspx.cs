@@ -12,6 +12,9 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Configuration;
+using System.DirectoryServices.AccountManagement;
+using System.DirectoryServices;
 
 namespace CCQ_Portal.Layouts.CCQPortal
 {
@@ -20,6 +23,144 @@ namespace CCQ_Portal.Layouts.CCQPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
+        [WebMethod]
+        public static bool  ChangePassword(string Password, string UserName)
+        {
+            bool isPasswordChanged = false;
+
+            try
+            {
+                var userLoginName = SPContext.Current.Web.CurrentUser.LoginName;
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+
+                    string struserName = ConfigurationManager.AppSettings["User"];
+                    string strPassword = ConfigurationManager.AppSettings["Password"];
+                    string strDomain = ConfigurationManager.AppSettings["Domain"];
+                    using (var context = new PrincipalContext(ContextType.Domain, strDomain, struserName, strPassword))
+
+                    {
+
+                        using (var user = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, UserName))
+
+                        {
+                            try
+                            {
+
+                                user.SetPassword(Password);
+
+                                user.Save();
+                                isPasswordChanged = true;
+                               
+
+                            }
+                            catch (Exception ex)
+                            {
+                                isPasswordChanged = false;
+                            }
+                        }
+
+                    }
+
+                });
+            }
+            catch (Exception ex)
+            {
+                isPasswordChanged = false;
+            }
+            return isPasswordChanged;
+           
+        }
+        [WebMethod]
+        public static bool ChangeUserProfile(List<UserProfile> UserProfile)
+        {
+            bool isUserProfileUpdated = false;
+
+            try
+            {
+                var userLoginName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1];
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+
+                    string struserName = ConfigurationManager.AppSettings["User"];
+                    string strPassword = ConfigurationManager.AppSettings["Password"];
+                    string strDomain = ConfigurationManager.AppSettings["Domain"];
+                    var dsDirectoryEntry = new DirectoryEntry("LDAP://"+strDomain, struserName, strPassword);
+
+                    var dsSearch = new DirectorySearcher(dsDirectoryEntry) { Filter = "(&(objectClass=user)(SAMAccountName=" + userLoginName + "))" };
+
+                    var dsResults = dsSearch.FindOne();
+                    var myEntry = dsResults.GetDirectoryEntry();
+                  
+                    myEntry.Properties["ccqMobileNumber"].Value = UserProfile[0].CCQMobileNumber;
+                    myEntry.Properties["ccqAlternateEmail"].Value = UserProfile[0].CCQAlternateEmail;
+                    myEntry.CommitChanges();
+                    isUserProfileUpdated = true;
+
+                });
+            }
+            catch (Exception ex)
+            {
+                isUserProfileUpdated = false;
+            }
+            return isUserProfileUpdated;
+
+        }
+        [WebMethod]
+        public static List<UserProfile> getUserProfile()
+        {
+            List<UserProfile> objListUserProfile = new List<UserProfile>();
+
+            try
+            {
+                var userLoginName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1];
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+
+                    string struserName = ConfigurationManager.AppSettings["User"];
+                    string strPassword = ConfigurationManager.AppSettings["Password"];
+                    string strDomain = ConfigurationManager.AppSettings["Domain"];
+                    var dsDirectoryEntry = new DirectoryEntry("LDAP://" + strDomain, struserName, strPassword);
+
+                    var dsSearch = new DirectorySearcher(dsDirectoryEntry) { Filter = "(&(objectClass=user)(SAMAccountName=" + userLoginName + "))" };
+
+                    var dsResults = dsSearch.FindOne();
+                    var myEntry = dsResults.GetDirectoryEntry();
+
+                    string strCCQMobile = string.Empty;
+                    string strAlternateEmail = string.Empty;
+                   if(!string.IsNullOrEmpty(myEntry.Properties["ccqMobileNumber"].Value.ToString()))
+                    {
+
+                        strCCQMobile = myEntry.Properties["ccqMobileNumber"].Value.ToString();
+                    }
+                    if (!string.IsNullOrEmpty(myEntry.Properties["ccqAlternateEmail"].Value.ToString()))
+                    {
+
+                        strAlternateEmail = myEntry.Properties["ccqAlternateEmail"].Value.ToString();
+                    }
+
+                    var objUserProfile = new UserProfile
+                    {
+
+                        CCQMobileNumber = strCCQMobile,
+                        CCQAlternateEmail = strAlternateEmail,
+                      
+
+
+                    };
+                    objListUserProfile.Add(objUserProfile);
+
+                });
+            }
+            catch (Exception ex)
+            {
+                objListUserProfile = null;
+            }
+            return objListUserProfile;
+
+
         }
         [WebMethod]
         public static List<GoalDetails> GetGoals()

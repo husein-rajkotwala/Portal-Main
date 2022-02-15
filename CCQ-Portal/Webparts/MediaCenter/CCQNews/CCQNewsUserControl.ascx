@@ -6,6 +6,13 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CCQNewsUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.MediaCenter.CCQNews.CCQNewsUserControl" %>
+<style>
+    #pills-newsContent{ 
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+</style>
 <div class="news-container">
 
     <ul class="nav nav-pills nav-justified text-uppercase" id="pills-news" role="tablist">
@@ -25,6 +32,7 @@
         var navtabsHtml = "";
         var newsDetailHtml = "";
         var newsTitle = "";
+        var readMore = "";
         $.each(data, function (index, item) {
              newsTitle = "";
 
@@ -49,10 +57,12 @@
                 if (language == "en-us") {
                     imageDetails = $($(itemNewsDetails.ImageEn)[0]).find("img").attr("src");
                     newsDetailsTile = itemNewsDetails.TitleEn;
+                    readMore = "Read More";
                 }
                 else {
                     imageDetails = $($(itemNewsDetails.ImageAr)[0]).find("img").attr("src");
                     newsDetailsTile = itemNewsDetails.TitleAr;
+                    readMore = "اقرأ أكثر";
                 }
                 var newsObject = {
                     ID: itemNewsDetails.ID,
@@ -68,8 +78,10 @@
                 newsDetailHtml += '</div>',
                 newsDetailHtml += ' <div class="col-md-8">',
                 newsDetailHtml += '<div class="card-body d-flex flex-column">'
-                newsDetailHtml += '<a href="#" class="card-title-link" data-toggle="modal" data-target="#news_modal"><h5 class="card-title">' + newsDetailsTile + '</h5></a>'
-                newsDetailHtml += '<a href="#" class="btn btn-primary align-self-end btnReadMore" data-toggle="modal" data-target="#news_modal" NewsID="' + itemNewsDetails.ID + '">Read More</a>'
+               // newsDetailHtml += '<a href="#" class="card-title-link" data-toggle="modal" data-target="#news_modal"><h5 class="card-title">' + newsDetailsTile + '</h5></a>'
+               newsDetailHtml += '<h5 class="card-title">' + newsDetailsTile + '</h5>'
+
+                newsDetailHtml += '<a href="#" class="btn btn-primary align-self-end btnReadMore" data-toggle="modal" data-target="#news_modal" NewsID="' + itemNewsDetails.ID + '">' + readMore + '</a>'
                 newsDetailHtml += '</div></div></div></div>';
                 if (indexNewsDetails == newsDetailsLength) {
                     if (index == 0) {

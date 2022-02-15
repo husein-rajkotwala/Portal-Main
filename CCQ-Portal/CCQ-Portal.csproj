@@ -46,13 +46,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CCQDTO\bin\Debug\CCQDTO.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.DynamicData" />
@@ -68,15 +72,44 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Base\MenuItem.cs" />
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCChangePassword.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCChangePassword.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCCommanControls.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCCommanControls.ascx.resx</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCLanguageSwitcher.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UCLanguageSwitcher.ascx.resx</DependentUpon>
     </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCUserProfile.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCUserProfile.ascx.resx</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCWeather.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UCWeather.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCChangePassword.ascx.cs">
+      <DependentUpon>UCChangePassword.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCChangePassword.ascx.designer.cs">
+      <DependentUpon>UCChangePassword.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCCommanControls.ascx.cs">
+      <DependentUpon>UCCommanControls.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCCommanControls.ascx.designer.cs">
+      <DependentUpon>UCCommanControls.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx.cs">
       <DependentUpon>UCLanguageSwitcher.ascx</DependentUpon>
@@ -105,6 +138,13 @@
     </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\UCUserInformation.ascx.designer.cs">
       <DependentUpon>UCUserInformation.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCUserProfile.ascx.cs">
+      <DependentUpon>UCUserProfile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCUserProfile.ascx.designer.cs">
+      <DependentUpon>UCUserProfile.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\UCWeather.ascx.cs">
       <DependentUpon>UCWeather.ascx</DependentUpon>
@@ -137,6 +177,14 @@
     <Compile Include="Webparts\CCQApps\CCQApps\CCQAppsUserControl.ascx.designer.cs">
       <DependentUpon>CCQAppsUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Home\CCQChangePassword\CCQChangePassword.cs" />
+    <Compile Include="Webparts\Home\CCQChangePassword\CCQChangePasswordUserControl.ascx.cs">
+      <DependentUpon>CCQChangePasswordUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQChangePassword\CCQChangePasswordUserControl.ascx.designer.cs">
+      <DependentUpon>CCQChangePasswordUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Home\CCQGoals\CCQGoals.cs" />
     <Compile Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx.cs">
       <DependentUpon>CCQGoalsUserControl.ascx</DependentUpon>
@@ -157,6 +205,19 @@
     </Compile>
     <Compile Include="Webparts\Home\CCQServices\CCQServicesUserControl.ascx.designer.cs">
       <DependentUpon>CCQServicesUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQSocialMedia\App_LocalResources\CCQSocialMediaUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCQSocialMediaUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQSocialMedia\CCQSocialMedia.cs" />
+    <Compile Include="Webparts\Home\CCQSocialMedia\CCQSocialMediaUserControl.ascx.cs">
+      <DependentUpon>CCQSocialMediaUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQSocialMedia\CCQSocialMediaUserControl.ascx.designer.cs">
+      <DependentUpon>CCQSocialMediaUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -238,6 +299,10 @@
     <None Include="Webparts\CCQApps\CCQApps\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4222dec9-d2ab-4120-b6bc-fd2147f44c96}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Home\CCQChangePassword\CCQChangePassword.webpart" />
+    <None Include="Webparts\Home\CCQChangePassword\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f8427116-27ef-48f9-b516-fb731a8aea7b}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\CCQGoals\CCQGoals.webpart" />
     <None Include="Webparts\Home\CCQGoals\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{88c537ef-3b42-408c-8f5f-557be10026d5}</SharePointProjectItemId>
@@ -245,6 +310,10 @@
     <None Include="Webparts\Home\CCQServices\CCQServices.webpart" />
     <None Include="Webparts\Home\CCQServices\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3ade3aa5-0ab3-4a8b-8fae-e5d671a3cc61}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\CCQSocialMedia\CCQSocialMedia.webpart" />
+    <None Include="Webparts\Home\CCQSocialMedia\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{88c165ba-ed0e-41d2-b36a-15e6fc8cc10b}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Home\FeedBack\FeedBack.webpart" />
     <None Include="Webparts\Home\FeedBack\SharePointProjectItem.spdata">
@@ -268,10 +337,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCChangePassword.ascx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCCommanControls.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCPrayerTime.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCTopMenu.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCUserInformation.ascx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCUserProfile.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCWeather.ascx" />
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
@@ -332,10 +404,14 @@
     <Content Include="Scripts\Shared\JsConfigs.js" />
     <Content Include="Webparts\CCQApps\CCQApps\CCQAppsUserControl.ascx" />
     <Content Include="Webparts\CCQApps\CCQApps\Elements.xml" />
+    <Content Include="Webparts\Home\CCQChangePassword\CCQChangePasswordUserControl.ascx" />
+    <Content Include="Webparts\Home\CCQChangePassword\Elements.xml" />
     <Content Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx" />
     <Content Include="Webparts\Home\CCQGoals\Elements.xml" />
     <Content Include="Webparts\Home\CCQServices\CCQServicesUserControl.ascx" />
     <Content Include="Webparts\Home\CCQServices\Elements.xml" />
+    <Content Include="Webparts\Home\CCQSocialMedia\CCQSocialMediaUserControl.ascx" />
+    <Content Include="Webparts\Home\CCQSocialMedia\Elements.xml" />
     <Content Include="Webparts\Home\FeedBack\Elements.xml" />
     <Content Include="Webparts\Home\FeedBack\FeedBackUserControl.ascx" />
     <Content Include="Webparts\Home\ImageSlider\Elements.xml" />
@@ -362,10 +438,30 @@
       <LastGenOutput>UCLanguageSwitcher.ascx.Designer.cs</LastGenOutput>
     </Content>
     <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCLanguageSwitcher.ascx.ar-SA.resx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCChangePassword.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UCChangePassword.ascx.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCChangePassword.ascx.ar-SA.resx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCCommanControls.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UCCommanControls.ascx.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCCommanControls.ascx.ar-SA.resx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCUserProfile.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UCUserProfile.ascx.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCUserProfile.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\Home\CCQServices\App_LocalResources\CCQServicesUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\Home\CCQServices\App_LocalResources\CCQServicesUserControl.ascx.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CCQServicesUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webparts\Home\CCQSocialMedia\App_LocalResources\CCQSocialMediaUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\Home\CCQSocialMedia\App_LocalResources\CCQSocialMediaUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCQSocialMediaUserControl.ascx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.resx">
