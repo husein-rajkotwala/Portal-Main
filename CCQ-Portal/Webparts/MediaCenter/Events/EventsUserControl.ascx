@@ -126,6 +126,7 @@
         var restWeb = new RESTApiHelper.Web(eventsSiteEventUrl);
         var myList = new restWeb.List(EventTitle);
         var items = new myList.Items();
+        var currentDate = moment(new Date()).format('YYYY-MM-DD');
         
         jQuery.ajax({
             url: eventsSiteEventUrl + "/_api/web/lists/GetByTitle('" + EventTitle + "')/items?$select=Title,EventDate,EndDate,TitleEn,TitleAr,DescriptionEn,DescriptionAr,CategoryEvents/Title,CategoryEvents/Color,CategoryEvents/DepartmentEn,CategoryEvents/DepartmentAr&$expand=CategoryEvents",
@@ -164,7 +165,7 @@
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialDate: '2021-12-01',
+                initialDate: currentDate,
                 editable: true,
                 selectable: true,
                 businessHours: true,

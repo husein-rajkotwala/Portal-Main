@@ -12,5 +12,4 @@
   
                           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#dvchange_password"><asp:Label ID="lblChangePassword" runat="server" Text='<%$ resources:ChangePassword%>'></asp:Label></a>
                             <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#profile_modal"><asp:Label ID="lblProfile" runat="server" Text='<%$ resources:Profile%>'></asp:Label></a>
-                            <a class="dropdown-item" href="#"><asp:Label ID="lblLogout" runat="server" Text='<%$ resources:Logout%>'></asp:Label></a>
-
+<asp:LinkButton ID="btnLogoutout" runat="server" Text='<%$ resources:Logout%>' OnClick="btnLogoutout_Click"  class="dropdown-item"></asp:LinkButton>

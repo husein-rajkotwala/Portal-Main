@@ -231,5 +231,14 @@ namespace CCQ_Portal.Webparts.Home.CCQServices.App_LocalResources {
                 return ResourceManager.GetString("ValidationSubject", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work In Progress.
+        /// </summary>
+        internal static string WorkInProgress {
+            get {
+                return ResourceManager.GetString("WorkInProgress", resourceCulture);
+            }
+        }
     }
 }

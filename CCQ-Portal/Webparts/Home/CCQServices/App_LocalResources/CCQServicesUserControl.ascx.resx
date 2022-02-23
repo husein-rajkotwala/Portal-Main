@@ -174,4 +174,7 @@
   <data name="ValidationSubject" xml:space="preserve">
     <value>Please Enter the Subject</value>
   </data>
+  <data name="WorkInProgress" xml:space="preserve">
+    <value>Work In Progress</value>
+  </data>
 </root>

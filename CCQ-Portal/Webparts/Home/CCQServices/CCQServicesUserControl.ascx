@@ -8,10 +8,25 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CCQServicesUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.Home.CCQServices.CCQServicesUserControl" %>
 <link rel="stylesheet" type="text/css" href="/Style%20Library/Branding/css/jquery.dataTables.css" />
 <script type="text/javascript" charset="utf8" src="/Style%20Library/Branding/js/jquery.dataTables.min.js"></script>
+
+<style>
+
+    #e-services .fa-pencil-ruler{ 
+    color: #00235d;
+}
+
+#e-services .p-1{
+    color: #00235d;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+</style>
 <div class="container-fluid">
 <div class="row">
     <div class="col-md-3 col-xl-6 col-sm-6 text-center py-5 bg-light-blue">
-        <a href="#" class="text-white">
+        <a href="#" class="text-white" data-toggle="modal" data-target="#e-services">
             <i class="fas fa-cog fa-4x"></i>
             <h5 class="text-uppercase pt-2">
     <asp:Label ID="lblEservices" runat="server" ><%=GetLocalResourceObject("Eservices")%></asp:Label></h5>
@@ -69,6 +84,24 @@
     </div>
 </div>
 <!-- End of Useful Contacts Modal -->
+    <!-- E-Services Modal --> 
+                    <div class="modal fade" id="e-services" tabindex="-1" aria-labelledby="e-services_M" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="e-services_M"><%=GetLocalResourceObject("Eservices")%></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <i class="fas fa-pencil-ruler fa-5x"></i>
+                                    <p class="text-uppercase p-1"><%=GetLocalResourceObject("WorkInProgress")%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+   <!-- End of E-Services Modal -->
 
 <!-- Feedback Modal -->
 <div class="modal fade" id="feedback" tabindex="-1" aria-labelledby="Feedback_M" aria-hidden="true">

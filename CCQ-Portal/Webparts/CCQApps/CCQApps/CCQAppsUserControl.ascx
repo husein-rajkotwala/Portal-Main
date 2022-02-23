@@ -8,7 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CCQAppsUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.CCQApps.CCQApps.CCQAppsUserControl" %>
 <script type="text/javascript">
     var siteUrl = _spPageContextInfo.siteAbsoluteUrl;
-    var currentUser = _spPageContextInfo.userLoginName;
+    var currentUser = _spPageContextInfo.userLoginName.split('\\')[1];
     var currentUserApplications = "";
     var currentUserAppArray = [];
     var currentUserRole = "";
@@ -105,7 +105,8 @@
            
            
         });
-        if (currentUserRole != null && currentUserRole != "") {
+        //if (currentUserRole != null && currentUserRole != "")
+        {
             getCCQApplcations();
         }
 
