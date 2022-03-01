@@ -91,6 +91,30 @@
     </Compile>
     <Compile Include="HTTPModules\HTTPSwitcherModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Webparts\Home\CCQGoals\CCQGoals.cs" />
+    <Compile Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx.cs">
+      <DependentUpon>CCQGoalsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx.designer.cs">
+      <DependentUpon>CCQGoalsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedBackUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\FeedBack\FeedBack.cs" />
+    <Compile Include="Webparts\Home\FeedBack\FeedBackUserControl.ascx.cs">
+      <DependentUpon>FeedBackUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\FeedBack\FeedBackUserControl.ascx.designer.cs">
+      <DependentUpon>FeedBackUserControl.ascx.cs</DependentUpon>
+    </Compile>
+>>>>>>> dc328a99ae509fc1215c5d1d7671879577793197
     <Compile Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,6 +153,17 @@
     </None>
     <None Include="Scripts\Jquery\jquery-3.5.1.min.map" />
     <None Include="Scripts\Jquery\jquery-3.5.1.slim.min.map" />
+<<<<<<< HEAD
+=======
+    <None Include="Webparts\Home\CCQGoals\CCQGoals.webpart" />
+    <None Include="Webparts\Home\CCQGoals\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{88c537ef-3b42-408c-8f5f-557be10026d5}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\FeedBack\FeedBack.webpart" />
+    <None Include="Webparts\Home\FeedBack\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8be5e378-fb92-4a1f-a806-e341fb696d45}</SharePointProjectItemId>
+    </None>
+>>>>>>> dc328a99ae509fc1215c5d1d7671879577793197
     <None Include="Webparts\Home\ImageSlider\ImageSlider.webpart" />
     <None Include="Webparts\Home\ImageSlider\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{09d68065-b5df-40f4-a4ac-b8c536b1c8b8}</SharePointProjectItemId>
@@ -198,6 +233,13 @@
     <Content Include="Scripts\Jquery\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\Jquery\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\Shared\JsConfigs.js" />
+<<<<<<< HEAD
+=======
+    <Content Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx" />
+    <Content Include="Webparts\Home\CCQGoals\Elements.xml" />
+    <Content Include="Webparts\Home\FeedBack\Elements.xml" />
+    <Content Include="Webparts\Home\FeedBack\FeedBackUserControl.ascx" />
+>>>>>>> dc328a99ae509fc1215c5d1d7671879577793197
     <Content Include="Webparts\Home\ImageSlider\Elements.xml" />
     <Content Include="Webparts\Home\ImageSlider\ImageSliderUserControl.ascx" />
     <Content Include="Webparts\MediaCenter\Events\Elements.xml" />
@@ -214,6 +256,14 @@
     <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCWeather.ascx.ar-SA.resx" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\Home\FeedBack\App_LocalResources\FeedBackUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FeedBackUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+>>>>>>> dc328a99ae509fc1215c5d1d7671879577793197
     <EmbeddedResource Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\Home\ImageSlider\App_LocalResources\ImageSliderUserControl.ascx.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="CCQGoals" List="113" Url="_catalogs/wp">
+    <File Path="CCQGoals\CCQGoals.webpart" Url="CCQ-Portal_CCQGoals.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Home" />
+    </File>
+  </Module>
+</Elements>
