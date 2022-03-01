@@ -9,65 +9,92 @@
 
 <link href="/Style%20Library/Script/ccq/assets/Events/fullcalendar.min.css" rel="stylesheet" />
 <script src="/Style%20Library/Script/ccq/assets/Events/moment.min.js"></script>
+
 <script src="/Style%20Library/Script/ccq/assets/Events/fullcalendar.min.js"></script>
 
-<section class="calendar-sec">
-    <div class="mainbox p-3">
-        <div class="row sec-title">
-            <div class="col text-left">
-                <h2 class="fz-28 color-prime"><%=GetLocalResourceObject("EVENTS")%> <span class="d-block fz-12 color-gray2"><%=GetLocalResourceObject("RecentlyAdded")%></span></h2>
-            </div>
 
-            <div class="col text-right fz-16">
-              <%--  <a href="/MediaCenter/Pages/ViewAllEvents.aspx"><%=GetLocalResourceObject("ExpandAll")%>
-                                        <i class="icon-arrow_forward_ios"></i>
-                </a>--%>
-            </div>
 
-        </div>
-        <!--titel-mainBox -->
-        <div class="row">
-            <div class="col-md-6">
-                <div id="FullCaleander">
-                    <!--Script at main.js-->
-                </div>
-            </div>
-            <div class="col-md-6">
-                <strong class="events"><%=GetLocalResourceObject("UpcomingEvents")%></strong>
-                <!--events-->
-                <ul class="ul-events" id="recentEvents">
-                </ul>
-                <!--ul-events-->
+<div class="calendar-header-title p-3 text-uppercase"><span class="d-inline-block text-left-cust">Upcoming Events</span> <div class="d-inline-block fa-pull-right-cust mb-1"><i class="fas fa-calendar-alt fa-2x"></i></div></div>
+                    <div id="calendar"></div>
 
-            </div>
-
-        </div>
-
-    </div>
-    <!-- mainbox -->
-    <div id="ModalEvents" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalEvents" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-			
-			   <div class="modal-header">
-                <h5 class="modal-title ml-0 mr-0 color-prime"><span id="eventTitle"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-			
-	
-                <div class="modal-body">
-                    <p id="pDetails"></p>
-                </div>
-        
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <script>
+    //document.addEventListener('DOMContentLoaded', function () {
+    //    console.log("trs");
+    //    var calendarEl = document.getElementById('calendar');
+
+    //    var calendar = new FullCalendar.Calendar(calendarEl, {
+    //        initialDate: '2021-12-01',
+    //        editable: true,
+    //        selectable: true,
+    //        businessHours: true,
+    //        dayMaxEvents: true,
+    //        buttonText: {
+    //            today: 'Today'
+    //        },
+    //        events: events
+    //        //events: [
+    //        //    {
+    //        //        title: 'All Day Event',
+    //        //        start: '2021-09-01'
+    //        //    },
+    //        //    {
+    //        //        title: 'Long Event',
+    //        //        start: '2021-09-07',
+    //        //        end: '2021-09-10'
+    //        //    },
+    //        //    {
+    //        //        groupId: 999,
+    //        //        title: 'Repeating Event',
+    //        //        start: '2021-09-09T16:00:00'
+    //        //    },
+    //        //    {
+    //        //        groupId: 999,
+    //        //        title: 'Repeating Event',
+    //        //        start: '2021-09-16T16:00:00'
+    //        //    },
+    //        //    {
+    //        //        title: 'Conference',
+    //        //        start: '2021-09-11',
+    //        //        end: '2021-09-13'
+    //        //    },
+    //        //    {
+    //        //        title: 'Meeting',
+    //        //        start: '2021-09-12T10:30:00',
+    //        //        end: '2021-09-12T12:30:00'
+    //        //    },
+    //        //    {
+    //        //        title: 'Lunch',
+    //        //        start: '2021-09-12T12:00:00'
+    //        //    },
+    //        //    {
+    //        //        title: 'Meeting',
+    //        //        start: '2021-09-12T14:30:00'
+    //        //    },
+    //        //    {
+    //        //        title: 'Happy Hour',
+    //        //        start: '2021-09-12T17:30:00'
+    //        //    },
+    //        //    {
+    //        //        title: 'Dinner',
+    //        //        start: '2021-09-12T20:00:00'
+    //        //    },
+    //        //    {
+    //        //        title: 'Birthday Party',
+    //        //        start: '2021-09-13T07:00:00'
+    //        //    },
+    //        //    {
+    //        //        title: 'Click for Google',
+    //        //        url: 'http://google.com/',
+    //        //        start: '2021-09-28'
+    //        //    }
+    //        //]
+    //    });
+
+    //    calendar.render();
+    //});
+
     var eventsSiteEventUrl = _spPageContextInfo.siteAbsoluteUrl+'/MediaCenter';
     var language = lang;
     var EventTitle = "CCQ Events";
@@ -81,21 +108,25 @@
     var days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
     $(document).ready(function () {
         getEvents();
-        getRecentEvents();
+       // getRecentEvents();
         
       
    
     });
 
+ 
 
+       
+    
     function getEvents() {
         var Filter = "";
         var Select = "";
         var orderBy = "Created desc";
-        var top = "10";
+        var top = "";
         var restWeb = new RESTApiHelper.Web(eventsSiteEventUrl);
         var myList = new restWeb.List(EventTitle);
         var items = new myList.Items();
+        var currentDate = moment(new Date()).format('YYYY-MM-DD');
         
         jQuery.ajax({
             url: eventsSiteEventUrl + "/_api/web/lists/GetByTitle('" + EventTitle + "')/items?$select=Title,EventDate,EndDate,TitleEn,TitleAr,DescriptionEn,DescriptionAr,CategoryEvents/Title,CategoryEvents/Color,CategoryEvents/DepartmentEn,CategoryEvents/DepartmentAr&$expand=CategoryEvents",
@@ -113,8 +144,8 @@
                     events.push({
                         title: item.TitleEn,
                         description: item.DescriptionEn,
-                        start: moment(item.EventDate),
-                        end: item.EndDate != null ? moment(item.EndDate) : null,
+                        start: moment(item.EventDate).format('YYYY-MM-DD'),
+                        end: item.EndDate != null ? moment(item.EndDate).format('YYYY-MM-DD') : null,
                         color: item.CategoryEvents.Color.substring(1),
                     });
                 }
@@ -122,14 +153,89 @@
                     events.push({
                         title: item.TitleAr,
                         description: item.DescriptionAr,
-                        start: moment(item.EventDate),
-                        end: item.EndDate != null ? moment(item.EndDate) : null,
+                        start: moment(item.EventDate).format('YYYY-MM-DD'),
+                        end: item.EndDate != null ? moment(item.EndDate).format('YYYY-MM-DD') : null,
                         color: item.CategoryEvents.Color.substring(1),
                     });
                 }
 
             });
-              GenerateCalender(events);
+            console.log("eventLoaded");
+
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialDate: currentDate,
+                editable: true,
+                selectable: true,
+                businessHours: true,
+                dayMaxEvents: true,
+                buttonText: {
+                    today: 'Today'
+                },
+                events: events
+                //events: [
+                //    {
+                //        title: 'All Day Event',
+                //        start: '2021-09-01'
+                //    },
+                //    {
+                //        title: 'Long Event',
+                //        start: '2021-09-07',
+                //        end: '2021-09-10'
+                //    },
+                //    {
+                //        groupId: 999,
+                //        title: 'Repeating Event',
+                //        start: '2021-09-09T16:00:00'
+                //    },
+                //    {
+                //        groupId: 999,
+                //        title: 'Repeating Event',
+                //        start: '2021-09-16T16:00:00'
+                //    },
+                //    {
+                //        title: 'Conference',
+                //        start: '2021-09-11',
+                //        end: '2021-09-13'
+                //    },
+                //    {
+                //        title: 'Meeting',
+                //        start: '2021-09-12T10:30:00',
+                //        end: '2021-09-12T12:30:00'
+                //    },
+                //    {
+                //        title: 'Lunch',
+                //        start: '2021-09-12T12:00:00'
+                //    },
+                //    {
+                //        title: 'Meeting',
+                //        start: '2021-09-12T14:30:00'
+                //    },
+                //    {
+                //        title: 'Happy Hour',
+                //        start: '2021-09-12T17:30:00'
+                //    },
+                //    {
+                //        title: 'Dinner',
+                //        start: '2021-09-12T20:00:00'
+                //    },
+                //    {
+                //        title: 'Birthday Party',
+                //        start: '2021-09-13T07:00:00'
+                //    },
+                //    {
+                //        title: 'Click for Google',
+                //        url: 'http://google.com/',
+                //        start: '2021-09-28'
+                //    }
+                //]
+            });
+
+            calendar.render();
+           // $('#calendar').fullCalendar('destroy');
+          
+             // GenerateCalender(events);
         }
       
     }

@@ -13,10 +13,19 @@ var Email = {
 var Phone = {
 
 };
+var currentApplications = {
+
+};
+var mobileNumber = {
+
+};
+var userCategory = {
+
+};
 lang = getCookie("lang");
-
-checkUserRole();
-
+$(document).ready(function () {
+    getUserApplication();
+});
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -33,7 +42,48 @@ function getCookie(cname) {
     }
     return "";
 }
+function getUserApplication() {
+    var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications";
+    $.ajax({
 
+        contentType: "application/json; charset=utf-8",
+
+        data: {},
+
+        dataType: "json",
+
+        type: "POST",
+
+        url: methodUrl,
+        success: function (result) {
+
+            var output = JSON.parse(result.d);
+            if (output.Resources.length > 0) {
+
+                if (JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].currentapplications)[0] != "" && JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].currentapplications)[0]  != null) {
+                    currentApplications = JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].currentapplications)[0];
+                }
+                if (output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].category[0] != "" && output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].category[0] != null) {
+                    userCategory = output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].category[0];
+                }
+                if (JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].mobilephone)[0] != "" && JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].mobilephone)[0] != null) {
+                    mobileNumber = JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].mobilephone)[0];
+                }
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert('Error occured');
+
+            if (jqXHR.status == 500) {
+                console.log('Internal error: ' + jqXHR.responseText);
+            } else {
+                console.log('Unexpected error.');
+            }
+        }
+
+    });
+
+}
 function checkUserRole() {
     var userOUDetails = "";
     var userRole = "";

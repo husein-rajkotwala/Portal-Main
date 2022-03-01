@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="CCQChangePassword" List="113" Url="_catalogs/wp">
+    <File Path="CCQChangePassword\CCQChangePassword.webpart" Url="CCQ-Portal_CCQChangePassword.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Home" />
+    </File>
+  </Module>
+</Elements>

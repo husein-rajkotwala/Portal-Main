@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="CCQNewsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="CCQNews\" Type="ElementManifest" />
+    <ProjectItemFile Source="CCQNews.webpart" Target="CCQNews\" Type="ElementFile" />
+    <ProjectItemFile Source="CCQNewsUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.MediaCenter\CCQNews\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQNewsUserControl.ascx.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.MediaCenter\CCQNews\App_LocalResources\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQNewsUserControl.ascx.ar-SA.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.MediaCenter\CCQNews\App_LocalResources\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Portal.Webparts.MediaCenter.CCQNews" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

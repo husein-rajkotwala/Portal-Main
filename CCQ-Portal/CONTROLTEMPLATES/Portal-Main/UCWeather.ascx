@@ -14,27 +14,10 @@
 
 
 <!-- style for weather-->
-<script src="/Style Library/script/ccq/assets/Weather/js/vendors.min.js"></script>
+
 <!-- end script for weather-->
 
 
-                                        <div class="weather">
-                                            <div class="d-inline-block">
-                                                <img src="/Style Library/script/ccq/img/icons/ic_weather.svg" />
-                                            </div>
-                                            <div class="weather-info d-inline-block">
-                                                <label class="color-prime m-0 font-weight-bold" id="lblCurrentTemp"> 
-                                                
-                                                
-                                                </label>
-                                               
-                                                <label class="d-block text-center" runat="server"><%=GetLocalResourceObject("Doha")%>
-                                                
-                                                
-                                                
-                                                </label>
-                                            </div>
-                                        </div>
                                 
 <script>
 
@@ -60,14 +43,26 @@
             var data = JSON.parse(response);
             var selector = "#lblCurrentTemp";
         
-            $(selector).text(Math.round(data.main.temp) + "°");
-            
+           // $(selector).text(Math.round(data.main.temp) + "°");
+            if (lang == "en-us") {
+               $(".fa-cloud-moon").append(Math.round(data.main.temp) + "°"+" Doha");
+            }
+            else {
+              $(".fa-cloud-moon").append(Math.round(data.main.temp) + "°" + " الدوحة");
+            }
         })
             .fail(function (response) {
                 console.log("error fetching weather data");
 
             });
-
+    
     });
 
+
 </script>
+
+  
+                                   <li class="nav-item px-md-2">
+                        <a class="nav-link menu-item"><i class="fas fa-cloud-moon"></i> </a></li>             
+                                                
+                                   

@@ -120,4 +120,7 @@
   <data name="Doha" xml:space="preserve">
     <value>Doha</value>
   </data>
+  <data name="MyCCQ" xml:space="preserve">
+    <value>My CCQ</value>
+  </data>
 </root>

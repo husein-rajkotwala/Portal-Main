@@ -68,5 +68,14 @@ namespace CCQ_Portal.CONTROLTEMPLATES.Portal_Main.App_LocalResources {
                 return ResourceManager.GetString("Doha", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My CCQ.
+        /// </summary>
+        internal static string MyCCQ {
+            get {
+                return ResourceManager.GetString("MyCCQ", resourceCulture);
+            }
+        }
     }
 }

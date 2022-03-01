@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="CCQSocialMediaUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="CCQSocialMedia\" Type="ElementManifest" />
+    <ProjectItemFile Source="CCQSocialMedia.webpart" Target="CCQSocialMedia\" Type="ElementFile" />
+    <ProjectItemFile Source="CCQSocialMediaUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.Home\CCQSocialMedia\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQSocialMediaUserControl.ascx.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.Home\CCQSocialMedia\App_LocalResources\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQSocialMediaUserControl.ascx.ar-SA.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.Home\CCQSocialMedia\App_LocalResources\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Portal.Webparts.Home.CCQSocialMedia" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

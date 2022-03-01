@@ -71,13 +71,28 @@ input[type=submit]:hover {
     margin-top: 0;
   }
 }
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
 </style>
 
-<div class="alert alert-primary" role="alert" id="dvSuccess" style="display:none">
+<div class="alert alert-success" role="alert" id="dvSuccess" style="display:none">
                 <asp:Label ID="lblSuccess" runat="server" Text='<%$ resources:Success%>'></asp:Label>
 </div>
-<div id="dvFeedback" class="container needs-validation">
-    
+
+<div class="container fill">
+    <div id="dvImageLoader">
+          <image src="/Style%20Library/Images/Spinner-1s-200px.gif" style="height:700px;width:700px"/>
+        </div>
+    <div id="dvFeedback" style="display:none">
 <div class="row">
      <div class="col-25">
     <label for="Name" class="form-label"><%=GetLocalResourceObject("Name")%>:</label>
@@ -144,10 +159,14 @@ input[type=submit]:hover {
     </div>
 
   <div class="row">
-     <div class="col-50">
+       <div class="col-50">
 
+                      <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary" Text='<%$ resources:Submit%>' />
+
+     </div>
+           <div class="col-50">
                 <asp:Button ID="btnReset" runat="server" class="btn btn-primary" Text='<%$ resources:Reset%>' />
-               <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary" Text='<%$ resources:Submit%>' />
+              
 
          </div>
 
@@ -156,13 +175,22 @@ input[type=submit]:hover {
        
      </div> 
 </div>
-  
+  </div>
     <script>
         var language = lang;
-
+        function hideLoader() {
+            $("#dvImageLoader").hide();
+            $("#dvFeedback").show();
+        }
+        function ShowLoader() {
+            $("#dvImageLoader").show();
+            $("#dvFeedback").hide();
+        }
         function AddFeedBack() {
             //latest
-            var fullUrl = _spPageContextInfo.siteAbsoluteUrl+ "/_api/web/lists/getbytitle('CCQ Feedback')/items";
+
+            var fullUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('CCQ Feedback')/items";
+
             var itemType = "SP.Data.CCQFeedbackListItem";
             var cat = {
                 "__metadata": { "type": itemType },
@@ -171,35 +199,80 @@ input[type=submit]:hover {
                 "Name": $(<%= txtName.ClientID %>).val(),
                 "Email": $(<%= txtEmail.ClientID %>).val(),
                 "Phone": $(<%= txtPhone.ClientID %>).val(),
-                "Category": $(<%= ddlCategory.ClientID %>).val(),
+                "CategoryId": $(<%= ddlCategory.ClientID %>).val(),
                 "Comments": $(<%= txtComments.ClientID %>).val(),
-              
+
             };
+           
+           
+
+            var methodUrl = _spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/CCQPortal/PortalMethods.aspx/AddFeedBackInfo";
+            
+
+            var feedBackArr = new Array();
+
+       
+
+                var FeedBack = new Object();
+
+              
+
+                    FeedBack["Title"] = $(<%= txtName.ClientID %>).val();
+
+                    FeedBack["Name"] = $(<%= txtName.ClientID %>).val();
+
+                    FeedBack["Email"] = $(<%= txtEmail.ClientID %>).val();
+
+                    FeedBack["Phone"] = $(<%= txtPhone.ClientID %>).val();
+
+                    FeedBack["CategoryId"] = $(<%= ddlCategory.ClientID %>).val();
+
+            FeedBack["Comments"] = $(<%= txtComments.ClientID %>).val();
+            FeedBack["Subject"] = $(<%= txtSubject.ClientID %>).val();
+
+
+            feedBackArr.push(FeedBack);
+
+            
+
+            /* Create a data transfer object (DTO) with the  
+
+            remember DTO  Parameter and Web Sevice Parameter name are same.
+
+          */
+
+            var DTO = { 'FeedBack': feedBackArr };
+            var test = JSON.stringify(DTO);
+            console.log(test);
             $.ajax({
-                url: fullUrl,
-                method: "POST",
-                data: JSON.stringify(cat),
-                headers: {
-                    "Accept": "application/json;odata=verbose",
-                    "X-RequestDigest": $("#__REQUESTDIGEST").val(),
-                    "Content-Type": "application/json;odata=verbose"
-                },
-                success: function (data) {
-                    var successMsg ="";
-                    if (language == "en-us") {
 
-                        $("#dvSucess").show();
-                    }
-                    else {
-                        $("#dvSucess").show();
-                    }
-                },
-                error: function (data) {
-                    alert("Failed");
+                contentType: "application/json; charset=utf-8",
 
+                data: JSON.stringify(DTO),
+
+                dataType: "json",
+
+                type: "POST",
+
+                url: methodUrl,
+                success: function (result) {
+                   
+                    var output = result.d;
+                    hideLoader();
+                    $("#dvSuccess").show();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Error occured');
+                    hideLoader();
+                    if (jqXHR.status == 500) {
+                        console.log('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        console.log('Unexpected error.');
+                    }
                 }
+
             });
-      }
+        }
         function getUserProfileDetails() {
             if (Name != "" && Name != null) {
                 $("input[id*='txtName']").val(Name);
@@ -231,14 +304,14 @@ input[type=submit]:hover {
         }
         function doSuccessCCQDepartment(data) {
       
-
+            $("select[id*='ddlCategory']").empty();
             $.each(data.d.results, function (index, item) {
              
               
                 if (language == "en-us") {
 
 
-                    $("select[id*='ddlCategory']").empty().append($('<option>', {
+                    $("select[id*='ddlCategory']").append($('<option>', {
                         value: item.ID,
                         text: item.TitleEn
                     }));
@@ -254,8 +327,10 @@ input[type=submit]:hover {
                         text: item.TitleAr
                     }));
                 }
+                hideLoader();
 
             });
+            
 
   
 
@@ -271,26 +346,43 @@ input[type=submit]:hover {
          getCCQDepartment();
 
             $(<%= btnSubmit.ClientID %>).click(function () {
+                ShowLoader();
                 $("#dvCategory").hide();
                 $("#dvSubject").hide();
                 $("#dvComments").hide();
-                if ($(<%= ddlCategory.ClientID %>).val() == "") {
-                    $("#dvCategory").show();
-
-                }
-                if ($(<%= txtSubject.ClientID %>).val() == "") {
-                    $("#dvSubject").show();
-
-                }
-                if ($(<%= txtComments.ClientID %>).val() == "") {
-                    $("#dvComments").show();
-
-                }
                 if ($(<%= txtComments.ClientID %>).val() != "" && $(<%= txtSubject.ClientID %>).val() != "" && $(<%= ddlCategory.ClientID %>).val() != "") {
                     AddFeedBack();
-
+                    return false;
                 }
+                else if ($(<%= ddlCategory.ClientID %>).val() == "") {
+                    hideLoader();
+                    $("#dvCategory").show();
+                    return false;
+                }
+                else if ($(<%= txtSubject.ClientID %>).val() == "") {
+                    hideLoader();
+                    $("#dvSubject").show();
+                    return false;
+                }
+                else if ($(<%= txtComments.ClientID %>).val() == "") {
+                    hideLoader();
+                    $("#dvComments").show();
+                    return false;
+                  }
+                hideLoader();
                 return false;
+            });
+            $(<%= btnReset.ClientID %>).click(function () {
+                ShowLoader();
+                $(<%= txtSubject.ClientID %>).val("");
+                $(<%= txtComments.ClientID %>).val("");
+                $("#dvCategory").hide();
+                $("#dvSubject").hide();
+                $("#dvComments").hide();
+                $("#dvSuccess").hide();
+                hideLoader();
+                return false;
+
             });
         });
     </script>

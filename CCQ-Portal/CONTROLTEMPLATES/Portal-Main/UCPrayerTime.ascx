@@ -9,51 +9,59 @@
 
 <script>
     var language = lang;
-$(document).ready(function() {
-    var prayterNames = {"Fajr": "الفجر","Dhuhr": "الظهر","Asr": "العصر","Maghrib": "المغرب","Isha": "العشاء"};
+    var prayerLaber = "";
+    var prayerTimings = "";
 
 
-	
-    var settings = {
-         beforeSend: function (jqXHR) {
-                            if($.ajaxSettings.headers)
-								delete $.ajaxSettings.headers.AuthToken;
-                            return true;
-                        },
-		"crossDomain":true,
-        "datatype": "json",
-        "url": "https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=10",
-        "method": "GET",
-        "headers": {
-            "accept": "application/json",
-        }
-    }
+    $(document).ready(function () {
+        var prayterNames = { "Fajr": "الفجر", "Dhuhr": "الظهر", "Asr": "العصر", "Maghrib": "المغرب", "Isha": "العشاء" };
 
-    $.ajax(settings).done(function(response) {
 
-        var excludedTimes = ["Imsak", "Sunrise", "Sunset", "Midnight"];
-        var currentDateTime = new Date();
-        var timings = Object.keys(response.data.timings).map((key) => [String(key), response.data.timings[key]]);
-        timings = timings.sort(CompareTimings);
-        var nextPrayerTime = ['Fajr', response.data.timings.Fajr];
-        for (var i = 0; i < timings.length - 1; i++) {
-            if (AddTimeInCurrentDate(timings[i][1]) > currentDateTime && excludedTimes.indexOf(timings[i][0]) < 0) {
-                nextPrayerTime = timings[i];
-                break;
+
+        var settings = {
+            beforeSend: function (jqXHR) {
+                if ($.ajaxSettings.headers)
+                    delete $.ajaxSettings.headers.AuthToken;
+                return true;
+            },
+            "crossDomain": true,
+            "datatype": "json",
+            "url": "https://api.aladhan.com/v1/timingsByCity?city=Doha&country=Qatar&method=10",
+            "method": "GET",
+            "headers": {
+                "accept": "application/json",
             }
         }
 
-        if (language == "en-us") {
-            $('.prayer_laber').text(nextPrayerTime[0]);
-        } 
-      else {
+        $.ajax(settings).done(function (response) {
 
-               $('.prayer_laber').text(prayterNames[nextPrayerTime[0]]);
-           }
-        $('.prayer_timing').text(nextPrayerTime[1]);
+            var excludedTimes = ["Imsak", "Sunrise", "Sunset", "Midnight"];
+            var currentDateTime = new Date();
+            var timings = Object.keys(response.data.timings).map((key) => [String(key), response.data.timings[key]]);
+            timings = timings.sort(CompareTimings);
+            var nextPrayerTime = ['Fajr', response.data.timings.Fajr];
+            for (var i = 0; i < timings.length - 1; i++) {
+                if (AddTimeInCurrentDate(timings[i][1]) > currentDateTime && excludedTimes.indexOf(timings[i][0]) < 0) {
+                    nextPrayerTime = timings[i];
+                    break;
+                }
+            }
 
+            if (language == "en-us") {
+                //$('.prayer_laber').text(nextPrayerTime[0]);
+                prayerLaber = nextPrayerTime[0];
+            }
+            else {
+                prayerLaber = prayterNames[nextPrayerTime[0]];
+                //$('.prayer_laber').text(prayterNames[nextPrayerTime[0]]);
+            }
+            prayerTimings = nextPrayerTime[1];
+            //document.getElementById("aPrayerTimings").innerText = prayerLaber + " " + prayerTimings;
+            //$("#aPrayerTimings").html('<i class="fas fas fa - mosque"></i>' +prayerLaber + " " + prayerTimings);
+            $(".fa-mosque").append(" "+ prayerLaber + " " + prayerTimings);
+        });
+       
     });
-});
 
 function CompareTimings(timingA, timingB) {
 
@@ -98,23 +106,10 @@ function getCookie(cname) {
     return "";
 }
 </script>
+ <li class="nav-item px-md-2">
+                        <a class="nav-link menu-item" id="aPrayerTimings"><i class="fas fas fa-mosque"></i> </a>
+                    </li>
 
 
-<div class="prayer">
-                                            <div class="ico d-inline-block">
-                                                <img src="/Style Library/script/ccq/img/icons/ic_prayer.svg" class="" />
-                                            </div>
-                                            <div class="prayer-info d-inline-block">
-                                                <label class="color-prime m-0 font-weight-bold prayer_timing" > 
-                                                
-                                                
-                                                
-                                                </label>
-                                                
-                                                <label class="d-block text-center prayer_laber">
-                                                
-                                                
-                                                
-                                                </label>
-                                            </div>
-                                        </div>
+
+
