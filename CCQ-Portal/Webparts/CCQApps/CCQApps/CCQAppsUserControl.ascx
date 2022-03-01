@@ -6,20 +6,25 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CCQAppsUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.CCQApps.CCQApps.CCQAppsUserControl" %>
+
 <script type="text/javascript">
     var siteUrl = _spPageContextInfo.siteAbsoluteUrl;
     var currentUser = _spPageContextInfo.userLoginName.split('\\')[1];
+    currentUser = _spPageContextInfo.userLoginName;
     var currentUserApplications = "";
     var currentUserAppArray = [];
-    var currentUserRole = "";
+    
     $(document).ready(function () {
         //getCCQApplcations();
-        getUserInformation();
+        setTimeout(getCCQApplcations, 2500);
+
+       
     });
+ 
     function getCCQApplcations() {
         var Title = "CCQApps";
         var ID = "";
-        var Filter = "Role eq '" + currentUserRole + "' and Active eq 1 or Role eq 'All'";
+        var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
         var Select = "";
         var orderBy = "";
         var top = "";
@@ -40,6 +45,7 @@
             var applicationTitle = "";
             var applicationImage = $($(item.ApplicationImage)[0]).find("img").attr("src");
             var applicationUrl = item.ApplicationUrl.Url;
+            currentUserAppArray = currentApplications.split(',');
             if (item.Role.results[0] != "All") {
                 checkIndex = jQuery.inArray(item.ApplicationType, currentUserAppArray)
             }
@@ -72,51 +78,51 @@
     function doErrorCCQApplcations(err) {
 
     }
-    function getUserInformation() {
-        var Title = "CCQUserSSO";
-        var ID = "";
-        var Filter = "SAMACCOUNTNAME eq '" + currentUser + "'";
-        var Select = "";
-        var orderBy = "";
-        var top = "";
-        var restWeb = new RESTApiHelper.Web(siteUrl);
-        var myList = new restWeb.List(Title);
-        var items = new myList.Items();
-        if (ID != '')
-            items.GetItemByID(ID, doSuccess, doError);
-        else
-            items.GetItems(Select, Filter, orderBy, top, doSuccessUserInformation, doErrorUserInformation);
-    }
+    //function getUserInformation() {
+    //    var Title = "CCQUserSSO";
+    //    var ID = "";
+    //    var Filter = "EMAILS eq '" + currentUser + "'";
+    //    var Select = "";
+    //    var orderBy = "";
+    //    var top = "";
+    //    var restWeb = new RESTApiHelper.Web(siteUrl);
+    //    var myList = new restWeb.List(Title);
+    //    var items = new myList.Items();
+    //    if (ID != '')
+    //        items.GetItemByID(ID, doSuccess, doError);
+    //    else
+    //        items.GetItems(Select, Filter, orderBy, top, doSuccessUserInformation, doErrorUserInformation);
+    //}
 
-    function doSuccessUserInformation(data) {
+    //function doSuccessUserInformation(data) {
        
-        $.each(data.d.results, function (index, item) {
+    //    $.each(data.d.results, function (index, item) {
 
-            if (item.CURRENTAPPLICATIONS != "" && item.CURRENTAPPLICATIONS != null) {
-                currentUserApplications = item.CURRENTAPPLICATIONS;
-                currentUserAppArray = currentUserApplications.split(',');
-            }
+    //        if (item.CURRENTAPPLICATIONS != "" && item.CURRENTAPPLICATIONS != null) {
+    //            currentUserApplications = item.CURRENTAPPLICATIONS;
+    //            currentUserAppArray = currentUserApplications.split(',');
+    //        }
 
-            if (item.CATEGORY != "" && item.CATEGORY != null) {
-                currentUserRole = item.CATEGORY;
+    //        if (item.CATEGORY != "" && item.CATEGORY != null) {
+    //            currentUserRole = item.CATEGORY;
 
-            }
+    //        }
 
            
            
-        });
-        //if (currentUserRole != null && currentUserRole != "")
-        {
-            getCCQApplcations();
-        }
+    //    });
+    //    //if (currentUserRole != null && currentUserRole != "")
+    //    {
+    //        getCCQApplcations();
+    //    }
 
                                                                                                
 
 
-    }
-    function doErrorUserInformation(err) {
+    //}
+    //function doErrorUserInformation(err) {
      
-    }
+    //}
 
 </script>
 <div class="inner-page apps">

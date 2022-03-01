@@ -15,6 +15,10 @@ using Newtonsoft.Json;
 using System.Configuration;
 using System.DirectoryServices.AccountManagement;
 using System.DirectoryServices;
+using System.Net.Http;
+using System.Text;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 
 namespace CCQ_Portal.Layouts.CCQPortal
 {
@@ -23,6 +27,50 @@ namespace CCQ_Portal.Layouts.CCQPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
+        [WebMethod]
+        public static string getUserApplications()
+        {
+            string strApiResponse = string.Empty;
+            List<UserProfileList> objUserProfileList = new List<UserProfileList>();
+            UserProfile objUserProfile = new UserProfile();
+            try
+            {
+                var httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+                {
+                    return true;
+                };
+                string UserName = SPContext.Current.Web.CurrentUser.LoginName.Split('|')[2];
+
+                string struserName = ConfigurationManager.AppSettings["SailPointUser"];
+                string strPassword = ConfigurationManager.AppSettings["SailPointPassword"];
+                var httpClient = new HttpClient(httpClientHandler) { BaseAddress = new Uri("https://soar-iiq-dt.tccq.edu.qa:8443/identityiq/scim/v2/Users?filter=emails eq \"" + UserName + "\"") };
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var byteArray = Encoding.ASCII.GetBytes(""+struserName+":"+strPassword+"");
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+                //   HttpResponseMessage response = await httpClient.GetAsync("https://soar-iiq-dt.tccq.edu.qa:8443/identityiq/scim/v2/Users?filter=emails eq \"jhain.khan@ccq.edu.qa\"");
+                var httpResponse = httpClient.GetAsync("https://soar-iiq-dt.tccq.edu.qa:8443/identityiq/scim/v2/Users?filter=emails eq \""+UserName+"\"").Result;
+      
+              //
+               var response = httpResponse.Content.ReadAsStringAsync().Result;
+           
+              //UserProperties objUserProperties = JsonConvert.DeserializeObject<UserProperties>(response);
+               
+              //  if(objUserProperties.Resources.Count  >0)
+              //  {
+              //      objUserProfile.Category = objUserProperties.Resources[0].UrnIetfParamsScimSchemasSailpoint10User.category.ToString();
+              //      objUserProfile.currentApplication = objUserProperties.Resources[0].UrnIetfParamsScimSchemasSailpoint10User.currentapplications;
+              //      objUserProfile.MobileNumber = objUserProperties.Resources[0].UrnIetfParamsScimSchemasSailpoint10User.mobilephone;
+              //  }
+                strApiResponse = response;
+            }
+            catch(Exception ex)
+            {
+                strApiResponse = "Error";
+            }
+            return strApiResponse;
         }
         [WebMethod]
         public static bool  ChangePassword(string Password, string UserName)

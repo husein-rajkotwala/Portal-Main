@@ -38,7 +38,7 @@
    
     function doSuccessTopNavigation(data) {
         var htmlTopNav = "";
-        var userRoleDetails = userOURole;
+        var userRoleDetails = userCategory;
 
         $.each(data.d.results, function (index, item) {
             if (language == "en-us") {

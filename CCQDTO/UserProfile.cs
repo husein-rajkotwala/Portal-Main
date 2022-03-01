@@ -10,5 +10,15 @@ namespace CCQDTO
     {
         public string CCQMobileNumber { get; set; }
         public string CCQAlternateEmail { get; set; }
+        public string MobileNumber { get; set; }
+        public string Category { get; set; }
+
+        public string currentApplication { get; set; }
+
+
+    }
+   public class UserProfileList
+    {
+        public List<UserProfile> UserProfile { get; set; }
     }
 }

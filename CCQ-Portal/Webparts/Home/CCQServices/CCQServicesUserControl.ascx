@@ -39,11 +39,34 @@
     <asp:Label ID="lblUsefulServices" runat="server" ><%=GetLocalResourceObject("UsefulContacts")%></asp:Label></h5>        </a>
     </div>
     <div class="col-md-3 col-xl-6 col-sm-6 text-center py-5 bg-dark-blue">
-        <a href="#" class="text-white">
-            <i class="fas fa-users fa-4x"></i>
+        <a href="#" class="text-white" data-toggle="modal" data-target="#useful_links">
+           <i class="fas fa-link fa-4x"></i>
             <h5 class="text-uppercase pt-2"> <asp:Label ID="lblStaffDirectory" runat="server" ><%=GetLocalResourceObject("UseFulLinks")%></asp:Label></h5>
         </a>
     </div>
+    <!-- Useful Links Modal -->
+                    <div class="modal fade" id="useful_links" tabindex="-1" aria-labelledby="useful_links_M" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="useful_links_M">Useful Links</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action">A first link item</a>
+                                    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+                                    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+                                    <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Useful Links Modal --> 
+
     <div class="col-md-3 col-xl-6 col-sm-6 text-center py-5 bg-light-blue">
         <a href="#" class="text-white" data-toggle="modal" data-target="#feedback">
             <i class="far fa-comments fa-4x"></i>
