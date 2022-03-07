@@ -1,4 +1,6 @@
-﻿using Microsoft.SharePoint;
+﻿using Microsoft.IdentityModel.Protocols.WSFederation;
+using Microsoft.IdentityModel.Web;
+using Microsoft.SharePoint;
 using System;
 using System.Web;
 using System.Web.Configuration;
@@ -36,7 +38,18 @@ namespace CCQ_Portal.CONTROLTEMPLATES.Portal_Main
             Page.ClientScript.RegisterStartupScript(
 
             this.GetType(), "cle", "windows.history.clear", true);
-            Response.Redirect(SPContext.Current.Site.Url+"/_layouts/15/SignOut.aspx");
+            Response.Redirect("https://dev-32385231.okta.com/login/signout");
+            // https://dev-32385231.okta.com/login/signout
+
+            //WSFederationAuthenticationModule authModule = FederatedAuthentication.WSFederationAuthenticationModule;
+
+            ////clear local cookie
+            //authModule.SignOut(false);
+
+            ////initiate federated sign out request to the STS
+            //SignOutRequestMessage signOutRequestMessage = new SignOutRequestMessage(new Uri(authModule.Issuer), authModule.Realm);
+            //String queryString = signOutRequestMessage.WriteQueryString();
+            //return new RedirectResult(queryString);
         }
     }
 }

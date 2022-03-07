@@ -89,27 +89,23 @@ input[type=submit]:hover {
 </div>
 
 <div class="container fill">
-    <div id="dvImageLoader">
-          <image src="/Style%20Library/Images/Spinner-1s-200px.gif" style="height:700px;width:700px"/>
-        </div>
+    
     <div id="dvFeedback" style="display:none">
 <div class="row">
      <div class="col-25">
     <label for="Name" class="form-label"><%=GetLocalResourceObject("Name")%>:</label>
          </div>
      <div class="col-75">
-    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>  
-
+         <asp:Label ID="lblName" runat="server" Text=""></asp:Label>
      </div>
     </div>
-
+        
     <div class="row">
      <div class="col-25">
  <label for="Email" class="form-label"><%=GetLocalResourceObject("Email")%>:</label>
          </div>
      <div class="col-75">
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>  
-
+           <asp:Label ID="lblEmail" runat="server" Text=""></asp:Label>
      </div>
     </div>
         <div class="row">
@@ -117,7 +113,7 @@ input[type=submit]:hover {
  <label for="Phone" class="form-label"><%=GetLocalResourceObject("Phone")%>:</label>
          </div>
      <div class="col-75">
-        <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>  
+           <asp:Label ID="lblPhone" runat="server" Text=""></asp:Label>
 
      </div>
     </div>
@@ -179,30 +175,16 @@ input[type=submit]:hover {
     <script>
         var language = lang;
         function hideLoader() {
-            $("#dvImageLoader").hide();
+          
             $("#dvFeedback").show();
         }
         function ShowLoader() {
-            $("#dvImageLoader").show();
+           
             $("#dvFeedback").hide();
         }
         function AddFeedBack() {
             //latest
 
-            var fullUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('CCQ Feedback')/items";
-
-            var itemType = "SP.Data.CCQFeedbackListItem";
-            var cat = {
-                "__metadata": { "type": itemType },
-                "Title": $(<%= txtName.ClientID %>).val(),
-
-                "Name": $(<%= txtName.ClientID %>).val(),
-                "Email": $(<%= txtEmail.ClientID %>).val(),
-                "Phone": $(<%= txtPhone.ClientID %>).val(),
-                "CategoryId": $(<%= ddlCategory.ClientID %>).val(),
-                "Comments": $(<%= txtComments.ClientID %>).val(),
-
-            };
            
            
 
@@ -217,13 +199,13 @@ input[type=submit]:hover {
 
               
 
-                    FeedBack["Title"] = $(<%= txtName.ClientID %>).val();
+              FeedBack["Title"] = $(<%= lblName.ClientID %>).text();
 
-                    FeedBack["Name"] = $(<%= txtName.ClientID %>).val();
+            FeedBack["Name"] = $(<%= lblName.ClientID %>).text();
 
-                    FeedBack["Email"] = $(<%= txtEmail.ClientID %>).val();
+            FeedBack["Email"] = $(<%= lblEmail.ClientID %>).text();
 
-                    FeedBack["Phone"] = $(<%= txtPhone.ClientID %>).val();
+            FeedBack["Phone"] = $(<%= lblPhone.ClientID %>).text();
 
                     FeedBack["CategoryId"] = $(<%= ddlCategory.ClientID %>).val();
 
@@ -262,7 +244,7 @@ input[type=submit]:hover {
                     $("#dvSuccess").show();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert('Error occured');
+                   
                     hideLoader();
                     if (jqXHR.status == 500) {
                         console.log('Internal error: ' + jqXHR.responseText);
@@ -274,15 +256,12 @@ input[type=submit]:hover {
             });
         }
         function getUserProfileDetails() {
-            if (Name != "" && Name != null) {
-                $("input[id*='txtName']").val(Name);
+            $(<%= lblName.ClientID %>).text(_spPageContextInfo.userDisplayName);
+            if (mobileNumber != "" && mobileNumber != null) {
+                $(<%= lblPhone.ClientID %>).text(mobileNumber);
             }
-            if (Email != "" && Email != null) {
-                $("input[id*='txtEmail']").val(Email);
-            }
-            if (Phone != "" && Phone != null) {
-                $("input[id*='txtPhone']").val(Phone);
-            }
+            $(<%= lblEmail.ClientID %>).text(_spPageContextInfo.userLoginName);
+
         }
         function getCCQDepartment() {
             var DepartmentSiteUrl = _spPageContextInfo.siteAbsoluteUrl;
@@ -342,6 +321,7 @@ input[type=submit]:hover {
             alert(JSON.stringify(err));
         }
         $(document).ready(function () {
+            alert("dd")
             getUserProfileDetails();
          getCCQDepartment();
 

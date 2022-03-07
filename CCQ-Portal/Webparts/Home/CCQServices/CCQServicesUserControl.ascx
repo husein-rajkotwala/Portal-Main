@@ -49,17 +49,14 @@
                         <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="useful_links_M">Useful Links</h5>
+                                    <h5 class="modal-title" id="useful_links_M" runat="server"><%=GetLocalResourceObject("UseFulLinks")%></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">A first link item</a>
-                                    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                                    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                                    <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+                                    <div class="list-group" id="dvUsefulLinks">
+                                  
                                     </div>
                                 </div>
                             </div>
@@ -141,18 +138,20 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="full_name"><%=GetLocalResourceObject("Name")%></label>
-                             <asp:TextBox ID="txtName" runat="server" class="form-control" name="full_name"></asp:TextBox>  
-                            
+                              
+                                     <asp:Label ID="lblName" runat="server" Text="" class="form-control"></asp:Label>
+
                         </div>
                         <div class="form-group col-md-6">
                             <label for="email"><%=GetLocalResourceObject("Email")%></label>
-                        
-                             <asp:TextBox ID="txtEmail" runat="server"  class="form-control" name="email"></asp:TextBox>  
+                               <asp:Label ID="lblEmail" runat="server" Text=""  class="form-control"></asp:Label>
+                               
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone"><%=GetLocalResourceObject("Phone")%></label>
                       
-                             <asp:TextBox ID="txtPhone" runat="server"  class="form-control" name="phone"></asp:TextBox>  
+                             
+                                   <asp:Label ID="lblPhone" runat="server" Text="" class="form-control" name="phone"></asp:Label>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="category"><%=GetLocalResourceObject("Category")%></label>
@@ -162,7 +161,7 @@
 
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="comment">Comment</label>
+                            <label for="comment"><%=GetLocalResourceObject("Comments")%></label>
                                     <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" class="form-control"  name="comment"></asp:TextBox> 
                              <div class="alert alert-danger" role="alert" id="dvComments" style="display:none">
                 <asp:Label ID="lblValidationComments" runat="server" ><%=GetLocalResourceObject("ValidationComments")%></asp:Label>    
@@ -198,13 +197,13 @@
 
                 var FeedBack = new Object();
 
-                    FeedBack["Title"] = $(<%= txtName.ClientID %>).val();
+                    FeedBack["Title"] = $(<%= lblName.ClientID %>).text();
 
-                    FeedBack["Name"] = $(<%= txtName.ClientID %>).val();
+                      FeedBack["Name"] = $(<%= lblName.ClientID %>).text();
 
-                    FeedBack["Email"] = $(<%= txtEmail.ClientID %>).val();
+                           FeedBack["Email"] = $(<%= lblEmail.ClientID %>).text();
 
-                    FeedBack["Phone"] = $(<%= txtPhone.ClientID %>).val();
+                   FeedBack["Phone"] = $(<%= lblPhone.ClientID %>).text();
 
 
                     FeedBack["Comments"] = $(<%= txtComments.ClientID %>).val();
@@ -249,17 +248,15 @@
                 }
 
             });
-        }
+    }
+
+
         function getUserProfileDetails() {
-            if (Name != "" && Name != null) {
-                $("input[id*='txtName']").val(Name);
+            $(<%= lblName.ClientID %>).text(_spPageContextInfo.userDisplayName);
+            if (mobileNumber != "" && mobileNumber != null) {
+                $(<%= lblPhone.ClientID %>).text(mobileNumber);
             }
-            if (Email != "" && Email != null) {
-                $("input[id*='txtEmail']").val(Email);
-            }
-            if (Phone != "" && Phone != null) {
-                $("input[id*='txtPhone']").val(Phone);
-            }
+            $(<%= lblEmail.ClientID %>).text(_spPageContextInfo.userLoginName);
         }
         function getCCQDepartment() {
             var DepartmentSiteUrl = _spPageContextInfo.siteAbsoluteUrl;
@@ -389,12 +386,13 @@
             alert(JSON.stringify(err));
         }
         $(document).ready(function () {
-          getUserProfileDetails();
             getCCQDepartment();
             getUsefulContacts();
          
        
-           
+            $('#feedback').on('shown.bs.modal', function (e) {
+                getUserProfileDetails();
+                 });
 
   $(<%= btnSubmit.ClientID %>).click(function () {
              

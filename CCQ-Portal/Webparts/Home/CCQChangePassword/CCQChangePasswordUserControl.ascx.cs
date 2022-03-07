@@ -63,6 +63,9 @@ namespace CCQ_Portal.Webparts.Home.CCQChangePassword
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
+
+            string[] myCookies = Request.Cookies.AllKeys;
+
             //FormsAuthentication.SignOut();
             //Response.Cookies["FedAuth"].Expires = DateTime.Now.AddDays(-1);
             //Session.Clear();

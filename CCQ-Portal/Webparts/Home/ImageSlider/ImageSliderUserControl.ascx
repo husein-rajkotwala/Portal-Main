@@ -6,12 +6,26 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ImageSliderUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.Home.ImageSlider.ImageSliderUserControl" %>
+<style>
 
+.carousel-inner .carousel-item {
+  transition: -webkit-transform 15s ease;
+  transition: transform 15s ease;
+  transition: transform 15s ease, -webkit-transform 15s ease;
+}
+</style>
 <script>
     var siteUrl = _spPageContextInfo.siteAbsoluteUrl;
     var language = lang;
     $(document).ready(function () {
-        getImageSlider();
+        jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 15000  // 2 seconds
+
+       getImageSlider();
+
+        $('.carousel').carousel({
+            interval: false
+        });
+
     });
 
     function getImageSlider() {
@@ -54,7 +68,7 @@
             if (index == 0) {
                 liCarouselIndicator = '<li data-target="#carouselExampleCaptions" data-slide-to=' + index + ' class="active"></li>';
                 //imageSliderHTML += '<div class="carousel-item active"><img class="d-block w-100" src=' + item.ImageEn.Url + '><div class="carousel-caption d-none d-md-block"><h5>' + item.TitleEn + '</h5><p>' + item.DescriptionEn + '</p></div></div>';
-                imageSliderHTML = '<div class="carousel-item active">';
+                imageSliderHTML = '<div class="carousel-item active" data-mdb-interval="10000">';
                 imageSliderHTML += '<img src=' + imageDetails + ' class="d-block w-100" alt=' + slideTitle + '>';
                 imageSliderHTML += '<div class="carousel-caption d-none d-md-block">';
                 imageSliderHTML += '<h5>' + slideTitle + '</h5>';
@@ -65,7 +79,7 @@
 
                 liCarouselIndicator += '<li data-target="#carouselExampleCaptions" data-slide-to=' + index + '></li>';
                 //imageSliderHTML += '<div class="carousel-item active"><img class="d-block w-100" src=' + item.ImageEn.Url + '><div class="carousel-caption d-none d-md-block"><h5>' + item.TitleEn + '</h5><p>' + item.DescriptionEn + '</p></div></div>';
-                imageSliderHTML += '<div class="carousel-item ">';
+                imageSliderHTML += '<div class="carousel-item" data-mdb-interval="10000" >';
                 imageSliderHTML += '<img src=' + imageDetails + ' class="d-block w-100" alt=' + slideTitle + '>';
                 imageSliderHTML += '<div class="carousel-caption d-none d-md-block">';
                 imageSliderHTML += '<h5>' + slideTitle + '</h5>';
@@ -80,7 +94,8 @@
 
         $("#olCarouselIndicator").html(liCarouselIndicator);
         $("#carouselItems").html(imageSliderHTML);
-
+       
+      
 
 
     }
@@ -89,25 +104,8 @@
     }
 </script>
 
-<%--<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:800px !important">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner" id="carouselItems">
- 
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>--%>
-<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="10000">
     <ol class="carousel-indicators" id="olCarouselIndicator">
      
     </ol>
@@ -125,42 +123,3 @@
     </button>
 </div>
 
-<%--<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-    </ol>
-
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="/Style%20Library/Branding/images/slider01.jpg" class="d-block w-100" alt="First slide label">
-            <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/Style%20Library/Branding/images/slider02.jpg" class="d-block w-100" alt="Second slide label">
-            <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/Style%20Library/Branding/images/slider03.jpg" class="d-block w-100" alt="Third slide label">
-            <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-            </div>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </button>
-</div>--%>

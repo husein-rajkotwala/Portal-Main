@@ -42,6 +42,15 @@ namespace CCQ_Portal.Webparts.Home.CCQServices
         protected global::System.Web.UI.WebControls.Label lblStaffDirectory;
 
         /// <summary>
+        /// useful_links_M control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl useful_links_M;
+
+        /// <summary>
         /// lblFeedback control.
         /// </summary>
         /// <remarks>
@@ -51,31 +60,31 @@ namespace CCQ_Portal.Webparts.Home.CCQServices
         protected global::System.Web.UI.WebControls.Label lblFeedback;
 
         /// <summary>
-        /// txtName control.
+        /// lblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.Label lblName;
 
         /// <summary>
-        /// txtEmail control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// txtPhone control.
+        /// lblPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhone;
+        protected global::System.Web.UI.WebControls.Label lblPhone;
 
         /// <summary>
         /// txtComments control.

@@ -15,70 +15,11 @@
 
     var configurationApiUrl = "";
     $(document).ready(function () {
-        getTopNavigation();
-    });
+     
 
-    function getTopNavigation() {
-        var Title = "TopNavigation";
-        var ID = "";
-        var Filter = "isHide eq 'No'";
-        var Select = "";
-        var orderBy = "SortOrder asc";
-        var top = "";
-        var restWeb = new RESTApiHelper.Web(siteUrl);
-        var myList = new restWeb.List(Title);
-        var items = new myList.Items();
-        if (ID != '')
-            items.GetItemByID(ID, doSuccess, doError);
-        else
-            items.GetItems(Select, Filter, orderBy, top, doSuccessTopNavigation, doErrorTopNavigation);
-    }
+
     
-
-   
-    function doSuccessTopNavigation(data) {
-        var htmlTopNav = "";
-        var userRoleDetails = userCategory;
-
-        $.each(data.d.results, function (index, item) {
-            if (language == "en-us") {
-                if (userRoleDetails == "Common") {
-                    htmlTopNav += item.htmlEn;
-
-                }
-                else if (userRoleDetails == "Student" && item.isStudent) {
-                    htmlTopNav += item.htmlEn;
-                }
-                else if (userRoleDetails == "Staff" && item.isStaff) {
-                    htmlTopNav += item.htmlEn;
-
-                }
-                
-            }
-            else {
-                if (userRoleDetails == "Common") {
-                    htmlTopNav += item.htmlAr;
-
-                }
-               else if (userRoleDetails == "Student" && item.isStudent) {
-                    htmlTopNav += item.htmlAr;
-                }
-                else if (userRoleDetails == "Staff" && item.isStaff) {
-                    htmlTopNav += item.htmlAr;
-
-                }
-               
-            }
-
-        });
-        $("#MainNav").html(htmlTopNav);
-
-
-    }
-    function doErrorTopNavigation(err) {
-        alert(JSON.stringify(err));
-    }
-
+    });
 </script>
   <ul class="navbar-nav mr-auto-cust" id="MainNav">
       </ul>

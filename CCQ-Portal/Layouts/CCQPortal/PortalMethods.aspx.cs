@@ -19,6 +19,9 @@ using System.Net.Http;
 using System.Text;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Host.SystemWeb;
+using System.Web;
 
 namespace CCQ_Portal.Layouts.CCQPortal
 {
@@ -28,6 +31,25 @@ namespace CCQ_Portal.Layouts.CCQPortal
         protected void Page_Load(object sender, EventArgs e)
         {
         }
+        //[WebMethod]
+        //public static async void Logout()
+        //{
+         
+        //    try
+        //    {
+
+
+        //        System.Web.HttpContext.Current.GetOwinContext()
+        //                   .Authentication
+        //                   .SignOut(CookieAuthenticationDefaults.AuthenticationType);
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+               
+        //    }
+           
+        //}
         [WebMethod]
         public static string getUserApplications()
         {
@@ -79,7 +101,7 @@ namespace CCQ_Portal.Layouts.CCQPortal
 
             try
             {
-                var userLoginName = SPContext.Current.Web.CurrentUser.LoginName;
+                var userLoginName = UserName;
                 SPSecurity.RunWithElevatedPrivileges(delegate ()
                 {
 
@@ -127,7 +149,8 @@ namespace CCQ_Portal.Layouts.CCQPortal
 
             try
             {
-                var userLoginName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1];
+                var userLoginName = UserProfile[0].currentUser;
+
                 SPSecurity.RunWithElevatedPrivileges(delegate ()
                 {
 
@@ -156,13 +179,13 @@ namespace CCQ_Portal.Layouts.CCQPortal
 
         }
         [WebMethod]
-        public static List<UserProfile> getUserProfile()
+        public static List<UserProfile> getUserProfile(string UserName)
         {
             List<UserProfile> objListUserProfile = new List<UserProfile>();
 
             try
             {
-                var userLoginName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1];
+               
                 SPSecurity.RunWithElevatedPrivileges(delegate ()
                 {
 
@@ -171,7 +194,8 @@ namespace CCQ_Portal.Layouts.CCQPortal
                     string strDomain = ConfigurationManager.AppSettings["Domain"];
                     var dsDirectoryEntry = new DirectoryEntry("LDAP://" + strDomain, struserName, strPassword);
 
-                    var dsSearch = new DirectorySearcher(dsDirectoryEntry) { Filter = "(&(objectClass=user)(SAMAccountName=" + userLoginName + "))" };
+                   var dsSearch = new DirectorySearcher(dsDirectoryEntry) { Filter = "(&(objectClass=user)(SAMAccountName=" + UserName + "))" };
+                // var dsSearch = new DirectorySearcher(dsDirectoryEntry) { Filter = "(&(objectClass=user)(mail=" + userLoginName + "))" };
 
                     var dsResults = dsSearch.FindOne();
                     var myEntry = dsResults.GetDirectoryEntry();

@@ -6,6 +6,7 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCUserProfile.ascx.cs" Inherits="CCQ_Portal.CONTROLTEMPLATES.Portal_Main.UCUserProfile" %>
+
 <div class="modal fade" id="profile_modal" tabindex="-1" aria-labelledby="profile_modal_M" aria-hidden="true"> 
         <div class="modal-dialog modal-dialog-scrollable modal-md">
             <div class="modal-content">
@@ -25,8 +26,12 @@
 
                                </div>
                         <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="mobile"><%=GetLocalResourceObject("Mobile")%></label>
+                            <div class="form-group col-2">
+                              <label for="mobile"><%=GetLocalResourceObject("Mobile")%></label>
+                              <input type="text" class="form-control" id="country_code" name="country_code">
+                            </div>
+                            <div class="form-group col-10">
+                                <label class="mobile_lbl" style="height:25px"></label>
                                 <input type="text" class="form-control" id="txtmobile" name="mobile">
                             </div>
                             <div class="form-group col-md-12">
@@ -69,6 +74,8 @@
             userProfile["CCQMobileNumber"] = $("#txtmobile").val()
 
             userProfile["CCQAlternateEmail"] = $("#txtalt_email").val()
+            userProfile["currentUser"] = userSamAccountName;
+
 
                     
             userProfileArr.push(userProfile);
@@ -137,53 +144,6 @@
           var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
           return regex.test(email);
       }
-      function getCCQUserProfile() {
-          var methodUrl = _spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserProfile";
-
-
-
-          $.ajax({
-
-              contentType: "application/json; charset=utf-8",
-
-              data: {},
-
-              dataType: "json",
-
-              type: "POST",
-
-              url: methodUrl,
-              success: function (result) {
-
-                  var data = result.d;
-                 
-                  $.each(data, function (index, item) {
-                      if (item.CCQMobileNumber != "" && item.CCQMobileNumber) {
-                          $("#txtmobile").val(item.CCQMobileNumber);
-                      }
-                      else {
-                          $("#txtmobile").val("");
-                      }
-                      if (item.CCQAlternateEmail != "" && item.CCQAlternateEmail) {
-                          $("#txtalt_email").val(item.CCQAlternateEmail);
-                      }
-                      else {
-                          $("#txtalt_email").val("");
-                      }
-
-                  });
-              },
-              error: function (jqXHR, textStatus, errorThrown) {
-
-                  if (jqXHR.status == 500) {
-                      console.log('Internal error: ' + jqXHR.responseText);
-                  } else {
-                      console.log('Unexpected error.');
-                  }
-              }
-
-          });
-      }
       $(document).ready(function () {
           $("#txtalt_email").prop("disabled", true);
           $("#txtmobile").prop("disabled", true);
@@ -193,7 +153,6 @@
           $("#dvProfileSucess").hide();
           $("#btnProfileSubmit").hide();
 
-          getCCQUserProfile();
           $('#profile_modal').on('shown.bs.modal', function (e) {
               $("#txtalt_email").prop("disabled", true);
               $("#txtmobile").prop("disabled", true);
@@ -209,6 +168,7 @@
               $("#txtalt_email").prop("disabled", false);
               $("#txtmobile").prop("disabled", false);
               $("#btnProfileEdit").hide();
+           
 
           });
 

@@ -14,70 +14,9 @@
     var currentUserApplications = "";
     var currentUserAppArray = [];
     
-    $(document).ready(function () {
-        //getCCQApplcations();
-        setTimeout(getCCQApplcations, 2500);
 
-       
-    });
  
-    function getCCQApplcations() {
-        var Title = "CCQApps";
-        var ID = "";
-        var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
-        var Select = "";
-        var orderBy = "";
-        var top = "";
-        var restWeb = new RESTApiHelper.Web(siteUrl);
-        var myList = new restWeb.List(Title);
-        var items = new myList.Items();
-        if (ID != '')
-            items.GetItemByID(ID, doSuccess, doError);
-        else
-            items.GetItems(Select, Filter, orderBy, top, doSuccessCCQApplcations, doErrorCCQApplcations);
-    }
-    function doSuccessCCQApplcations(data) {
-        var userApplicationHTML = "";
-       
-
-        $.each(data.d.results, function (index, item) {
-            var checkIndex = "";
-            var applicationTitle = "";
-            var applicationImage = $($(item.ApplicationImage)[0]).find("img").attr("src");
-            var applicationUrl = item.ApplicationUrl.Url;
-            currentUserAppArray = currentApplications.split(',');
-            if (item.Role.results[0] != "All") {
-                checkIndex = jQuery.inArray(item.ApplicationType, currentUserAppArray)
-            }
-            if (checkIndex != -1) {
-
-                if (lang == "en-us") {
-                    applicationTitle = item.ApplicationTitleEn;
-                }
-                else {
-                    applicationTitle = item.ApplicationTitleAr;
-                }
-                userApplicationHTML += '<div class="col-lg-3 col-sm-6 col-md-4 my-2 px-1 col-xl-2" >';
-                userApplicationHTML += '<div class="card border-0 card-shadow text-center p-3">';
-                userApplicationHTML += '<a class=""  target="_blank" href=' + applicationUrl + '>'
-                userApplicationHTML += '<img src=' + applicationImage + ' class="card-img-top">';
-                userApplicationHTML += '</a>';
-                userApplicationHTML += '<div class="card-body">';
-                userApplicationHTML += '<a href=' + applicationUrl + ' class="card-title-link" target="_blank"><p class="card-text"  target="_blank">' + applicationTitle + '</p></a>';
-                userApplicationHTML += '</div>';
-                userApplicationHTML += '</div>';
-                userApplicationHTML += '</div>';
-            }
-
-        });
-        
-
-        $("#dvApplication").html(userApplicationHTML);
-
-    }
-    function doErrorCCQApplcations(err) {
-
-    }
+ 
     //function getUserInformation() {
     //    var Title = "CCQUserSSO";
     //    var ID = "";

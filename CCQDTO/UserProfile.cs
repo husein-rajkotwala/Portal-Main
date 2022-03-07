@@ -14,10 +14,12 @@ namespace CCQDTO
         public string Category { get; set; }
 
         public string currentApplication { get; set; }
+        public string currentUser { get; set; }
+
 
 
     }
-   public class UserProfileList
+    public class UserProfileList
     {
         public List<UserProfile> UserProfile { get; set; }
     }
