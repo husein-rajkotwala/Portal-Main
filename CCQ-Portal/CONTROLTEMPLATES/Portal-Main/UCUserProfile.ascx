@@ -28,7 +28,7 @@
                         <div class="form-row">
                             <div class="form-group col-2">
                               <label for="mobile"><%=GetLocalResourceObject("Mobile")%></label>
-                              <input type="text" class="form-control" id="country_code" name="country_code">
+                              <input type="text" class="form-control" id="country_code" name="country_code" value="+974" readonly="true">
                             </div>
                             <div class="form-group col-10">
                                 <label class="mobile_lbl" style="height:25px"></label>
@@ -127,6 +127,7 @@
 
       function ClosePopup() {
           $("#profile_modal").modal('hide');
+          location.reload();
       }
     
       function isValidateMobileNumber(ccqMobile) {

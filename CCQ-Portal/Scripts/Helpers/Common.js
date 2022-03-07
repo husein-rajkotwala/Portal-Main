@@ -25,6 +25,9 @@ var userCategory = {
 var userSamAccountName = {
 
 };
+var userAlternativeEmail = {
+
+};
 lang = getCookie("lang");
 var currentUserApplications = "";
 var currentUserAppArray = [];
@@ -35,51 +38,31 @@ $(document).ready(function () {
 });
 
 function getCCQUserProfile() {
-    var methodUrl = _spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserProfile";
+  
+                if (mobileNumber != "" && mobileNumber) {
 
-
-
-    $.ajax({
-
-        contentType: "application/json; charset=utf-8",
-
-        data: JSON.stringify({ UserName: userSamAccountName }),
-
-        dataType: "json",
-
-        type: "POST",
-
-        url: methodUrl,
-        success: function (result) {
-
-            var data = result.d;
-
-            $.each(data, function (index, item) {
-                if (item.CCQMobileNumber != "" && item.CCQMobileNumber) {
-                    $("#txtmobile").val(item.CCQMobileNumber);
+                    if (mobileNumber.includes('+974')) {
+                        mobileNumber = mobileNumber.replace("+974","");
+                        $("#txtmobile").val(mobileNumber);
+                    }
+                    if (mobileNumber.includes('974')) {
+                        mobileNumber = mobileNumber.replace("974","");
+                        $("#txtmobile").val(mobileNumber);
+                    }
+                    else {
+                        $("#txtmobile").val(mobileNumber);
+                    }
                 }
                 else {
                     $("#txtmobile").val("");
                 }
-                if (item.CCQAlternateEmail != "" && item.CCQAlternateEmail) {
-                    $("#txtalt_email").val(item.CCQAlternateEmail);
+                if (userAlternativeEmail != "" && userAlternativeEmail) {
+                   $("#txtalt_email").val(userAlternativeEmail);
                 }
                 else {
                     $("#txtalt_email").val("");
                 }
 
-            });
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-
-            if (jqXHR.status == 500) {
-                console.log('Internal error: ' + jqXHR.responseText);
-            } else {
-                console.log('Unexpected error.');
-            }
-        }
-
-    });
 }
 function doSucessAPIUserApplication() {
     getTopNavigation();
@@ -258,8 +241,8 @@ function getCookie(cname) {
     return "";
 }
 function getSailPointInfo() {
-    //var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications";
-    var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications2323232";
+   var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications";
+   // var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications2323232";
 
     $.ajax({
 
@@ -289,6 +272,9 @@ function getSailPointInfo() {
             }
             if (JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].samaccountname)[0] != null && JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].samaccountname)[0] != "") {
                 userSamAccountName = JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].samaccountname)[0];
+            }
+            if (JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].alternateemail)[0] != null && JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].alternateemail)[0] != "") {
+                userAlternativeEmail = JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].alternateemail)[0];
             }
         }
         if (userSamAccountName != undefined && userCategory != undefined && currentApplications != undefined) {
