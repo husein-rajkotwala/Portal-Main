@@ -9,22 +9,22 @@
 <style>
 
 .carousel-inner .carousel-item {
-  transition: -webkit-transform 15s ease;
-  transition: transform 15s ease;
-  transition: transform 15s ease, -webkit-transform 15s ease;
+  transition: -webkit-transform 5s ease;
+  transition: transform 5s ease;
+  transition: transform 5s ease, -webkit-transform 5s ease;
 }
 </style>
 <script>
     var siteUrl = _spPageContextInfo.siteAbsoluteUrl;
     var language = lang;
     $(document).ready(function () {
-        jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 15000  // 2 seconds
+        jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 5000  // 2 seconds
 
        getImageSlider();
 
-        $('.carousel').carousel({
-            interval: false
-        });
+        //$('.carousel').carousel({
+        //    interval: false
+        //});
 
     });
 

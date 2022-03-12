@@ -8,16 +8,16 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCLanguageSwitcher.ascx.cs" Inherits="CCQ_Portal.CONTROLTEMPLATES.Portal_Main.UCLanguageSwitcher" %>
 
 
+<script type="text/javascript" src="https://unpkg.com/@popperjs/core@2.11.2/dist/umd/popper.min.js"></script>
 
+<script>
+$(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
 
-<ul class="navbar-nav side-menu">
-                                <li class="nav-item px-md-2 bg-light-blue rounded text-center">
-                                    <a class="nav-link menu-item" href="/Pages/MyApplications.aspx"><%=GetLocalResourceObject("MyCCQ")%>
-                                    </a>
-                                </li>
+</script>                          
                                 <li class="nav-item px-md-2">
-                                 <asp:LinkButton ID="lbarabic" runat="server"   Text="عربي" class="nav-link menu-item"  OnClick="lbarabic_Click"></asp:LinkButton>
+                                 <asp:LinkButton ID="lbarabic" runat="server"  class="nav-link menu-item"  OnClick="lbarabic_Click" data-toggle="tooltip" data-placement="left" title="عربي" data-original-title="عربي"><i class="fas fa-globe"></i></asp:LinkButton>
 
-<asp:LinkButton ID="lbEnglish" runat="server" Text="English" class="nav-link menu-item"  OnClick="lbEnglish_Click"></asp:LinkButton>
+<asp:LinkButton ID="lbEnglish" runat="server" class="nav-link menu-item"  OnClick="lbEnglish_Click" data-toggle="tooltip" data-placement="left" title="English" data-original-title="English"><i class="fas fa-globe"></i></asp:LinkButton>
                                 </li>
-                            </ul>

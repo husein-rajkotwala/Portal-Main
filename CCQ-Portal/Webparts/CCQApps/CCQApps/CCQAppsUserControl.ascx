@@ -64,15 +64,16 @@
     //}
 
 </script>
-<div class="inner-page apps">
-        <div class="container-fluid">
-            <div class="row" id="dvApplication">
-                
-                <!-- <div class="col-lg-2 col-sm-6 col-md-4 my-2 px-1"> -->
-              
-                
-                
-                
-            </div>
-        </div>
-    </div>
+
+
+
+<div class="card border-ccq"> 
+   <div class="card-header border-ccq"> 
+      <i class="fas fa-list"></i><%=GetLocalResourceObject("MyApps")%> </div> 
+   <div class="card-body"> 
+      <div class="row apps" id="dvApplication"> 
+
+        
+      </div> 
+   </div> 
+</div>

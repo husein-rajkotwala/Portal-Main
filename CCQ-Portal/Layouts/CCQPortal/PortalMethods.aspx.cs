@@ -447,7 +447,9 @@ namespace CCQ_Portal.Layouts.CCQPortal
 
                                 item["Phone"] = FeedBack[0].Phone;
                                 item["Comments"] = FeedBack[0].Comments;
-                             
+                                item["Subject"] = FeedBack[0].Subject;
+
+
 
                                 item["Category"] = new SPFieldLookupValue(FeedBack[0].CategoryId);
 

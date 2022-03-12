@@ -117,28 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CCQCalendar" xml:space="preserve">
-    <value>CCQ CALENDAR</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description:</value>
-  </data>
-  <data name="EndDate" xml:space="preserve">
-    <value>End Date:</value>
-  </data>
-  <data name="EVENTS" xml:space="preserve">
-    <value>EVENTS</value>
-  </data>
-  <data name="ExpandAll" xml:space="preserve">
-    <value>Expand All</value>
-  </data>
-  <data name="RecentlyAdded" xml:space="preserve">
-    <value>Recently Added</value>
-  </data>
-  <data name="StartDate" xml:space="preserve">
-    <value>Start Date:</value>
-  </data>
-  <data name="UpcomingEvents" xml:space="preserve">
-    <value>Upcoming Events</value>
+  <data name="UseFulLinks" xml:space="preserve">
+    <value>روابط مفيدة</value>
   </data>
 </root>

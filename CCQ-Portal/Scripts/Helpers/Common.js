@@ -66,12 +66,13 @@ function getCCQUserProfile() {
 }
 function doSucessAPIUserApplication() {
     getTopNavigation();
+    getUserProfileDetails();
     getCCQUserProfile();
 
     if ($("#dvApplication").length > 0) {
         getCCQApplcations();
     }
-    if ($("#useful_links").length > 0) {
+    if ($("#dvUsefulLinks").length > 0) {
         getCCQUsefulLinks();
     }
 }
@@ -112,7 +113,7 @@ function doSuccessCCQUsefulLinks(data) {
             else {
                 applicationTitle = item.TitleAr;
             }
-            usefulLinkHTML += '<a href=' + applicationUrl + ' target="_blank"  class="list-group-item list-group-item-action">' + applicationTitle + '</a>'
+            usefulLinkHTML += '<a href=' + applicationUrl + ' target="_blank" >' + applicationTitle + '</a><br/>'
         }
 
     });
@@ -160,10 +161,10 @@ function doSuccessCCQApplcations(data) {
             else {
                 applicationTitle = item.ApplicationTitleAr;
             }
-            userApplicationHTML += '<div class="col-lg-3 col-sm-6 col-md-4 my-2 px-1 col-xl-2" >';
-            userApplicationHTML += '<div class="card border-0 card-shadow text-center p-3">';
+            userApplicationHTML += '<div class="col-lg-3 col-sm-6 col-md-4 my-2 px-1 col-xl-3">';
+            userApplicationHTML += '<div class="card border-0 card-shadow text-center p-2">';
             userApplicationHTML += '<a class=""  target="_blank" href=' + applicationUrl + '>'
-            userApplicationHTML += '<img src=' + applicationImage + ' class="card-img-top">';
+            userApplicationHTML += '<img src=' + applicationImage + '  class="card-img-top">';
             userApplicationHTML += '</a>';
             userApplicationHTML += '<div class="card-body">';
             userApplicationHTML += '<a href=' + applicationUrl + ' class="card-title-link" target="_blank"><p class="card-text"  target="_blank">' + applicationTitle + '</p></a>';
@@ -297,6 +298,7 @@ function getSailPointInfo() {
 }
 
 function doFailAPIUserApplication() {
+
     getUserTableInformation();
 }
 
@@ -339,8 +341,10 @@ function doSuccessUserTableInformation(data) {
         userCategory = currentUserRole;
         currentApplications = currentUserApplications;
         getTopNavigation();
+        getUserProfileDetails();
         getCCQApplcations();
         getCCQUsefulLinks();
+
 
     }
 

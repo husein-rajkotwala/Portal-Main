@@ -80,7 +80,31 @@
         $("#dvEmptyError").hide();
         $(<%= lblErrorMsg.ClientID %>).text("");
 
+        $(<%= txtnew_password.ClientID %>).change(function () {
+            if ($(<%= RegPassword.ClientID %>).css("visibility")=="hidden") {
+                $("#dvError").hide();
+            }
+            if ($(<%= RegConfirmPassword.ClientID %>).css("visibility") == "hidden") {
+                $("#dvError").hide();
+            }
+            if ($(<%= CompareValidatorPassword.ClientID %>).css("visibility") == "hidden") {
+                $("#dvError").hide();
+            }
+            
+           
+        });
+        $(<%= txtconfirm_password.ClientID %>).change(function () {
 
+            if ($(<%= RegPassword.ClientID %>).css("visibility") == "hidden") {
+                $("#dvError").hide();
+            }
+            if ($(<%= RegConfirmPassword.ClientID %>).css("visibility") == "hidden") {
+                $("#dvError").hide();
+            }
+            if ($(<%= CompareValidatorPassword.ClientID %>).css("visibility") == "hidden") {
+                $("#dvError").hide();
+            }
+        });
      $("#dvSucess").hide();
     
         $('#dvchange_password').on('shown.bs.modal', function (e) {
@@ -209,7 +233,7 @@
 
             contentType: "application/json; charset=utf-8",
 
-            data: JSON.stringify({ Password: $(<%= txtconfirm_password.ClientID %>).val() , UserName: _spPageContextInfo.userLoginName }),
+            data: JSON.stringify({ Password: $(<%= txtconfirm_password.ClientID %>).val(), UserName: userSamAccountName }),
 
             dataType: "json",
 

@@ -8,7 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CCQNewsUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.MediaCenter.CCQNews.CCQNewsUserControl" %>
 <style>
     #pills-newsContent{ 
-    max-height: 350px;
+    max-height: 425px;
     overflow-y: auto;
 }
 

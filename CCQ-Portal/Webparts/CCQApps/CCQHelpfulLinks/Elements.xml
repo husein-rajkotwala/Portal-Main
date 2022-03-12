@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="CCQHelpfulLinks" List="113" Url="_catalogs/wp">
+    <File Path="CCQHelpfulLinks\CCQHelpfulLinks.webpart" Url="CCQ-Portal_CCQHelpfulLinks.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="CCQApps" />
+    </File>
+  </Module>
+</Elements>

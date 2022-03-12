@@ -98,6 +98,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UCCommanControls.ascx.resx</DependentUpon>
     </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCFeedBack.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UCFeedBack.ascx.resx</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCLanguageSwitcher.ascx.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +131,13 @@
     </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\UCCommanControls.ascx.designer.cs">
       <DependentUpon>UCCommanControls.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCFeedBack.ascx.cs">
+      <DependentUpon>UCFeedBack.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\Portal-Main\UCFeedBack.ascx.designer.cs">
+      <DependentUpon>UCFeedBack.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx.cs">
       <DependentUpon>UCLanguageSwitcher.ascx</DependentUpon>
@@ -185,6 +197,11 @@
       <DependentUpon>PortalMethods.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webparts\CCQApps\CCQApps\App_LocalResources\CCQAppsUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCQAppsUserControl.ascx.resx</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\CCQApps\CCQApps\CCQApps.cs" />
     <Compile Include="Webparts\CCQApps\CCQApps\CCQAppsUserControl.ascx.cs">
       <DependentUpon>CCQAppsUserControl.ascx</DependentUpon>
@@ -192,6 +209,32 @@
     </Compile>
     <Compile Include="Webparts\CCQApps\CCQApps\CCQAppsUserControl.ascx.designer.cs">
       <DependentUpon>CCQAppsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\CCQApps\CCQHelpfulLinks\App_LocalResources\CCQHelpfulLinksUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCQHelpfulLinksUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\CCQApps\CCQHelpfulLinks\CCQHelpfulLinks.cs" />
+    <Compile Include="Webparts\CCQApps\CCQHelpfulLinks\CCQHelpfulLinksUserControl.ascx.cs">
+      <DependentUpon>CCQHelpfulLinksUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\CCQApps\CCQHelpfulLinks\CCQHelpfulLinksUserControl.ascx.designer.cs">
+      <DependentUpon>CCQHelpfulLinksUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\CCQApps\CCQUsefulContacts\App_LocalResources\CCQUsefulContactsUserControl.ascx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCQUsefulContactsUserControl.ascx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\CCQApps\CCQUsefulContacts\CCQUsefulContacts.cs" />
+    <Compile Include="Webparts\CCQApps\CCQUsefulContacts\CCQUsefulContactsUserControl.ascx.cs">
+      <DependentUpon>CCQUsefulContactsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\CCQApps\CCQUsefulContacts\CCQUsefulContactsUserControl.ascx.designer.cs">
+      <DependentUpon>CCQUsefulContactsUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Home\CCQChangePassword\CCQChangePassword.cs" />
     <Compile Include="Webparts\Home\CCQChangePassword\CCQChangePasswordUserControl.ascx.cs">
@@ -315,6 +358,14 @@
     <None Include="Webparts\CCQApps\CCQApps\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4222dec9-d2ab-4120-b6bc-fd2147f44c96}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\CCQApps\CCQHelpfulLinks\CCQHelpfulLinks.webpart" />
+    <None Include="Webparts\CCQApps\CCQHelpfulLinks\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b4df3e90-908c-4f9b-8cdc-2dbae7e8cfac}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\CCQApps\CCQUsefulContacts\CCQUsefulContacts.webpart" />
+    <None Include="Webparts\CCQApps\CCQUsefulContacts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{28e6604a-5ae6-441a-bdde-33e9618eed9c}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\CCQChangePassword\CCQChangePassword.webpart" />
     <None Include="Webparts\Home\CCQChangePassword\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f8427116-27ef-48f9-b516-fb731a8aea7b}</SharePointProjectItemId>
@@ -355,6 +406,7 @@
   <ItemGroup>
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCChangePassword.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCCommanControls.ascx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\UCFeedBack.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCLanguageSwitcher.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCPrayerTime.ascx" />
     <Content Include="CONTROLTEMPLATES\Portal-Main\UCTopMenu.ascx" />
@@ -420,6 +472,10 @@
     <Content Include="Scripts\Shared\JsConfigs.js" />
     <Content Include="Webparts\CCQApps\CCQApps\CCQAppsUserControl.ascx" />
     <Content Include="Webparts\CCQApps\CCQApps\Elements.xml" />
+    <Content Include="Webparts\CCQApps\CCQHelpfulLinks\CCQHelpfulLinksUserControl.ascx" />
+    <Content Include="Webparts\CCQApps\CCQHelpfulLinks\Elements.xml" />
+    <Content Include="Webparts\CCQApps\CCQUsefulContacts\CCQUsefulContactsUserControl.ascx" />
+    <Content Include="Webparts\CCQApps\CCQUsefulContacts\Elements.xml" />
     <Content Include="Webparts\Home\CCQChangePassword\CCQChangePasswordUserControl.ascx" />
     <Content Include="Webparts\Home\CCQChangePassword\Elements.xml" />
     <Content Include="Webparts\Home\CCQGoals\CCQGoalsUserControl.ascx" />
@@ -469,6 +525,26 @@
       <LastGenOutput>UCUserProfile.ascx.Designer.cs</LastGenOutput>
     </Content>
     <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCUserProfile.ascx.ar-SA.resx" />
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCFeedBack.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UCFeedBack.ascx.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="CONTROLTEMPLATES\Portal-Main\App_LocalResources\UCFeedBack.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\CCQApps\CCQApps\App_LocalResources\CCQAppsUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\CCQApps\CCQApps\App_LocalResources\CCQAppsUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCQAppsUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webparts\CCQApps\CCQHelpfulLinks\App_LocalResources\CCQHelpfulLinksUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\CCQApps\CCQHelpfulLinks\App_LocalResources\CCQHelpfulLinksUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCQHelpfulLinksUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webparts\CCQApps\CCQUsefulContacts\App_LocalResources\CCQUsefulContactsUserControl.ascx.ar-SA.resx" />
+    <EmbeddedResource Include="Webparts\CCQApps\CCQUsefulContacts\App_LocalResources\CCQUsefulContactsUserControl.ascx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CCQUsefulContactsUserControl.ascx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Webparts\Home\CCQServices\App_LocalResources\CCQServicesUserControl.ascx.ar-SA.resx" />
     <EmbeddedResource Include="Webparts\Home\CCQServices\App_LocalResources\CCQServicesUserControl.ascx.resx">
       <Generator>ResXFileCodeGenerator</Generator>

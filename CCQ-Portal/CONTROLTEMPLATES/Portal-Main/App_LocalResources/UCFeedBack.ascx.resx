@@ -117,28 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CCQCalendar" xml:space="preserve">
-    <value>CCQ CALENDAR</value>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description:</value>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
   </data>
-  <data name="EndDate" xml:space="preserve">
-    <value>End Date:</value>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
   </data>
-  <data name="EVENTS" xml:space="preserve">
-    <value>EVENTS</value>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
   </data>
-  <data name="ExpandAll" xml:space="preserve">
-    <value>Expand All</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="RecentlyAdded" xml:space="preserve">
-    <value>Recently Added</value>
+  <data name="Eservices" xml:space="preserve">
+    <value>Eservices</value>
   </data>
-  <data name="StartDate" xml:space="preserve">
-    <value>Start Date:</value>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
   </data>
-  <data name="UpcomingEvents" xml:space="preserve">
-    <value>Upcoming Events</value>
+  <data name="MyDashboard" xml:space="preserve">
+    <value>My Dashboard</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="StaffDirectory" xml:space="preserve">
+    <value>Staff Directory</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>FeedBack Submited Successfully</value>
+  </data>
+  <data name="UsefulContacts" xml:space="preserve">
+    <value>Useful Contacts</value>
+  </data>
+  <data name="UseFulLinks" xml:space="preserve">
+    <value>UseFul Links</value>
+  </data>
+  <data name="ValidationCategory" xml:space="preserve">
+    <value>Please Select Category</value>
+  </data>
+  <data name="ValidationComments" xml:space="preserve">
+    <value>Please Enter the Comments</value>
+  </data>
+  <data name="ValidationSubject" xml:space="preserve">
+    <value>Please Enter the Subject</value>
+  </data>
+  <data name="WorkInProgress" xml:space="preserve">
+    <value>Work In Progress</value>
   </data>
 </root>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="CCQUsefulContactsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="CCQUsefulContacts\" Type="ElementManifest" />
+    <ProjectItemFile Source="CCQUsefulContacts.webpart" Target="CCQUsefulContacts\" Type="ElementFile" />
+    <ProjectItemFile Source="CCQUsefulContactsUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.CCQApps\CCQUsefulContacts\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQUsefulContactsUserControl.ascx.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.CCQApps\CCQUsefulContacts\App_LocalResources\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQUsefulContactsUserControl.ascx.ar-SA.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.CCQApps\CCQUsefulContacts\App_LocalResources\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Portal.Webparts.CCQApps.CCQUsefulContacts" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

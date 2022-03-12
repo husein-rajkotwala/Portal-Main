@@ -14,7 +14,7 @@
 
 
 
-<div class="calendar-header-title p-3 text-uppercase"><span class="d-inline-block text-left-cust">Upcoming Events</span> <div class="d-inline-block fa-pull-right-cust mb-1"><i class="fas fa-calendar-alt fa-2x"></i></div></div>
+<div class="calendar-header-title p-3 text-uppercase"><span class="d-inline-block text-left-cust"><%=GetLocalResourceObject("CCQCalendar")%></span> <div class="d-inline-block fa-pull-right-cust mb-1"><i class="fas fa-calendar-alt fa-2x"></i></div></div>
                     <div id="calendar"></div>
 
 

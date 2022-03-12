@@ -4,6 +4,8 @@
     <ProjectItemFile Source="Elements.xml" Target="CCQApps\" Type="ElementManifest" />
     <ProjectItemFile Source="CCQApps.webpart" Target="CCQApps\" Type="ElementFile" />
     <ProjectItemFile Source="CCQAppsUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.CCQApps\CCQApps\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQAppsUserControl.ascx.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.CCQApps\CCQApps\App_LocalResources\" Type="TemplateFile" />
+	  <ProjectItemFile Source="App_LocalResources\CCQAppsUserControl.ascx.ar-SA.resx" Target="CONTROLTEMPLATES\CCQ_Portal.Webparts.CCQApps\CCQApps\App_LocalResources\" Type="TemplateFile" />
   </Files>
   <SafeControls>
     <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Portal.Webparts.CCQApps.CCQApps" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
