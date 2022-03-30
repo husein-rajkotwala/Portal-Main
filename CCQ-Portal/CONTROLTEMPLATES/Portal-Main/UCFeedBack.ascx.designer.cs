@@ -51,6 +51,15 @@ namespace CCQ_Portal.CONTROLTEMPLATES.Portal_Main
         protected global::System.Web.UI.WebControls.TextBox txtSubject;
 
         /// <summary>
+        /// lblSubject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSubject;
+
+        /// <summary>
         /// txtComments control.
         /// </summary>
         /// <remarks>

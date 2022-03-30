@@ -63,6 +63,9 @@
                                 <label for="subject"><%=GetLocalResourceObject("Subject")%></label>
                                <asp:TextBox ID="txtSubject" runat="server"  class="form-control"  name="subject"></asp:TextBox> 
                             </div>
+                               <div class="alert alert-danger" role="alert" id="dvSubject" style="display:none">
+                <asp:Label ID="lblSubject" runat="server"  Text="Please Enter Subject"></asp:Label>    
+                        </div>
                         <div class="form-group col-md-12">
                             <label for="comment"><%=GetLocalResourceObject("Comments")%></label>
                                     <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" class="form-control"  name="comment"></asp:TextBox> 
@@ -71,16 +74,24 @@
                         </div>
                         <div class="form-group col-md-12">
                           <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary"  type="submit" Text='<%$ resources:Submit%>' />
+                            <button type="button" class="btn btn-primary" id="reset" data-dismiss="modal">Cancel</button>
+
                         </div>
                     </div>
               </div>
             </div>
         </div>
     </div>
+    
 </div>
 <script>
-        function getUserProfileDetails() {
+    function getUserProfileDetails() {
+        if (userDisplayName != "" && userDisplayName != null && userDisplayName != undefined) {
+            $(<%= txtName.ClientID %>).val(userDisplayName);
+        }
+        else {
             $(<%= txtName.ClientID %>).val(_spPageContextInfo.userDisplayName);
+        }
             if (mobileNumber != "" && mobileNumber != null) {
                 $(<%= txtPhone.ClientID %>).val(mobileNumber);
             }
@@ -106,6 +117,8 @@
 
                 FeedBack["Comments"] = $(<%= txtComments.ClientID %>).val();
                 FeedBack["CategoryId"] = $("select[id='category']").val();
+        FeedBack["DepartmentEmail"] = $("select[id='category'] option:selected").attr("email");
+        FeedBack["DepartmentName"] = $("select[id='category'] option:selected").text();
 
                 feedBackArr.push(FeedBack);
 
@@ -151,7 +164,9 @@
             var DepartmentSiteUrl = _spPageContextInfo.siteAbsoluteUrl;
             var Title = "Department master";
             var ID = "";
-            var Filter = "";
+         
+
+            var Filter = "Display eq 'Feedback' or Display eq 'All'and isHide eq 0";
 
 
             var Select = "";
@@ -172,14 +187,9 @@
              
               
                 if (lang == "en-us") {
-
-
-                    $("select[id='category']").append($('<option>', {
-                        value: item.ID,
-                        text: item.TitleEn
-                    }));
-
-
+          
+                    $("select[id='category']").append($('<option Email=' + item.EmailAddress + ' value=' + item.ID + '>' + item.TitleEn+'</option>'));
+                   
                 }
 
 
@@ -197,30 +207,44 @@
   
 
     }
+    function ClosePopup() {
+        $(<%= txtComments.ClientID %>).val("");
+        $(<%= txtSubject.ClientID %>).val("");
+        $("#feedback").modal('hide');
+        location.reload();
+    }
     function doErrorCCQDepartment(err) {
         alert(JSON.stringify(err));
     }
     $(document).ready(function () {
         getCCQDepartment();
+        $("#dvSubject").hide();
 
-
-
+        $('#feedback').on('shown.bs.modal', function (e) {
+            $(<%= txtComments.ClientID %>).val("");
+            $(<%= txtSubject.ClientID %>).val("");
+            });
     
 
         $(<%= btnSubmit.ClientID %>).click(function () {
 
                     $("#dvCategory").hide();
-
+            $("#dvSubject").hide();
                     $("#dvComments").hide();
                     if ($(<%= txtComments.ClientID %>).val() != "" && $("select[id='category']").val() != "") {
-          AddFeedBack();
-          return true;
+                        AddFeedBack();
+                        ClosePopup();
                 }
       else if ($("select[id='category']").val() == "") {
                  
                     $("#dvCategory").show();
                     return false;
-                }
+                    }
+                    else if ($(<%= txtSubject.ClientID %>).val() == "") {
+
+                        $("#dvSubject").show();
+                        return false;
+                    }
              
       else if ($(<%= txtComments.ClientID %>).val() == "") {
 

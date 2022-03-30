@@ -9,8 +9,3 @@
                               
  <i class="far fa-user-circle"></i>
                                  
-<script>
-    $(document).ready(function () {
-       $(".fa-user-circle").append(_spPageContextInfo.userDisplayName);
-    });
-</script>

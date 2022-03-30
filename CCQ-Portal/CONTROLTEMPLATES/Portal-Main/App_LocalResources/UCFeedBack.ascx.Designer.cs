@@ -79,7 +79,7 @@ namespace CCQ_Portal.CONTROLTEMPLATES.Portal_Main.App_LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Department.
+        ///   Looks up a localized string similar to Department to be Contacted.
         /// </summary>
         internal static string Department {
             get {

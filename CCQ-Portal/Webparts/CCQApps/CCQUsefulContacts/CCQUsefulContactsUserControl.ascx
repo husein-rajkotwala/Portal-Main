@@ -43,10 +43,10 @@
     });
     function getUsefulContacts() {
         var usefulContactUrl = _spPageContextInfo.siteAbsoluteUrl;
-        var usefulContactsTitle = "CCQUsefulContacts";
+        var usefulContactsTitle = "Department master";
 
         jQuery.ajax({
-            url: usefulContactUrl + "/_api/web/lists/GetByTitle('" + usefulContactsTitle + "')/items?$select=Title,NameAr,EmailAdress,Phone,Department/TitleEn,Department/TitleAr&$expand=Department&$filter=isHide eq 0",
+            url: usefulContactUrl + "/_api/web/lists/GetByTitle('" + usefulContactsTitle + "')/items?$select=Title,EmailAddress,TitleEn,Phone&$filter=Display eq 'UseFulContacts' or Display eq 'All'and isHide eq 0",
             type: "GET",
             headers: { "Accept": "application/json; odata=verbose" },
             success: doSuccessUsefulContacts,
@@ -66,9 +66,9 @@
                 var jsonObject = {};
                 jsonObject = {
                    
-                    "Email": item.EmailAdress,
+                    "Email": item.EmailAddress,
                     "Phone": item.Phone,
-                    "Department": item.Department.TitleEn
+                    "Department": item.TitleEn
                 };
 
 
@@ -84,7 +84,7 @@
                    
                     "Email": item.EmailAdress,
                     "Phone": item.Phone,
-                    "Department": item.Department.TitleAr
+                    "Department": item.TitleAr
                 };
                 usefulContactArr.push(jsonObject);
 

@@ -23,6 +23,9 @@ namespace CCQDTO
 
         public string Comments { get; set; }
         public string Subject { get; set; }
+        public string DepartmentEmail { get; set; }
+        public string DepartmentName { get; set; }
+
 
     }
 }

@@ -28,6 +28,9 @@ var userSamAccountName = {
 var userAlternativeEmail = {
 
 };
+var userDisplayName = {
+
+};
 lang = getCookie("lang");
 var currentUserApplications = "";
 var currentUserAppArray = [];
@@ -38,34 +41,35 @@ $(document).ready(function () {
 });
 
 function getCCQUserProfile() {
-  
-                if (mobileNumber != "" && mobileNumber) {
 
-                    if (mobileNumber.includes('+974')) {
-                        mobileNumber = mobileNumber.replace("+974","");
-                        $("#txtmobile").val(mobileNumber);
-                    }
-                    if (mobileNumber.includes('974')) {
-                        mobileNumber = mobileNumber.replace("974","");
-                        $("#txtmobile").val(mobileNumber);
-                    }
-                    else {
-                        $("#txtmobile").val(mobileNumber);
-                    }
-                }
-                else {
-                    $("#txtmobile").val("");
-                }
-                if (userAlternativeEmail != "" && userAlternativeEmail) {
-                   $("#txtalt_email").val(userAlternativeEmail);
-                }
-                else {
-                    $("#txtalt_email").val("");
-                }
+    if (mobileNumber != "" && mobileNumber) {
+
+        if (mobileNumber.includes('+974')) {
+            mobileNumber = mobileNumber.replace("+974", "");
+            $("#txtmobile").val(mobileNumber);
+        }
+        if (mobileNumber.includes('974')) {
+            mobileNumber = mobileNumber.replace("974", "");
+            $("#txtmobile").val(mobileNumber);
+        }
+        else {
+            $("#txtmobile").val(mobileNumber);
+        }
+    }
+    else {
+        $("#txtmobile").val("");
+    }
+    if (userAlternativeEmail != "" && userAlternativeEmail) {
+        $("#txtalt_email").val(userAlternativeEmail);
+    }
+    else {
+        $("#txtalt_email").val("");
+    }
 
 }
 function doSucessAPIUserApplication() {
     getTopNavigation();
+    bindUserDisplayInformation();
     getUserProfileDetails();
     getCCQUserProfile();
 
@@ -83,7 +87,8 @@ function doErrorAPIUserApplication() {
 function getCCQUsefulLinks() {
     var Title = "CCQUseFulLinks";
     var ID = "";
-    var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
+    var Filter = "Role eq '" + userCategory + "' or Role eq 'All'and Active eq 1";
+
     var Select = "";
     var orderBy = "SortOrder";
     var top = "";
@@ -113,7 +118,7 @@ function doSuccessCCQUsefulLinks(data) {
             else {
                 applicationTitle = item.TitleAr;
             }
-            usefulLinkHTML += '<a href=' + applicationUrl + ' target="_blank" >' + applicationTitle + '</a><br/>'
+            usefulLinkHTML += '<a href=' + applicationUrl + ' target="_blank" ><i class="fas fa-external-link-alt"></i> ' + applicationTitle + '</a><br/>'
         }
 
     });
@@ -128,7 +133,9 @@ function doErrorCCQUsefulLinks(err) {
 function getCCQApplcations() {
     var Title = "CCQApps";
     var ID = "";
-    var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
+   // var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
+    var Filter = "Role eq '" + userCategory + "' or Role eq 'All'and Active eq 1";
+
     var Select = "";
     var orderBy = "";
     var top = "";
@@ -187,7 +194,7 @@ function getTopNavigation() {
     var language = lang;
     var Title = "TopNavigation";
     var ID = "";
-    var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
+    var Filter = "Role eq '" + userCategory + "' or Role eq 'All'and Active eq 1";
     var Select = "";
     var orderBy = "SortOrder asc";
     var top = "";
@@ -241,9 +248,12 @@ function getCookie(cname) {
     }
     return "";
 }
+function bindUserDisplayInformation() {
+    $(".fa-user-circle").append(userDisplayName);
+}
 function getSailPointInfo() {
-   var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications";
-   // var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications2323232";
+    var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications";
+    // var methodUrl = location.origin + "/_layouts/15/CCQPortal/PortalMethods.aspx/getUserApplications2323232";
 
     $.ajax({
 
@@ -277,8 +287,12 @@ function getSailPointInfo() {
             if (JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].alternateemail)[0] != null && JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].alternateemail)[0] != "") {
                 userAlternativeEmail = JSON.parse(output.Resources[0]["urn:ietf:params:scim:schemas:sailpoint:1.0:User"].alternateemail)[0];
             }
+            if (output.Resources[0].displayName != "" && output.Resources[0].displayName != null) {
+
+                userDisplayName = output.Resources[0].displayName;
+            }
         }
-        if (userSamAccountName != undefined && userCategory != undefined && currentApplications != undefined) {
+        if (userSamAccountName != undefined && userCategory != undefined && currentApplications != undefined && userDisplayName != undefined) {
             doSucessAPIUserApplication();
         }
         else {
@@ -319,6 +333,8 @@ function getUserTableInformation() {
         items.GetItems(Select, Filter, orderBy, top, doSuccessUserTableInformation, doErrorUserTableInformation);
 }
 
+
+
 function doSuccessUserTableInformation(data) {
 
     $.each(data.d.results, function (index, item) {
@@ -332,6 +348,14 @@ function doSuccessUserTableInformation(data) {
             currentUserRole = item.CATEGORY;
 
         }
+        if (item.DISPLAYNAME != "" && item.DISPLAYNAME != null) {
+            userDisplayName = item.DISPLAYNAME;
+
+        }
+        if (item.SAMACCOUNTNAME != "" && item.SAMACCOUNTNAME != null) {
+            userSamAccountName = item.SAMACCOUNTNAME;
+
+        }
 
 
 
@@ -339,7 +363,9 @@ function doSuccessUserTableInformation(data) {
     //if (currentUserRole != null && currentUserRole != "")
     {
         userCategory = currentUserRole;
+
         currentApplications = currentUserApplications;
+        bindUserDisplayInformation();
         getTopNavigation();
         getUserProfileDetails();
         getCCQApplcations();

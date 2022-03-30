@@ -7,17 +7,13 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EventsUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.MediaCenter.Events.EventsUserControl" %>
 
-<link href="/Style%20Library/Script/ccq/assets/Events/fullcalendar.min.css" rel="stylesheet" />
-<script src="/Style%20Library/Script/ccq/assets/Events/moment.min.js"></script>
-
-<script src="/Style%20Library/Script/ccq/assets/Events/fullcalendar.min.js"></script>
 
 
 
 <div class="calendar-header-title p-3 text-uppercase"><span class="d-inline-block text-left-cust"><%=GetLocalResourceObject("CCQCalendar")%></span> <div class="d-inline-block fa-pull-right-cust mb-1"><i class="fas fa-calendar-alt fa-2x"></i></div></div>
                     <div id="calendar"></div>
 
-
+<script src="/Style%20Library/Script/ccq/assets/Events/moment.min.js"></script>
 
 <script>
     //document.addEventListener('DOMContentLoaded', function () {
