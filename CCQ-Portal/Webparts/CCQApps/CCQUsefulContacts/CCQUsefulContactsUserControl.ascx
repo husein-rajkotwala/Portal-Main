@@ -6,8 +6,11 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CCQUsefulContactsUserControl.ascx.cs" Inherits="CCQ_Portal.Webparts.CCQApps.CCQUsefulContacts.CCQUsefulContactsUserControl" %>
-<link rel="stylesheet" type="text/css" href="/Style%20Library/Branding/css/jquery.dataTables.css" />
-<script type="text/javascript" charset="utf8" src="/Style%20Library/Branding/js/jquery.dataTables.min.js"></script>    
+<%--<link rel="stylesheet" type="text/css" href="/Style%20Library/Branding/css/jquery.dataTables.css" />--%>
+<%--<script type="text/javascript" charset="utf8" src="/Style%20Library/Branding/js/jquery.dataTables.min.js"></script>    --%>
+<link rel="stylesheet" type="text/css" href="/Style%20Library/Script/ccq/css/jquery.dataTables.css" />
+
+<script type="text/javascript" charset="utf8" src="/Style%20Library/Script/ccq/js/jquery.dataTables.js"></script>    
 
 
 ​​
@@ -15,7 +18,7 @@
    <div class="card-header border-ccq"> 
       <i class="far fa-envelope"></i><%=GetLocalResourceObject("UsefulContacts")%> </div> 
    <div class="card-body"> 
-      <div class="table-responsive"> 
+     
 
           <table class="table table-striped table-hover" id="tblUseFulContacts">
                         <thead>
@@ -32,7 +35,7 @@
                     </table>
          
       </div> 
-   </div> 
+
 </div>
 <script>
     var usefulContactArr = [];

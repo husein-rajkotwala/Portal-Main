@@ -72,12 +72,13 @@
                              <div class="alert alert-danger" role="alert" id="dvComments" style="display:none">
                 <asp:Label ID="lblValidationComments" runat="server" ><%=GetLocalResourceObject("ValidationComments")%></asp:Label>    
                         </div>
-                        <div class="form-group col-md-12">
+                       
+                    </div>
+                         <div class="form-group col-md-12">
                           <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary"  type="submit" Text='<%$ resources:Submit%>' />
                             <button type="button" class="btn btn-primary" id="reset" data-dismiss="modal">Cancel</button>
 
                         </div>
-                    </div>
               </div>
             </div>
         </div>

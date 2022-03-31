@@ -42,20 +42,57 @@
 
     });
     function GetImageSlides() {
+        var collListItem;
         var clientContext = new SP.ClientContext.get_current();
         var oList = clientContext.get_web().get_lists().getByTitle('CCQ Headlines');
         var camlQuery = new SP.CamlQuery();
-        camlQuery.set_viewXml("<View><Query><Where><And><Leq><FieldRef Name='HeadLineStartDate' /><Value Type='DateTime'>" + moment().toISOString() + "</Value></Leq><Geq><FieldRef Name='HeadLineEndDate' /><Value Type='DateTime'>" + moment().toISOString() +"</Value></Geq></And></Where></Query></View>");
-        this.collListItem = oList.getItems(camlQuery);
+        camlQuery.set_viewXml("<View><ViewFields><FieldRef Name='HeadLineEndDate' /><FieldRef Name='HeadLineStartDate' /><FieldRef Name='ImageAr' /><FieldRef Name='ImageEn' /><FieldRef Name='HeadLineStartDate' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr' /></ViewFields><Query><Where><And><Leq><FieldRef Name='HeadLineStartDate' /><Value Type='DateTime'>" + moment().toISOString() + "</Value></Leq><Geq><FieldRef Name='HeadLineEndDate' /><Value Type='DateTime'>" + moment().toISOString() +"</Value></Geq></And></Where></Query></View>");
+      collListItem = oList.getItems(camlQuery);
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {
             var listItemInfo = '';
             var listItemEnumerator = collListItem.getEnumerator();
+
+            var index = 0;
+            var imageSliderHTML = "";
+            var liCarouselIndicator = "";
+            var imageDetails = "";
+            var slideTitle = "";
             while (listItemEnumerator.moveNext()) {
                 var oListItem = listItemEnumerator.get_current();
-                listItemInfo += '\nID: ' + oListItem.get_id() + '  Title: ' + oListItem.get_item('Title');
+                if (lang == "en-us") {
+                    imageDetails = $($(oListItem.get_item("ImageEn"))[0]).find("img").attr("src");
+                    slideTitle = oListItem.get_item("TitleEn");
+                }
+                else {
+                    imageDetails = $($(oListItem.get_item("ImageAr"))[0]).find("img").attr("src");
+                    slideTitle = oListItem.get_item("TitleAr");
+                }
+
+                if (index == 0) {
+                    liCarouselIndicator = '<li data-target="#carouselExampleCaptions" data-slide-to=' + index + ' class="active"></li>';
+                    imageSliderHTML = '<div class="carousel-item active" data-mdb-interval="10000">';
+                    imageSliderHTML += '<img src=' + imageDetails + ' class="d-block w-100" alt=' + slideTitle + '>';
+
+
+                    imageSliderHTML += '</div>';
+                }
+                else {
+
+                    liCarouselIndicator += '<li data-target="#carouselExampleCaptions" data-slide-to=' + index + '></li>';
+                    imageSliderHTML += '<div class="carousel-item" data-mdb-interval="10000" >';
+                    imageSliderHTML += '<img src=' + imageDetails + ' class="d-block w-100" alt=' + slideTitle + '>';
+
+                    imageSliderHTML += '</div>';
+                    
+
+                }
+                index++;
             }
-            console.log(listItemInfo.toString());
+
+            $("#olCarouselIndicator").html(liCarouselIndicator);
+            $("#carouselItems").html(imageSliderHTML);
+           
         }, function (sender, args) {
             console.log('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
         });

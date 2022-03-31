@@ -220,6 +220,8 @@ namespace CCQ_Portal.Layouts.CCQPortal
                             }
                             catch (Exception ex)
                             {
+                                ExceptionHandling.ProcessDataException(ex);
+
                                 isPasswordChanged = false;
                             }
                         }
