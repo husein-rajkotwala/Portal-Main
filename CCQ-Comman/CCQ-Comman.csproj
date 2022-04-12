@@ -51,9 +51,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Constants\CamlQueryException.cs" />
+    <Compile Include="Constants\ConfigurationKeys.cs" />
+    <Compile Include="Constants\Filter.cs" />
+    <Compile Include="Constants\Helper.cs" />
+    <Compile Include="Constants\NestedFilter.cs" />
+    <Compile Include="Constants\Query.cs" />
+    <Compile Include="Constants\QueryTypes.cs" />
+    <Compile Include="Constants\SortField.cs" />
+    <Compile Include="Constants\SPListNames.cs" />
     <Compile Include="Helpers\ApiHelper.cs" />
+    <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\ExceptionHandling.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\SPManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

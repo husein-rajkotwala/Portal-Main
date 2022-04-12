@@ -25,11 +25,11 @@
                                    <asp:Label ID="lblErrorMsg" runat="server" Text=""></asp:Label></div></div>
                               <div class="col-md-12"><div class="alert alert-danger" role="alert" id="dvGeneralError" style="display:none" ><%=GetLocalResourceObject("ErrorMsg")%></div></div>
                                      <div class="col-md-12"><div class="alert alert-danger" role="alert" id="dvError" style="display:none">  <asp:RegularExpressionValidator ID="RegPassword" runat="server" Style="display:none" ControlToValidate="txtconfirm_password"
-    ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}"
+    ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}"
     ErrorMessage='<%$ resources:PasswordErrorMsg%>'
  />
                                          <asp:RegularExpressionValidator ID="RegConfirmPassword" runat="server" ControlToValidate="txtnew_password" Style="display:none"
-    ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}"
+    ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}"
     ErrorMessage='<%$ resources:PasswordErrorMsg%>'
  ></asp:RegularExpressionValidator>
 

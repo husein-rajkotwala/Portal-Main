@@ -46,7 +46,7 @@
         var clientContext = new SP.ClientContext.get_current();
         var oList = clientContext.get_web().get_lists().getByTitle('CCQ Headlines');
         var camlQuery = new SP.CamlQuery();
-        camlQuery.set_viewXml("<View><ViewFields><FieldRef Name='HeadLineEndDate' /><FieldRef Name='HeadLineStartDate' /><FieldRef Name='ImageAr' /><FieldRef Name='ImageEn' /><FieldRef Name='HeadLineStartDate' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr' /></ViewFields><Query><Where><And><Leq><FieldRef Name='HeadLineStartDate' /><Value Type='DateTime'>" + moment().toISOString() + "</Value></Leq><Geq><FieldRef Name='HeadLineEndDate' /><Value Type='DateTime'>" + moment().toISOString() +"</Value></Geq></And></Where></Query></View>");
+        camlQuery.set_viewXml("<View><ViewFields><FieldRef Name='HeadLineEndDate' /><FieldRef Name='HeadLineStartDate' /><FieldRef Name='ImageAr' /><FieldRef Name='ImageEn' /><FieldRef Name='HeadLineStartDate' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr' /></ViewFields><Query><Where><And><Leq><FieldRef Name='HeadLineStartDate' /><Value Type='DateTime'>" + moment().toISOString() + "</Value></Leq><Geq><FieldRef Name='HeadLineEndDate' /><Value Type='DateTime'>" + moment().toISOString() +"</Value></Geq></And></Where><OrderBy><FieldRef Name='SortOrder' /></OrderBy></Query></View>");
       collListItem = oList.getItems(camlQuery);
         clientContext.load(collListItem);
         clientContext.executeQueryAsync(function () {

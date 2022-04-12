@@ -133,7 +133,7 @@ function doErrorCCQUsefulLinks(err) {
 function getCCQApplcations() {
     var Title = "CCQApps";
     var ID = "";
-   // var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
+    // var Filter = "Role eq '" + userCategory + "' and Active eq 1 or Role eq 'All'";
     var Filter = "Role eq '" + userCategory + "' or Role eq 'All'and Active eq 1";
 
     var Select = "";

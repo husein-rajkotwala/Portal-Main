@@ -115,13 +115,11 @@ namespace CCQ_Portal.CONTROLTEMPLATES.Portal_Main.App_LocalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to - No change of state - University - specialization - the school stage only with the approval of the administration of the equivalence of university degrees &amp;lt;br/&amp;gt;
+        ///   Looks up a localized string similar to • Password must contain: Minimum 8 and Maximum 15 character &lt;br/&gt;
         ///
-        ///- To be the study and tests at the university headquarters &amp;lt;br/&amp;gt;
+        ///• Atleast 1 Uppercase Alphabet, 1 Lowercase Alphabet &lt;br/&gt;
         ///
-        ///- The duration of the study shall be less than three and a half years for the bachelor&apos;s degree &amp;lt;br/&amp;gt;
-        ///
-        ///- Commitment to not equivalent to any school hours do not comply with the regulations in force in the Ministry of Education and Higher Education. &amp;lt;br/&amp;gt [rest of string was truncated]&quot;;.
+        ///• 1 Number and 1 Special Character. &lt;br/&gt;.
         /// </summary>
         internal static string PasswordErrorMsg {
             get {

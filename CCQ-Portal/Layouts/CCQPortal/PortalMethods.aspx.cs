@@ -27,6 +27,7 @@ using System.IdentityModel.Services;
 using System.Security.Cryptography;
 using System.IO;
 using System.Collections;
+using CCQ_Comman.Constants;
 
 namespace CCQ_Portal.Layouts.CCQPortal
 {
@@ -71,6 +72,7 @@ namespace CCQ_Portal.Layouts.CCQPortal
             string strApiResponse = string.Empty;
             List<UserProfileList> objUserProfileList = new List<UserProfileList>();
             UserProfile objUserProfile = new UserProfile();
+           string strEnabledSSO=new SPManager().GetConfigurationValue("EnabledSSO");
             try
             {
                 var httpClientHandler = new HttpClientHandler();
@@ -78,7 +80,8 @@ namespace CCQ_Portal.Layouts.CCQPortal
                 {
                     return true;
                 };
-                string UserName = SPContext.Current.Web.CurrentUser.LoginName.Split('|')[2];
+                string UserName = string.Empty;
+               
                 string strSailpointApiUrl = ConfigurationManager.AppSettings["SailPointApiUrl"];
                 string struserName = ConfigurationManager.AppSettings["SailPointUser"];
                 string strPassword = ConfigurationManager.AppSettings["SailPointPassword"];
@@ -89,18 +92,27 @@ namespace CCQ_Portal.Layouts.CCQPortal
                 var byteArray = Encoding.ASCII.GetBytes(""+struserName+":"+strPassword+"");
                 httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
                 //   HttpResponseMessage response = await httpClient.GetAsync("https://soar-iiq-dt.tccq.edu.qa:8443/identityiq/scim/v2/Users?filter=emails eq \"jhain.khan@ccq.edu.qa\"");
+
+                string strSailPointEndpontUrl = string.Empty;
+                if(strEnabledSSO=="Yes")
+                {
+                    UserName = SPContext.Current.Web.CurrentUser.LoginName.Split('|')[2];
+                    strSailPointEndpontUrl = strSailpointApiUrl + "?filter=emails eq \"" + UserName + "\"";
+                }
+                else
+                {
+                    UserName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1];
+                    UserName = UserName + "@ccq.edu.qa";
+
+                }
+
                 var httpResponse = httpClient.GetAsync(strSailpointApiUrl+"?filter=emails eq \""+UserName+"\"").Result;
-              
+               // var httpResponse = httpClient.GetAsync(strSailPointEndpontUrl).Result;
+
                 var response = httpResponse.Content.ReadAsStringAsync().Result;
            
-              //UserProperties objUserProperties = JsonConvert.DeserializeObject<UserProperties>(response);
                
-              //  if(objUserProperties.Resources.Count  >0)
-              //  {
-              //      objUserProfile.Category = objUserProperties.Resources[0].UrnIetfParamsScimSchemasSailpoint10User.category.ToString();
-              //      objUserProfile.currentApplication = objUserProperties.Resources[0].UrnIetfParamsScimSchemasSailpoint10User.currentapplications;
-              //      objUserProfile.MobileNumber = objUserProperties.Resources[0].UrnIetfParamsScimSchemasSailpoint10User.mobilephone;
-              //  }
+              
                 strApiResponse = response;
             }
             catch(Exception ex)
@@ -195,12 +207,11 @@ namespace CCQ_Portal.Layouts.CCQPortal
                     string strDomain = ConfigurationManager.AppSettings["Domain"];
                     string strEnvironment = ConfigurationManager.AppSettings["Environment"];
                     string strDecryptedPassword = string.Empty;
-                    if(strEnvironment!="Development")
-                    {
+                    
                         var key = "350EAF128A50478DA48D601895404381";
                         strDecryptedPassword = DecryptString(key, strPassword);
                         strPassword = strDecryptedPassword;
-                    }
+                  
                     using (var context = new PrincipalContext(ContextType.Domain, strDomain, struserName, strPassword))
 
                     {
@@ -432,8 +443,8 @@ namespace CCQ_Portal.Layouts.CCQPortal
 
                 string strUrl = SPContext.Current.Site.Url + "/MediaCenter";
                 strViewFields = @"<FieldRef Name='isHide' /><FieldRef Name='Title' /><FieldRef Name='TitleEn'/><FieldRef Name='TitleAr'/>";
-                string strNewsMasterListName = "CCQNewsMaster";
-                string strCCQNews = "CCQNews";
+                string strNewsMasterListName = SPListNames.NewsMaster;
+                string strCCQNews = SPListNames.News;
                 objNewsMaster = GetListItems(strUrl, strNewsMasterListName, strQuery, strViewFields);
                 strQuery = "<OrderBy><FieldRef Name = 'NewsType'/><FieldRef Name = 'NewsSortOrder'/></OrderBy><Where><Eq><FieldRef Name = 'isHide'/><Value Type = 'Boolean'>0</Value></Eq></Where>";
                 strViewFields = @"<FieldRef Name='NewsType' /><FieldRef Name='TitleEn' /><FieldRef Name='TitleAr'/><FieldRef Name='NewsSortOrder'/><FieldRef Name='DescriptionEn'/><FieldRef Name='DescriptionAr'/><FieldRef Name='ImageEn'/><FieldRef Name='ImageAr'/>";
@@ -590,7 +601,7 @@ namespace CCQ_Portal.Layouts.CCQPortal
                                      strResponse = "Success";
                                 string strEmailTemplateQuery = "<OrderBy><FieldRef Name = 'ID'/></OrderBy>";
                                 string strEmailTemplateViewFields = @"<FieldRef Name='Title' /><FieldRef Name='TargetAudience' /><FieldRef Name='EmailBody'/><FieldRef Name='Subject'/>";
-                             var emailContent=getEmailTemplates(strUrl, "CCQEmailTemplates", strEmailTemplateQuery, strEmailTemplateViewFields);
+                             var emailContent=getEmailTemplates(strUrl, SPListNames.EmailTemplates, strEmailTemplateQuery, strEmailTemplateViewFields);
                               
                                 string strFromUser = ConfigurationManager.AppSettings["FromUser"];
 
@@ -608,7 +619,7 @@ namespace CCQ_Portal.Layouts.CCQPortal
                                         strBody = strBody.Replace("[Phone]", FeedBack[0].Phone);
                                         strBody = strBody.Replace("[Subject]", FeedBack[0].Subject);
                                         strBody = strBody.Replace("[Details]", FeedBack[0].Comments);
-                                        EmailHelper.SendEmail(FeedBack[0].DepartmentEmail, strFromUser, emailItem["Subject"].ToString(), strBody);
+                                        EmailHelper.SendEmail(FeedBack[0].DepartmentEmail, FeedBack[0].Email, emailItem["Subject"].ToString(), strBody);
 
                                     }
                                  else if (emailItem["TargetAudience"].ToString() == "User")
