@@ -318,6 +318,9 @@ function doFailAPIUserApplication() {
 
 function getUserTableInformation() {
     currentUserEmail = _spPageContextInfo.userLoginName;
+    if (currentUserEmail.indexOf("\\") != -1) {
+        currentUserEmail = currentUserEmail.split("\\")[1] + "@ccq.edu.qa";
+    }
     var Title = "CCQUserSSO";
     var ID = "";
     var Filter = "EMAILS eq '" + currentUserEmail + "'";
