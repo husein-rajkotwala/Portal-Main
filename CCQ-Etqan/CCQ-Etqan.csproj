@@ -56,15 +56,76 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9c0231ce-bc6e-405f-b48b-21c2a848ef2e}</SharePointProjectItemId>
+    </None>
     <None Include="Package\Package.package">
       <PackageId>{25e17a6b-a9eb-43b2-9340-9b9601dbc67d}</PackageId>
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="Scripts\Jquery\jquery-3.5.1.min.map" />
+    <None Include="Scripts\Jquery\jquery-3.5.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\" />
+    <Folder Include="Layouts\CCQ-Etqan\" />
+    <Folder Include="Webparts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Content\themes\base\accordion.css" />
+    <Content Include="Scripts\Content\themes\base\all.css" />
+    <Content Include="Scripts\Content\themes\base\autocomplete.css" />
+    <Content Include="Scripts\Content\themes\base\base.css" />
+    <Content Include="Scripts\Content\themes\base\button.css" />
+    <Content Include="Scripts\Content\themes\base\core.css" />
+    <Content Include="Scripts\Content\themes\base\datepicker.css" />
+    <Content Include="Scripts\Content\themes\base\dialog.css" />
+    <Content Include="Scripts\Content\themes\base\draggable.css" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\Content\themes\base\jquery-ui.css" />
+    <Content Include="Scripts\Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Scripts\Content\themes\base\menu.css" />
+    <Content Include="Scripts\Content\themes\base\progressbar.css" />
+    <Content Include="Scripts\Content\themes\base\resizable.css" />
+    <Content Include="Scripts\Content\themes\base\selectable.css" />
+    <Content Include="Scripts\Content\themes\base\selectmenu.css" />
+    <Content Include="Scripts\Content\themes\base\slider.css" />
+    <Content Include="Scripts\Content\themes\base\sortable.css" />
+    <Content Include="Scripts\Content\themes\base\spinner.css" />
+    <Content Include="Scripts\Content\themes\base\tabs.css" />
+    <Content Include="Scripts\Content\themes\base\theme.css" />
+    <Content Include="Scripts\Content\themes\base\tooltip.css" />
+    <Content Include="Scripts\Helpers\Common.js" />
+    <Content Include="Scripts\Helpers\JavaScriptHelpers.js" />
+    <Content Include="Scripts\Helpers\RestAPIHelpers.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\Jquery\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\Jquery\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\Jquery\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\Shared\JsConfigs.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
