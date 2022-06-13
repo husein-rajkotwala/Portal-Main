@@ -49,7 +49,7 @@
         var usefulContactsTitle = "Department master";
 
         jQuery.ajax({
-            url: usefulContactUrl + "/_api/web/lists/GetByTitle('" + usefulContactsTitle + "')/items?$select=Title,EmailAddress,TitleEn,Phone&$filter=Display eq 'UseFulContacts' or Display eq 'All'and isHide eq 0",
+            url: usefulContactUrl + "/_api/web/lists/GetByTitle('" + usefulContactsTitle + "')/items?$select=Title,EmailAddress,TitleEn,Phone&$filter=Display eq 'UseFulContacts' or Display eq 'All'and Active eq 'Yes'",
             type: "GET",
             headers: { "Accept": "application/json; odata=verbose" },
             success: doSuccessUsefulContacts,

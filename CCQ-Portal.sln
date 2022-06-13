@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCQDTO", "CCQDTO\CCQDTO.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCQ-Comman", "CCQ-Comman\CCQ-Comman.csproj", "{41046838-E0AF-4DC6-B32A-41BEAA79E2AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCQ-Etqan", "CCQ-Etqan\CCQ-Etqan.csproj", "{AA0FEB67-C7EB-4E8C-9E8A-755D2CEDA7F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{41046838-E0AF-4DC6-B32A-41BEAA79E2AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41046838-E0AF-4DC6-B32A-41BEAA79E2AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41046838-E0AF-4DC6-B32A-41BEAA79E2AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0FEB67-C7EB-4E8C-9E8A-755D2CEDA7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0FEB67-C7EB-4E8C-9E8A-755D2CEDA7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0FEB67-C7EB-4E8C-9E8A-755D2CEDA7F7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AA0FEB67-C7EB-4E8C-9E8A-755D2CEDA7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0FEB67-C7EB-4E8C-9E8A-755D2CEDA7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0FEB67-C7EB-4E8C-9E8A-755D2CEDA7F7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

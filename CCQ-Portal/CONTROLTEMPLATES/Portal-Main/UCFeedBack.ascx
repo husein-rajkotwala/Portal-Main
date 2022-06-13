@@ -167,7 +167,7 @@
             var ID = "";
          
 
-            var Filter = "Display eq 'Feedback' or Display eq 'All'and isHide eq 0";
+            var Filter = "Display eq 'All' or Display eq 'Feedback' and Active eq 'Yes'";
 
 
             var Select = "";
