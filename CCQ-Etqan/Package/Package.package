@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="25e17a6b-a9eb-43b2-9340-9b9601dbc67d" solutionId="25e17a6b-a9eb-43b2-9340-9b9601dbc67d" resetWebServer="false" sharePointProductVersion="19.0" name="CCQ_Etqan" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="401428d3-78d2-4ceb-8860-3ceaf0c855e0" />
+  </features>
   <projectItems>
     <projectItemReference itemId="9c0231ce-bc6e-405f-b48b-21c2a848ef2e" />
+    <projectItemReference itemId="c80b84e5-6b3a-4dd9-aebf-40b6a9a0a81b" />
   </projectItems>
 </package>

@@ -1,0 +1,3 @@
+New-SPContentDatabase -name WSS_Content_Etqan -webapplication http://portal-01t
+
+New-SPSite -Name "Etqan" -ContentDatabase WSS_Content_Etqan -url http://portal-01t/sites/Etqan/ -OwnerAlias "tccq\sptestfarm" -SecondaryOwnerAlias "tccq\husein.rajkotwala"

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="AllUpcomingWorkshopsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="AllUpcomingWorkshops\" Type="ElementManifest" />
+    <ProjectItemFile Source="AllUpcomingWorkshops.webpart" Target="AllUpcomingWorkshops\" Type="ElementFile" />
+    <ProjectItemFile Source="AllUpcomingWorkshopsUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Etqan.Webparts.Home\AllUpcomingWorkshops\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Etqan.Webparts.Home.AllUpcomingWorkshops" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

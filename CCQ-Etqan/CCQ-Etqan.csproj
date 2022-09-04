@@ -46,15 +46,77 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlTemplates\CCQ-Etqan\UCPrayerTime.ascx.cs">
+      <DependentUpon>UCPrayerTime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\CCQ-Etqan\UCPrayerTime.ascx.designer.cs">
+      <DependentUpon>UCPrayerTime.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlTemplates\CCQ-Etqan\UCWeather.ascx.cs">
+      <DependentUpon>UCWeather.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\CCQ-Etqan\UCWeather.ascx.designer.cs">
+      <DependentUpon>UCWeather.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webparts\Home\AllWorkshopsUpcoming\AllWorkshopsUpcoming.cs" />
+    <Compile Include="Webparts\Home\AllWorkshopsUpcoming\AllWorkshopsUpcomingUserControl.ascx.cs">
+      <DependentUpon>AllWorkshopsUpcomingUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\AllWorkshopsUpcoming\AllWorkshopsUpcomingUserControl.ascx.designer.cs">
+      <DependentUpon>AllWorkshopsUpcomingUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\EtqanUpcomingAnnouncement\EtqanUpcomingAnnouncement.cs" />
+    <Compile Include="Webparts\Home\EtqanUpcomingAnnouncement\EtqanUpcomingAnnouncementUserControl.ascx.cs">
+      <DependentUpon>EtqanUpcomingAnnouncementUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\EtqanUpcomingAnnouncement\EtqanUpcomingAnnouncementUserControl.ascx.designer.cs">
+      <DependentUpon>EtqanUpcomingAnnouncementUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\UpcomingStudentRegisterWorkshops\UpcomingStudentRegisterWorkshops.cs" />
+    <Compile Include="Webparts\Home\UpcomingStudentRegisterWorkshops\UpcomingStudentRegisterWorkshopsUserControl.ascx.cs">
+      <DependentUpon>UpcomingStudentRegisterWorkshopsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\UpcomingStudentRegisterWorkshops\UpcomingStudentRegisterWorkshopsUserControl.ascx.designer.cs">
+      <DependentUpon>UpcomingStudentRegisterWorkshopsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\UpComingWorkShops\UpComingWorkShops.cs" />
+    <Compile Include="Webparts\Home\UpComingWorkShops\UpComingWorkShopsUserControl.ascx.cs">
+      <DependentUpon>UpComingWorkShopsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\UpComingWorkShops\UpComingWorkShopsUserControl.ascx.designer.cs">
+      <DependentUpon>UpComingWorkShopsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\WorkShopDetails\WorkShopDetails.cs" />
+    <Compile Include="Webparts\Home\WorkShopDetails\WorkShopDetailsUserControl.ascx.cs">
+      <DependentUpon>WorkShopDetailsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\WorkShopDetails\WorkShopDetailsUserControl.ascx.designer.cs">
+      <DependentUpon>WorkShopDetailsUserControl.ascx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ControlTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c80b84e5-6b3a-4dd9-aebf-40b6a9a0a81b}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{401428d3-78d2-4ceb-8860-3ceaf0c855e0}</FeatureId>
+    </None>
     <None Include="key.snk" />
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9c0231ce-bc6e-405f-b48b-21c2a848ef2e}</SharePointProjectItemId>
@@ -67,13 +129,36 @@
     </None>
     <None Include="Scripts\Jquery\jquery-3.5.1.min.map" />
     <None Include="Scripts\Jquery\jquery-3.5.1.slim.min.map" />
+    <None Include="Webparts\Home\AllWorkshopsUpcoming\AllWorkshopsUpcoming.webpart" />
+    <None Include="Webparts\Home\AllWorkshopsUpcoming\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{37350229-4443-4a7f-aeb7-3f220cb52c5f}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\EtqanUpcomingAnnouncement\EtqanUpcomingAnnouncement.webpart" />
+    <None Include="Webparts\Home\EtqanUpcomingAnnouncement\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2ec28f3a-b927-497b-bc2d-d87e9935f86e}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\UpcomingStudentRegisterWorkshops\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f69ea169-9c80-4a7e-aea5-adae136e5ee3}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\UpcomingStudentRegisterWorkshops\UpcomingStudentRegisterWorkshops.webpart" />
+    <None Include="Webparts\Home\UpComingWorkShops\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{36eacb55-a7eb-47a3-be2d-8b3e19a58c00}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\UpComingWorkShops\UpComingWorkShops.webpart" />
+    <None Include="Webparts\Home\WorkShopDetails\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{640e394d-ae60-4684-add8-bb4ad16a1a46}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\WorkShopDetails\WorkShopDetails.webpart" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
-    <Folder Include="Layouts\CCQ-Etqan\" />
-    <Folder Include="Webparts\" />
+    <Folder Include="Layouts\CCQEtqan\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ControlTemplates\CCQ-Etqan\UCPrayerTime.ascx" />
+    <Content Include="ControlTemplates\CCQ-Etqan\UCWeather.ascx" />
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
     <Content Include="Scripts\Content\themes\base\accordion.css" />
     <Content Include="Scripts\Content\themes\base\all.css" />
     <Content Include="Scripts\Content\themes\base\autocomplete.css" />
@@ -126,6 +211,16 @@
     <Content Include="Scripts\Jquery\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\Jquery\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\Shared\JsConfigs.js" />
+    <Content Include="Webparts\Home\AllWorkshopsUpcoming\AllWorkshopsUpcomingUserControl.ascx" />
+    <Content Include="Webparts\Home\AllWorkshopsUpcoming\Elements.xml" />
+    <Content Include="Webparts\Home\EtqanUpcomingAnnouncement\Elements.xml" />
+    <Content Include="Webparts\Home\EtqanUpcomingAnnouncement\EtqanUpcomingAnnouncementUserControl.ascx" />
+    <Content Include="Webparts\Home\UpcomingStudentRegisterWorkshops\Elements.xml" />
+    <Content Include="Webparts\Home\UpcomingStudentRegisterWorkshops\UpcomingStudentRegisterWorkshopsUserControl.ascx" />
+    <Content Include="Webparts\Home\UpComingWorkShops\Elements.xml" />
+    <Content Include="Webparts\Home\UpComingWorkShops\UpComingWorkShopsUserControl.ascx" />
+    <Content Include="Webparts\Home\WorkShopDetails\Elements.xml" />
+    <Content Include="Webparts\Home\WorkShopDetails\WorkShopDetailsUserControl.ascx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
