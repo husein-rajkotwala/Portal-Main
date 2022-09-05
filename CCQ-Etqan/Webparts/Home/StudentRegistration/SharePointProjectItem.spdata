@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="StudentRegistrationUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="StudentRegistration\" Type="ElementManifest" />
+    <ProjectItemFile Source="StudentRegistration.webpart" Target="StudentRegistration\" Type="ElementFile" />
+    <ProjectItemFile Source="StudentRegistrationUserControl.ascx" Target="CONTROLTEMPLATES\CCQ_Etqan.Webparts.Home\StudentRegistration\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="CCQ_Etqan.Webparts.Home.StudentRegistration" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

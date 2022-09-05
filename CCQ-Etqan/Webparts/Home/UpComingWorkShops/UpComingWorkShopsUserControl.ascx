@@ -6,7 +6,6 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UpComingWorkShopsUserControl.ascx.cs" Inherits="CCQ_Etqan.Webparts.Home.UpComingWorkShops.UpComingWorkShopsUserControl" %>
-<script src="/Style%20Library/Script/ccq/assets/Events/moment.min.js"></script>
 
 <script>
     var siteUrl = _spPageContextInfo.siteAbsoluteUrl;
